@@ -3562,7 +3562,7 @@ no_idle_beep:
 		rcall	boot_loader_test
 		.endif
 		lds	temp1, rct_beacon
-		cpi	temp1, 30		; Disarm after ~2 seconds of no signal
+		cpi	temp1, 30		; Disarm after ~2 seconds of no signal1
 		brne	wait_for_power_on
 		rcall	switch_power_off	; Brake may have been on
 		rcall	wait30ms

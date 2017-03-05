@@ -1,0 +1,26 @@
+[Eagle]
+Version="07 07 00"
+Platform="Windows"
+Serial="62191E841E-LSR-WLM-1EL"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/FET.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/GateDriver.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/RCL.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Diode.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Cap-Pol-Smd.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/supply1.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Connector/Connector.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="0 0 1365 705"
+State=1
+Number=0
+
+[Desktop]
+Screen="1366 768"
+Window="Win_1"
