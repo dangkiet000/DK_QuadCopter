@@ -72,3 +72,22 @@
 
 .equ	INIT_PB		= 0
 .equ	DIR_PB		= 0
+
+;******************************************
+; LED PORT D definitions                  *
+;******************************************
+
+;.equ	red_led		= 2
+;.equ	green_led	= 7
+;.MACRO RED_on
+;	sbi	PORTD, red_led
+;.ENDMACRO
+;.MACRO RED_off
+;	cbi	PORTD, red_led
+;.ENDMACRO
+;.MACRO GRN_on
+;	cbi	PORTD, green_led
+;.ENDMACRO
+;.MACRO GRN_off
+;	sbi	PORTD, green_led
+;.ENDMACRO
