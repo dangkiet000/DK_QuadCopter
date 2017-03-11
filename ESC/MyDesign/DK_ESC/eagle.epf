@@ -17,6 +17,7 @@ UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Connector/Connector.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Regulator-linear.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/SparkFun/SparkFun-Connectors.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/LED.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Connector/pinhead.lbr"
 
 [Win_1]
 Type="Control Panel"
