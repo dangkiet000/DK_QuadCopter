@@ -1,0 +1,9 @@
+bin/*.*
+bin/avr/*.*
+bin/avr/conf/*.eep
+obj/*.*
+obj/avr/*.*
+obj/avr/lib-avr/*.*
+obj/avr/lib-avr/arduino/*.*
+obj/avr/lib-avr/nvram/*.*
+obj/avr/src/*.*
