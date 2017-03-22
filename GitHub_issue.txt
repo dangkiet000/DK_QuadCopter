@@ -1,0 +1,19 @@
+Enter the following, depending on your version of Windows, then click the "OK" button:
+
+    On Windows XP:
+
+    %userprofile%\Local Settings\Apps 
+
+    (which may be C:\Documents & Settings\(your username)\Local Settings\Apps)
+
+    On Windows VISTA / 7:
+
+    %userprofile%\AppData\Local\Apps
+
+    or
+
+    %LocalAppData%\Apps
+
+    (e.g., C:\Users\(your username)\AppData\Local\Apps)
+
+Delete the 2.0 folder
