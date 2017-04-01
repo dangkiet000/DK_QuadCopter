@@ -53,19 +53,18 @@ byte PS2X::Analog(byte button) {
 }
 
 /****************************************************************************************/
-unsigned char PS2X::_gamepad_shiftinout (char byte) 
+/*
+unsigned char PS2X::_gamepad_shiftinout (char byte)
 {
    unsigned char tmp = 0;
-   unsigned char i;
-   
-   for(i=0; i<8; i++) 
-   {
+   for(unsigned char i=0;i<8;i++) {
       if(CHK(byte,i)) CMD_SET();
       else CMD_CLR();
 	  
       CLK_CLR();
       delayMicroseconds(CTRL_CLK);
 
+      //if(DAT_CHK()) SET(tmp,i);
       if(DAT_CHK()) bitSet(tmp,i);
 
       CLK_SET();
@@ -77,7 +76,11 @@ unsigned char PS2X::_gamepad_shiftinout (char byte)
    delayMicroseconds(CTRL_BYTE_DELAY);
    return tmp;
 }
+*/
+unsigned char PS2X::_gamepad_shiftinout (char byte)
+{
 
+}
 /****************************************************************************************/
 void PS2X::read_gamepad()
 {
@@ -193,13 +196,26 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
   pinMode(att, OUTPUT);
   pinMode(cmd, OUTPUT);
   pinMode(dat, INPUT);
-
-
   digitalWrite(dat, HIGH); //enable pull-up
 
+  SPI.begin(); // wake up the SPI bus.
+  
+  /* PS2 Max speed = 500Kb
+  => SPI Clock < 500.000 Hz
+  */
+  SPI.setClockDivider(SPI_CLOCK_DIV128);
 
-  CMD_SET(); // SET(*_cmd_oreg,_cmd_mask);
-  CLK_SET();
+  /* PS2 is LSB */
+  SPI.setBitOrder(LSBFIRST);
+
+  /* 1. PS2 Clock Avtive High RISING
+  => CPOL = 1
+  => SPI_MODE2 or SPI_MODE3
+     2.Data are captured on clock's falling edge and data
+       is output on a rising edge
+  =>  CPHA = 0
+  */
+  SPI.setDataMode(SPI_MODE2);
 
   //new error checking. First, read gamepad a few times to see if it's talking
   read_gamepad();
@@ -227,8 +243,6 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
     //read type
     delayMicroseconds(CTRL_BYTE_DELAY);
 
-    CMD_SET();
-    CLK_SET();
     ATT_CLR(); // low enable joystick
 
     delayMicroseconds(CTRL_BYTE_DELAY);
@@ -284,32 +298,13 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
 /****************************************************************************************/
 void PS2X::sendCommandString(byte string[], byte len) 
 {
-#ifdef PS2X_COM_DEBUG
-  byte temp[len];
-  ATT_CLR(); // low enable joystick
-  delayMicroseconds(CTRL_BYTE_DELAY);
-
-  for (int y=0; y < len; y++)
-    temp[y] = _gamepad_shiftinout(string[y]);
-
-  ATT_SET(); //high disable joystick
-  delay(read_delay); //wait a few
-
-  Serial.println("OUT:IN Configure");
-  for(int i=0; i<len; i++) {
-    Serial.print(string[i], HEX);
-    Serial.print(":");
-    Serial.print(temp[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println("");
-#else
   ATT_CLR(); // low enable joystick
   for (int y=0; y < len; y++)
+  {
     _gamepad_shiftinout(string[y]);
+  }
   ATT_SET(); //high disable joystick
   delay(read_delay);                  //wait a few
-#endif
 }
 
 /****************************************************************************************/

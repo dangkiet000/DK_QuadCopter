@@ -92,9 +92,12 @@ GNU General Public License for more details.
   // AVR
 #include <avr/io.h>
 
+#include "SPI.h"
+
 #define CTRL_CLK        4
+#define CTRL_CLK_HIGH   4
 #define CTRL_BYTE_DELAY 3
-#define CTRL_CLK_HIGH   3
+
 
 //These are our button constants
 #define PSB_SELECT      0x0001
