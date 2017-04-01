@@ -19,5 +19,12 @@ UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/SparkFun/SparkFun-Connector
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/LED.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Connector/pinhead.lbr"
 
+[Win_1]
+Type="Control Panel"
+Loc="-8 -30 591 369"
+State=0
+Number=0
+
 [Desktop]
 Screen="1366 768"
+Window="Win_1"
