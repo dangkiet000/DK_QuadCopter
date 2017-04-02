@@ -48,9 +48,13 @@ void loop() {
      if you don't enable the rumble, use ps2x.read_gamepad(); with no values
      You should call this at least once a second
    */  
-  //DualShock Controller
-    ps2x.read_gamepad(false, vibrate); //read controller and set large motor to spin at 'vibrate' speed
-    
+    //DualShock Controller
+   //read controller and set large motor to spin at 'vibrate' speed
+    ps2x.read_gamepad(false, vibrate);
+    Serial.print(ps2x.PS2data[3], HEX);
+    Serial.println(ps2x.PS2data[4], HEX);
+    //Serial.println(ps2x.buttons, HEX);
+    /*
     if(ps2x.Button(PSB_START))
     {//will be TRUE as long as button is pressed
       Serial.print("Start ");
@@ -94,6 +98,6 @@ void loop() {
       Serial.print("SQUARE ");
       Serial.println(ps2x.buttons, HEX);
     }     
-  
-  delay(50);  
+  */
+  delay(500);  
 }

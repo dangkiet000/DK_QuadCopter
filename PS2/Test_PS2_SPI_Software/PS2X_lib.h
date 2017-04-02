@@ -18,9 +18,9 @@
 *    0.2 fixed config_gamepad miss-spelling
 *        added new functions:
 *          NewButtonState();
-*          NewButtonState(unsigned int);
-*          ButtonPressed(unsigned int);
-*          ButtonReleased(unsigned int);
+*          NewButtonState(uint16_t);
+*          ButtonPressed(uint16_t);
+*          ButtonReleased(uint16_t);
 *        removed 'PS' from begining of ever function
 *    1.0 found and fixed bug that wasn't configuring controller
 *        added ability to define pins
@@ -151,22 +151,22 @@ class PS2X
 {
   public:
     boolean Button(uint16_t);                //will be TRUE if button is being pressed
-    unsigned int ButtonDataByte();
+    uint16_t ButtonDataByte();
     boolean NewButtonState();
-    boolean NewButtonState(unsigned int);    //will be TRUE if button was JUST pressed OR released
-    boolean ButtonPressed(unsigned int);     //will be TRUE if button was JUST pressed
-    boolean ButtonReleased(unsigned int);    //will be TRUE if button was JUST released
+    boolean NewButtonState(uint16_t);    //will be TRUE if button was JUST pressed OR released
+    boolean ButtonPressed(uint16_t);     //will be TRUE if button was JUST pressed
+    boolean ButtonReleased(uint16_t);    //will be TRUE if button was JUST released
     void read_gamepad();
-    boolean  read_gamepad(boolean, byte);
-    byte readType();
-    byte config_gamepad(uint8_t, uint8_t, uint8_t, uint8_t);
-    byte config_gamepad(uint8_t, uint8_t, uint8_t, uint8_t, bool, bool);
+    boolean  read_gamepad(boolean, uint8_t);
+    uint8_t readType();
+    uint8_t config_gamepad(uint8_t, uint8_t, uint8_t, uint8_t);
+    uint8_t config_gamepad(uint8_t, uint8_t, uint8_t, uint8_t, bool, bool);
     void enableRumble();
     bool enablePressures();
-    byte Analog(byte);
+    uint8_t Analog(uint8_t);
     void reconfig_gamepad();
-    unsigned int buttons;
-    unsigned char PS2data[21];
+    uint16_t buttons;
+    uint8_t PS2data[21];
   private:
     inline void CLK_SET(void);
     inline void CLK_CLR(void);
@@ -176,11 +176,11 @@ class PS2X
     inline void ATT_CLR(void);
     inline bool DAT_CHK(void);
     
-    unsigned char _gamepad_shiftinout (char);
+    uint8_t _gamepad_shiftinout (uint8_t);
     
-    void sendCommandString(byte*, byte);
-    unsigned char i;
-    unsigned int last_buttons;
+    void sendCommandString(uint8_t*, uint8_t);
+    uint8_t i;
+    uint16_t last_buttons;
     
 	
       uint8_t maskToBitNum(uint8_t);
@@ -194,8 +194,8 @@ class PS2X
       volatile uint8_t *_dat_ireg;
 	
     unsigned long last_read;
-    byte read_delay;
-    byte controller_type;
+    uint8_t read_delay;
+    uint8_t controller_type;
     boolean en_Rumble;
     boolean en_Pressures;
 };

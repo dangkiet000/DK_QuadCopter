@@ -96,7 +96,7 @@ GNU General Public License for more details.
 
 #define CTRL_CLK        4
 #define CTRL_CLK_HIGH   4
-#define CTRL_BYTE_DELAY 3
+#define CTRL_BYTE_DELAY 10
 
 
 //These are our button constants
@@ -179,7 +179,7 @@ class PS2X
     inline void ATT_CLR(void);
     inline bool DAT_CHK(void);
     
-    unsigned char _gamepad_shiftinout (char);
+    unsigned char _gamepad_shiftinout (unsigned char);
     
     void sendCommandString(byte*, byte);
     unsigned char i;

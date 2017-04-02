@@ -77,9 +77,12 @@ unsigned char PS2X::_gamepad_shiftinout (char byte)
    return tmp;
 }
 */
-unsigned char PS2X::_gamepad_shiftinout (char byte)
+unsigned char PS2X::_gamepad_shiftinout (unsigned char data)
 {
-
+  unsigned char temp;
+  temp = SPI.transfer(data);
+  delayMicroseconds(3);
+  return temp;
 }
 /****************************************************************************************/
 void PS2X::read_gamepad()
@@ -105,12 +108,11 @@ boolean PS2X::read_gamepad(boolean motor1, byte motor2)
    unsigned char dword2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
    // Try a few times to get valid data...
-   for (unsigned char RetryCnt = 0; RetryCnt < 5; RetryCnt++) {
-      CMD_SET();
-      CLK_SET();
+   for (unsigned char RetryCnt = 0; RetryCnt < 5; RetryCnt++) 
+   {
       ATT_CLR(); // low enable joystick
-
       delayMicroseconds(CTRL_BYTE_DELAY);
+      
       //Send the command to send button and joystick data;
       for (int i = 0; i<9; i++) 
       {
@@ -211,11 +213,11 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
   /* 1. PS2 Clock Avtive High RISING
   => CPOL = 1
   => SPI_MODE2 or SPI_MODE3
-     2.Data are captured on clock's falling edge and data
-       is output on a rising edge
-  =>  CPHA = 0
+     2.Data are captured on clock's rising edge and data
+       is output on a falling edge
+  =>  CPHA = 1
   */
-  SPI.setDataMode(SPI_MODE2);
+  SPI.setDataMode(SPI_MODE3);
 
   //new error checking. First, read gamepad a few times to see if it's talking
   read_gamepad();
@@ -242,8 +244,6 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
 
     //read type
     delayMicroseconds(CTRL_BYTE_DELAY);
-
-    ATT_CLR(); // low enable joystick
 
     delayMicroseconds(CTRL_BYTE_DELAY);
 
@@ -299,6 +299,7 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
 void PS2X::sendCommandString(byte string[], byte len) 
 {
   ATT_CLR(); // low enable joystick
+  delayMicroseconds(CTRL_BYTE_DELAY);
   for (int y=0; y < len; y++)
   {
     _gamepad_shiftinout(string[y]);

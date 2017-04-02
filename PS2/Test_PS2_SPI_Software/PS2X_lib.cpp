@@ -10,12 +10,12 @@
   #include "pins_arduino.h"
 #endif
 
-static byte enter_config[]={0x01,0x43,0x00,0x01,0x00};
-static byte set_mode[]={0x01,0x44,0x00,0x01,0x03,0x00,0x00,0x00,0x00};
-static byte set_bytes_large[]={0x01,0x4F,0x00,0xFF,0xFF,0x03,0x00,0x00,0x00};
-static byte exit_config[]={0x01,0x43,0x00,0x00,0x5A,0x5A,0x5A,0x5A,0x5A};
-static byte enable_rumble[]={0x01,0x4D,0x00,0x00,0x01};
-static byte type_read[]={0x01,0x45,0x00,0x5A,0x5A,0x5A,0x5A,0x5A,0x5A};
+static uint8_t enter_config[]={0x01,0x43,0x00,0x01,0x00};
+static uint8_t set_mode[]={0x01,0x44,0x00,0x01,0x03,0x00,0x00,0x00,0x00};
+static uint8_t set_uint8_ts_large[]={0x01,0x4F,0x00,0xFF,0xFF,0x03,0x00,0x00,0x00};
+static uint8_t exit_config[]={0x01,0x43,0x00,0x00,0x5A,0x5A,0x5A,0x5A,0x5A};
+static uint8_t enable_rumble[]={0x01,0x4D,0x00,0x00,0x01};
+static uint8_t type_read[]={0x01,0x45,0x00,0x5A,0x5A,0x5A,0x5A,0x5A,0x5A};
 
 /****************************************************************************************/
 boolean PS2X::NewButtonState() {
@@ -23,17 +23,17 @@ boolean PS2X::NewButtonState() {
 }
 
 /****************************************************************************************/
-boolean PS2X::NewButtonState(unsigned int button) {
+boolean PS2X::NewButtonState(uint16_t button) {
   return (((last_buttons ^ buttons) & button) > 0);
 }
 
 /****************************************************************************************/
-boolean PS2X::ButtonPressed(unsigned int button) {
+boolean PS2X::ButtonPressed(uint16_t button) {
   return(NewButtonState(button) & Button(button));
 }
 
 /****************************************************************************************/
-boolean PS2X::ButtonReleased(unsigned int button) {
+boolean PS2X::ButtonReleased(uint16_t button) {
   return((NewButtonState(button)) & ((~last_buttons & button) > 0));
 }
 
@@ -43,24 +43,24 @@ boolean PS2X::Button(uint16_t button) {
 }
 
 /****************************************************************************************/
-unsigned int PS2X::ButtonDataByte() {
+uint16_t PS2X::ButtonDataByte() {
    return (~buttons);
 }
 
 /****************************************************************************************/
-byte PS2X::Analog(byte button) {
+uint8_t PS2X::Analog(uint8_t button) {
    return PS2data[button];
 }
 
 /****************************************************************************************/
-unsigned char PS2X::_gamepad_shiftinout (char byte) 
+uint8_t PS2X::_gamepad_shiftinout (uint8_t Lucdata) 
 {
-   unsigned char tmp = 0;
-   unsigned char i;
+   uint8_t tmp = 0;
+   uint8_t i;
    
    for(i=0; i<8; i++) 
    {
-      if(CHK(byte,i)) CMD_SET();
+      if(CHK(Lucdata, i)) CMD_SET();
       else CMD_CLR();
 	  
       CLK_CLR();
@@ -85,9 +85,9 @@ void PS2X::read_gamepad()
 }
 
 /****************************************************************************************/
-boolean PS2X::read_gamepad(boolean motor1, byte motor2)
+boolean PS2X::read_gamepad(boolean motor1, uint8_t motor2)
 {
-   double temp = millis() - last_read;
+   unsigned long temp = millis() - last_read;
 
    if (temp > 1500) //waited to long
       reconfig_gamepad();
@@ -98,11 +98,11 @@ boolean PS2X::read_gamepad(boolean motor1, byte motor2)
    if(motor2 != 0x00)
       motor2 = map(motor2,0,255,0x40,0xFF); //noting below 40 will make it spin
 
-   unsigned char dword[9] = {0x01,0x42,0,motor1,motor2,0,0,0,0};
-   unsigned char dword2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+   uint8_t dword[9] = {0x01,0x42,0,motor1,motor2,0,0,0,0};
+   uint8_t dword2[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
    // Try a few times to get valid data...
-   for (unsigned char RetryCnt = 0; RetryCnt < 5; RetryCnt++) {
+   for (uint8_t RetryCnt = 0; RetryCnt < 5; RetryCnt++) {
       CMD_SET();
       CLK_SET();
       ATT_CLR(); // low enable joystick
@@ -169,16 +169,16 @@ boolean PS2X::read_gamepad(boolean motor1, byte motor2)
 }
 
 /****************************************************************************************/
-byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat) 
+uint8_t PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat) 
 {
    return config_gamepad(clk, cmd, att, dat, false, false);
 }
 
 /****************************************************************************************/
-byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bool pressures, bool rumble) 
+uint8_t PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bool pressures, bool rumble) 
 {
 
-  byte temp[sizeof(type_read)];
+  uint8_t temp[sizeof(type_read)];
   
   _clk_mask = digitalPinToBitMask(clk);
   _clk_oreg = portOutputRegister(digitalPinToPort(clk));
@@ -250,7 +250,7 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
     }
     if(pressures)
     { 
-      sendCommandString(set_bytes_large, sizeof(set_bytes_large)); 
+      sendCommandString(set_uint8_ts_large, sizeof(set_uint8_ts_large)); 
       en_Pressures = true; 
     }
     sendCommandString(exit_config, sizeof(exit_config));
@@ -282,10 +282,10 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
 }
 
 /****************************************************************************************/
-void PS2X::sendCommandString(byte string[], byte len) 
+void PS2X::sendCommandString(uint8_t string[], uint8_t len) 
 {
 #ifdef PS2X_COM_DEBUG
-  byte temp[len];
+  uint8_t temp[len];
   ATT_CLR(); // low enable joystick
   delayMicroseconds(CTRL_BYTE_DELAY);
 
@@ -313,7 +313,7 @@ void PS2X::sendCommandString(byte string[], byte len)
 }
 
 /****************************************************************************************/
-byte PS2X::readType() 
+uint8_t PS2X::readType() 
 {
   if(controller_type == 0x03)
     return 1;
@@ -338,7 +338,7 @@ void PS2X::enableRumble()
 bool PS2X::enablePressures() 
 {
   sendCommandString(enter_config, sizeof(enter_config));
-  sendCommandString(set_bytes_large, sizeof(set_bytes_large));
+  sendCommandString(set_uint8_ts_large, sizeof(set_uint8_ts_large));
   sendCommandString(exit_config, sizeof(exit_config));
 
   read_gamepad();
@@ -359,7 +359,7 @@ void PS2X::reconfig_gamepad()
   if (en_Rumble)
     sendCommandString(enable_rumble, sizeof(enable_rumble));
   if (en_Pressures)
-    sendCommandString(set_bytes_large, sizeof(set_bytes_large));
+    sendCommandString(set_uint8_ts_large, sizeof(set_uint8_ts_large));
   sendCommandString(exit_config, sizeof(exit_config));
 }
 
