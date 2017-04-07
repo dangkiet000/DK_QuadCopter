@@ -53,35 +53,10 @@ byte PS2X::Analog(byte button) {
 }
 
 /****************************************************************************************/
-/*
-unsigned char PS2X::_gamepad_shiftinout (char byte)
-{
-   unsigned char tmp = 0;
-   for(unsigned char i=0;i<8;i++) {
-      if(CHK(byte,i)) CMD_SET();
-      else CMD_CLR();
-	  
-      CLK_CLR();
-      delayMicroseconds(CTRL_CLK);
-
-      //if(DAT_CHK()) SET(tmp,i);
-      if(DAT_CHK()) bitSet(tmp,i);
-
-      CLK_SET();
-#ifdef CTRL_CLK_HIGH
-      delayMicroseconds(CTRL_CLK_HIGH);
-#endif
-   }
-   CMD_SET();
-   delayMicroseconds(CTRL_BYTE_DELAY);
-   return tmp;
-}
-*/
 unsigned char PS2X::_gamepad_shiftinout (unsigned char data)
 {
   unsigned char temp;
   temp = SPI.transfer(data);
-  delayMicroseconds(3);
   return temp;
 }
 /****************************************************************************************/
@@ -200,6 +175,9 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
   pinMode(dat, INPUT);
   digitalWrite(dat, HIGH); //enable pull-up
 
+  pinMode(PS2_ACK, INPUT);
+  digitalWrite(PS2_ACK, HIGH); //enable pull-up
+  
   SPI.begin(); // wake up the SPI bus.
   
   /* PS2 Max speed = 500Kb

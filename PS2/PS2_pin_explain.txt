@@ -1,0 +1,86 @@
+Source: http://pinouts.ru/Game/playstation_9_pinout.shtml
+
+PSX Signals descriptions:
+
+
+
+1. DATA Signal from Controller to PSX.
+This signal is an 8 bit serial transmission synchronous to the falling edge of clock (That is both the incoming and outgoing signals change on a high to low transition of clock. All the reading of signals is done on the leading edge to allow settling time.)
+
+2. COMMAND Signal from PSX to Controller.
+This signal is the counter part of DATA. It is again an 8 bit serial transmission on the falling edge of clock.
+
+3. VCC VCC can vary from 5V down to 3V. The official SONY Controllers will operate on 3.3V, and not on 5V, however the unofficial controllers mostly will work on 5V. All controlers WILL work on 3.3V.
+The main board in the PSX also has a surface mount 750mA fuse that will blow if you try to draw to much current through the plug (750mA is for both left, right and memory cards).
+
+4. ATT ATT is used to get the attention of the controller.
+This signal will go low for the duration of a transmission. I have also seen this pin called Select, DTR and Command.
+
+5.CLOCK Signal from PSX to Controller.
+Used to keep units in sync.
+
+6. ACK Acknowledge signal from Controller to PSX.
+This signal should go low for at least one clock period after each 8 bits are sent and ATT is still held low. If the ACK signal does not go low within about 60 us the PSX will then start interogating other devices.
+
+It should also be noted that this is a bus of sorts. This means that the wires are all tied together (except select which is seperate for each device). For the CLK, ATT, and CMD pins this does not matter as the PSX is always the originator. The DATA and ACK pins however can be driven from any one of four devices. To avoid contentions on these lines they are open collectors and can only be driven low.
+
+
+ The PSX Controller Signals
+
+All transmissions are eight bit serial LSB first. All timing in the PSX controller bus is syncronous to the falling edge of the clock. One byte of the transmissions will look kinda like this.
+
+
+               |BIT 0|BIT 1|BIT 2|BIT 3|BIT 4|BIT 5|BIT 6|BIT 7|
+
+    CLOCK -----___---___---___---___---___---___---___---___-----------
+
+    DATA  -----000000111111222222333333444444555555666666777777--------
+
+                  *     *     *     *     *     *     *     *
+
+    CMND  -----000000111111222222333333444444555555666666777777--------
+
+    ACK   ----------------------------------------------------------__-
+
+The logic level on the data lines is changed by the transmitting device on the falling edge of clock. This is then read by the receiving device on the leading edge (at the points marked *) allowing time for the signal to settle. After each COMMAND is recieved by a selected controller, that controller needs to pull ACK low for at least one clock tick. If a selected controller does not ACK the PSX will assume that there is no controller present.
+
+When the PSX wants to read information from a controller it pulls that devices ATT line low and issues a start command (0x01). The Controller Will then reply with its ID (0x41=Digital, 0x23=NegCon, 0x73=Analogue Red LED, 0x53=Analogue Green LED). At the same time as the controller is sending this ID byte the PSX is transmitting 0x42 to request the data. Following this the COMMAND line goes idle and the controller transmits 0x5A to say here comes the data.
+
+This would look like this for a digital controller
+
+    ATT    -______________________________________________________________
+
+              |   Byte 1     |    |   Byte 2     |    |   Byte 3     |
+
+    CLOCK  ---_-_-_-_-_-_-_-_-----_-_-_-_-_-_-_-_-----_-_-_-_-_-_-_-_-----
+
+                   0xFF                0x41                0x5A 
+
+    DATA   -------------------------__________--__----__--__----__--__----
+
+                   0x01                0x42
+
+    CMND   -----_____________-----__--________--__------------------------
+
+    ACK    --------------------__-------------------__-----------------__-
+
+After this command initiation proccess the controller then sends all its data bytes (in the case of a digital controller there is only two). After the last byte is sent ATT will go high and the controller does not need to ACK.
+
+The data transmision for a digital controller would look like this (where A0,A1,A2...B6,B7 are the data bits in the two bytes).
+
+
+    ATT    _______________________________________-------
+
+              |   Byte 4     |    |   Byte 5     |  
+
+    CLOCK  ---_-_-_-_-_-_-_-_-----_-_-_-_-_-_-_-_--------
+
+    DATA   ---D0D1D2D3D4D5D6D7----E0E1E2E3E4E5E6E7-------
+
+    CMND   ----------------------------------------------
+
+                                                    ***
+
+    ACK    --------------------__------------------------
+
+    NOTE: No ACK.

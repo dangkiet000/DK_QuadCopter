@@ -94,6 +94,8 @@ GNU General Public License for more details.
 
 #include "SPI.h"
 
+#define PS2_ACK         2
+
 #define CTRL_CLK        4
 #define CTRL_CLK_HIGH   4
 #define CTRL_BYTE_DELAY 10

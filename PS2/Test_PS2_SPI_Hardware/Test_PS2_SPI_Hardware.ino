@@ -1,20 +1,41 @@
-#include "PS2X_lib.h"  //for v1.6
+#include "PS2X_lib.h" 
 
-/******************************************************************
- * set pins connected to PS2 controller:
- *   - 1e column: original 
- *   - 2e colmun: Stef?
- * replace pin numbers by the ones you use
- ******************************************************************/
-#define PS2_DAT        12    
+/* 
+DATA and ACK pin is open-collector 
+=> Connect this pin to 4.7k pull-up resistor
+if this pin not conect r-pullup, DATA is wrong
+and byte1 return 0x63 instead 0x73
+*/
+#define PS2_DAT        12 
 #define PS2_CMD        11 
 #define PS2_SEL        10  
 #define PS2_CLK        13
 
+//These are our button constants
+#define PSB_L2          0x0100
+#define PSB_L1          0x0400
+
+/* These are button of byte5 */
+#define PS2_TRIANGLE    0xEF
+#define PS2_CIRCLE      0xBF
+#define PS2_CROSS       0xDF
+#define PS2_SQUARE      0x7F
+#define PS2_R1          0xF7
+#define PS2_R2          0xFD
+
+/* These are button of byte4 */
+#define PS2_START       0xF7
+#define PS2_PAD_UP      0xEF
+#define PS2_PAD_RIGHT   0xDF
+#define PS2_PAD_DOWN    0xBF
+#define PS2_PAD_LEFT    0x7F
+#define PS2_SELECT      0xFE
+#define PS2_L3          0xFD
+#define PSB_R3          0xFB
 /******************************************************************
  * select modes of PS2 controller:
- *   - pressures = analog reading of push-butttons 
- *   - rumble    = motor rumbling
+ *   - pressures: analog reading of push-butttons 
+ *   - rumble   : motor rumbling
  * uncomment 1 of the lines for each mode selection
  ******************************************************************/
 #define pressures   false
@@ -31,6 +52,8 @@ byte type = 0;
 byte vibrate = 0;
 
 void setup(){
+ 
+  
  
   Serial.begin(57600);
   
@@ -50,8 +73,10 @@ void loop() {
    */  
   //DualShock Controller
   ps2x.read_gamepad(false, vibrate);
+
   Serial.print(ps2x.PS2data[3], HEX);
+  Serial.print(" ");
   Serial.println(ps2x.PS2data[4], HEX);
   
-  delay(50);  
+  delay(200);  
 }
