@@ -123,10 +123,18 @@ bool PS2_Init(void)
   PS2x.ucNoOfData = 2;
 
   PS2_CHIPSELECT_HIGH();
+  
   LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
   
   #ifdef PS2X_DEBUG
   if(LddReturn != true) Serial.println("ENTER_CONFIG_MODE: FALSE");
+  #endif
+
+
+  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
+
+  #ifdef PS2X_DEBUG
+  if(LddReturn != true) Serial.println("EXIT_CONFIG_MODE: FALSE");
   #endif
   
   return LddReturn;
@@ -268,9 +276,9 @@ bool PS2_ConfigMode(bool blConfigMode)
   GaaPS2Data[3] = PS2_Transfer(blConfigMode);
 
   /* 3. Send Dummy data */
-  for (i=3+1; i<PS2x.ucNoOfData; i++)
+  for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    GaaPS2Data[i] = PS2_Transfer(PS2_DUMMY_DATA);
+    GaaPS2Data[3+1+i] = PS2_Transfer(PS2_DUMMY_DATA);
   }
 
   /* Set attention pin as HIGH to end communication */
@@ -290,17 +298,19 @@ bool PS2_ConfigMode(bool blConfigMode)
   LaaDataOut[1] = PS2_ENTER_EXIT_CONFIG_CMD;
   LaaDataOut[2] = PS2_END_HEADER_CMD;
   LaaDataOut[3] = blConfigMode;
-  for (i=3+1; i<PS2x.ucNoOfData; i++)
+  for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    LaaDataOut[i] = PS2_DUMMY_DATA;
+    LaaDataOut[3+1+i] = PS2_DUMMY_DATA;
   }
   PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
 
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
-  /* At this time, we have to send one more sequence to update and verify
-     PS2 Mode */
+  /*********************************************************************** 
+   *  At this time, we have to send one more sequence to update and verify
+   *  PS2 Mode 
+   ************************************************************************/
   /* 1. Send header command */
   PS2_TransferHeaderCommand(PS2_ENTER_EXIT_CONFIG_CMD);
 
@@ -308,15 +318,16 @@ bool PS2_ConfigMode(bool blConfigMode)
   GaaPS2Data[3] = PS2_Transfer(blConfigMode);
 
   /* 3. Send Dummy data */
-  for (i=3+1; i<PS2x.ucNoOfData; i++)
+  for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    GaaPS2Data[i] = PS2_DUMMY_DATA;
+    GaaPS2Data[3+1+i] = PS2_DUMMY_DATA;
   }
+
   /* Set attention pin as HIGH to end communication */
   PS2_CHIPSELECT_HIGH();
 
   #ifdef PS2X_DEBUG
-  Serial.print("PS2_ConfigMode: ");
+  Serial.print("Verify PS2_ConfigMode: ");
   if(blConfigMode == ENTER_CONFIG_MODE)
   {
     Serial.println("ENTER");
@@ -329,14 +340,18 @@ bool PS2_ConfigMode(bool blConfigMode)
   LaaDataOut[1] = PS2_ENTER_EXIT_CONFIG_CMD;
   LaaDataOut[2] = PS2_END_HEADER_CMD;
   LaaDataOut[3] = blConfigMode;
-  for (i=3+1; i<PS2x.ucNoOfData; i++)
+  for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    LaaDataOut[i] = PS2_DUMMY_DATA;
+    LaaDataOut[3+1+i] = PS2_DUMMY_DATA;
   }
   PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
 
-  if(PS2x.enPS2Mode == PS2_CONFIG_MODE)
+  if((PS2x.enPS2Mode == PS2_CONFIG_MODE) && (blConfigMode == ENTER_CONFIG_MODE))
+  {
+    return true;
+  }
+  else if((PS2x.enPS2Mode != PS2_CONFIG_MODE) && (blConfigMode == EXIT_CONFIG_MODE))
   {
     return true;
   }
