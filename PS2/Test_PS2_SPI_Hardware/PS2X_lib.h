@@ -63,13 +63,17 @@
 *
 *
 *
-*This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.
+*
+This program is free software: you can redistribute it and/or 
+modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 3 of 
+the License, or(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 <http://www.gnu.org/licenses/>
-*  
+
 ******************************************************************/
 
 // $$$$$$$$$$$$ DEBUG ENABLE SECTION $$$$$$$$$$$$$$$$
@@ -172,6 +176,7 @@ class PS2X
     void reconfig_gamepad();
     unsigned int buttons;
     unsigned char PS2data[21];
+    void sendCommandString(byte*, byte);
   private:
     inline void CLK_SET(void);
     inline void CLK_CLR(void);
@@ -183,7 +188,7 @@ class PS2X
     
     unsigned char _gamepad_shiftinout (unsigned char);
     
-    void sendCommandString(byte*, byte);
+    
     unsigned char i;
     unsigned int last_buttons;
     

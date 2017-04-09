@@ -276,14 +276,27 @@ byte PS2X::config_gamepad(uint8_t clk, uint8_t cmd, uint8_t att, uint8_t dat, bo
 /****************************************************************************************/
 void PS2X::sendCommandString(byte string[], byte len) 
 {
+  uint8_t temp[len];
+  
   ATT_CLR(); // low enable joystick
   delayMicroseconds(CTRL_BYTE_DELAY);
   for (int y=0; y < len; y++)
   {
-    _gamepad_shiftinout(string[y]);
+    PS2data[y] = _gamepad_shiftinout(string[y]);
   }
   ATT_SET(); //high disable joystick
   delay(read_delay);                  //wait a few
+  #ifdef PS2X_DEBUG
+  Serial.println("OUT:IN Configure");
+  for(int i=0; i<len; i++) 
+  {
+    Serial.print(string[i], HEX);
+    Serial.print(":");
+    Serial.print(PS2data[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println("");
+  #endif
 }
 
 /****************************************************************************************/

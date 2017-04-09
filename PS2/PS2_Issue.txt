@@ -1,0 +1,3 @@
+1.  Byte thứ 2 trả về 0x63 chứ ko phải 0x73?
+Rootcause: tay cầm PS2 có 2 chân là Open-Collector: DATA and ACK.
+Solution: ta phải kết nối chân này với điện trở kéo lên(4.7k)
