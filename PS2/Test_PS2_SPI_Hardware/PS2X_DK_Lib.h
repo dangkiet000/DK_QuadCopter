@@ -116,7 +116,8 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 typedef enum ETag_PS2ErrorIdType
 {
   WRONG_HEADER_DATA_RESPOND = 0,
-  PS2_MODE_IS_UNDEFINED
+  PS2_MODE_IS_UNDEFINED,
+  PS2_LACK_PULLUP_RESISTOR
 } PS2ErrorIdType;
 
 /* Definition of PS2 mode */

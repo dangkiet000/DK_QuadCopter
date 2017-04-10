@@ -37,6 +37,7 @@ See the GNU General Public License for more details.
 *******************************************************************************/
 uint8_t GaaPS2Data[21];
 PS2_Type PS2x;
+
 /*******************************************************************************
 **                      Low Level Function Prototypes                         **
 *******************************************************************************/
@@ -55,6 +56,14 @@ void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo)
       Serial.print("Device Mode is wrong: ");
       Serial.print(LucInfo);
       Serial.println(".It should be 0x41 or 0x73 or 0x79 ro 0xF3.");
+      #endif
+      break;
+    case PS2_LACK_PULLUP_RESISTOR:
+      #ifdef PS2X_DEBUG
+      Serial.print("Lacking pull-up resistor PS2_Data pin. ");
+      Serial.println("Please connect PS2_Data pin with 4.7k pull-up resistor.");
+      Serial.print("Device Mode is wrong: ");
+      Serial.println(LucInfo);
       #endif
       break;
     default: break;
@@ -118,6 +127,8 @@ bool PS2_Init(void)
   PS2_PortInit_as_SPI();
 
   PS2_SPIInit();
+
+  //PS2_LEDERROR_OFF();
 
   PS2x.enPS2Mode = PS2_DIGITAL_MODE;
 
@@ -195,6 +206,13 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
   {
     PS2x.enPS2Mode = PS2_CONFIG_MODE;
     PS2x.ucNoOfData = 6;
+  }
+  else if(GaaPS2Data[1] == 0x63)
+  {
+    PS2x.enPS2Mode = PS2_UNDEFINED_MODE;
+    /* DET error detected */
+    PS2_DET_ErrorReport(PS2_LACK_PULLUP_RESISTOR, GaaPS2Data[1]);
+    return false;
   }
   else
   {
@@ -302,45 +320,11 @@ bool PS2_ConfigMode(bool blConfigMode)
 
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
-  /***********************************************************************
+  /*************************************************************************
    *  At this time, we have to send one more sequence to update and verify
    *  PS2 Mode
    ************************************************************************/
-  /* 1. Send header command */
-  PS2_TransferHeaderCommand(PS2_ENTER_EXIT_CONFIG_CMD);
-
-  /* 2. Send data config */
-  GaaPS2Data[3] = PS2_Transfer(blConfigMode);
-
-  /* 3. Send Dummy data */
-  for (i=0; i<PS2x.ucNoOfData; i++)
-  {
-    GaaPS2Data[3+1+i] = PS2_DUMMY_DATA;
-  }
-
-  /* Set attention pin as HIGH to end communication */
-  PS2_CHIPSELECT_HIGH();
-
-  #ifdef PS2X_DEBUG
-  Serial.print("Verify PS2_ConfigMode: ");
-  if(blConfigMode == ENTER_CONFIG_MODE)
-  {
-    Serial.println("ENTER");
-  }
-  else
-  {
-    Serial.println("EXIT");
-  }
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_ENTER_EXIT_CONFIG_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = blConfigMode;
-  for (i=0; i<PS2x.ucNoOfData; i++)
-  {
-    LaaDataOut[3+1+i] = PS2_DUMMY_DATA;
-  }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
-  #endif
+  PS2_GetMode();
 
   if((PS2x.enPS2Mode == PS2_CONFIG_MODE) && (blConfigMode == ENTER_CONFIG_MODE))
   {
@@ -448,25 +432,6 @@ bool PS2_SetMode(bool enMode)
   /* Verify PS2 Mode */
   PS2_GetMode();
 
-  #ifdef PS2X_DEBUG
-  Serial.print("Verify PS2_SetMode: ");
-  if(enMode == PS2_SET_DIGITAL_MODE)
-  {
-    Serial.println("DIGITAL_MODE");
-  }
-  else
-  {
-    Serial.println("ANALOG_MODE");
-  }
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_POLLING_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  for (i=0; i<PS2x.ucNoOfData; i++)
-  {
-    LaaDataOut[3+i] = PS2_DUMMY_DATA;
-  }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
-  #endif
   /* If the high nibble is 0x7: Analog mode */
   if(((PS2x.enPS2Mode >> 4) == 0x07) && (enMode == PS2_SET_ANALOG_MODE))
   {
@@ -487,6 +452,9 @@ bool PS2_SetMode(bool enMode)
 
 void PS2_GetMode(void)
 {
+  #ifdef PS2X_DEBUG
+  uint8_t LaaDataOut[9];
+  #endif
   uint8_t i;
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
@@ -503,6 +471,18 @@ void PS2_GetMode(void)
   /* Set attention pin as HIGH to start communication */
   PS2_CHIPSELECT_HIGH();
 
+  #ifdef PS2X_DEBUG
+  Serial.println("PS2_GetMode");
+
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_POLLING_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  for (i=0; i<PS2x.ucNoOfData; i++)
+  {
+    LaaDataOut[3+i] = PS2_DUMMY_DATA;
+  }
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  #endif
 }
 
 #ifdef PS2X_DEBUG
