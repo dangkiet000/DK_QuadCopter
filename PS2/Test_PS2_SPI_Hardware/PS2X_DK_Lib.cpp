@@ -3,7 +3,11 @@
  * $Revision: 1
  * $Date: 09/04/2017
  * @brief: This is library which control Play Station 2 of Sony.
- * @Porting author: DangKiet
+ * @Author: DangKiet
+
+ @Limitation:
+ - Only support Play Station 2 Dual Shock
+ - Not support Analog Button Pressure mode.
 
 BASE ON:
 Super amazing PS2 controller Arduino Library v1.8
@@ -41,35 +45,6 @@ PS2_Type PS2x;
 /*******************************************************************************
 **                      Low Level Function Prototypes                         **
 *******************************************************************************/
-void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo)
-{
-  switch(enErrorId)
-  {
-    //PS2_LEDERROR_ON();
-    case WRONG_HEADER_DATA_RESPOND:
-      #ifdef PS2X_DEBUG
-      Serial.println("Byte1 of header command respond is incorrect!");
-      #endif
-      break;
-    case PS2_MODE_IS_UNDEFINED:
-      #ifdef PS2X_DEBUG
-      Serial.print("Device Mode is wrong: ");
-      Serial.print(LucInfo);
-      Serial.println(".It should be 0x41 or 0x73 or 0x79 ro 0xF3.");
-      #endif
-      break;
-    case PS2_LACK_PULLUP_RESISTOR:
-      #ifdef PS2X_DEBUG
-      Serial.print("Lacking pull-up resistor PS2_Data pin. ");
-      Serial.println("Please connect PS2_Data pin with 4.7k pull-up resistor.");
-      Serial.print("Device Mode is wrong: ");
-      Serial.println(LucInfo);
-      #endif
-      break;
-    default: break;
-  }
-
-}
 inline void PS2_CHIPSELECT_LOW(void)
 {
   digitalWrite(10, LOW);
@@ -114,37 +89,37 @@ void PS2_SPIInit(void)
 
 }
 
-
 /*******************************************************************************
-**                      API Functions                                         **
+**                      Private Function Prototypes                           **
 *******************************************************************************/
-bool PS2_Init(void)
+void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo)
 {
-  bool LddReturn;
+  switch(enErrorId)
+  {
+    //PS2_LEDERROR_ON();
+    case WRONG_HEADER_DATA_RESPOND:
+      #ifdef PS2X_DEBUG
+      Serial.println("Byte1 of header command respond is incorrect!");
+      #endif
+      break;
+    case PS2_MODE_IS_UNDEFINED:
+      #ifdef PS2X_DEBUG
+      Serial.print("Device Mode is wrong: ");
+      Serial.print(LucInfo);
+      Serial.println(".It should be 0x41 or 0x73 or 0x79 ro 0xF3.");
+      #endif
+      break;
+    case PS2_LACK_PULLUP_RESISTOR:
+      #ifdef PS2X_DEBUG
+      Serial.print("Lacking pull-up resistor PS2_Data pin. ");
+      Serial.println("Please connect PS2_Data pin with 4.7k pull-up resistor.");
+      Serial.print("Device Mode is wrong: ");
+      Serial.println(LucInfo);
+      #endif
+      break;
+    default: break;
+  }
 
-  LddReturn = true;
-
-  PS2_PortInit_as_SPI();
-
-  PS2_SPIInit();
-
-  //PS2_LEDERROR_OFF();
-
-  PS2x.enPS2Mode = PS2_DIGITAL_MODE;
-
-  PS2x.ucNoOfData = 2;
-
-  PS2_CHIPSELECT_HIGH();
-
-  LddReturn = PS2_SetMode(PS2_SET_ANALOG_MODE);
-  LddReturn = PS2_EnableVibration();
-  
-  #ifdef PS2X_DEBUG
-  if(LddReturn != true) Serial.println("PS2_SET_ANALOG_MODE: FALSE");
-  else Serial.println("PS2_SET_ANALOG_MODE: TRUE");
-  #endif
-
-  return LddReturn;
 }
 
 bool PS2_TransferHeaderCommand(uint8_t LucCommand)
@@ -225,77 +200,6 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
 
   GaaPS2Data[2] = PS2_Transfer(PS2_END_HEADER_CMD);
   return true;
-}
-
-/* Enable PS2 vibration */
-bool PS2_EnableVibration(void)
-{
-  /*
-  Only works after the controller is in config mode (0xF3).
-  _______________________________________________________
-  |Byte #       | 1   2   3 | 4     5   | 6   7   8   9 |
-  |_____________|___________|___________|_______________|
-  |Command (hex)| 01  4D  00|0x00  0x01 | FF  FF  FF  FF|
-  |Data (hex)   | FF  F3  5A|0x00  0x01 | FF  FF  FF  FF|
-  |_____________|___________|___________|_______________|
-  |Section      |  Header   | Config parameters         |
-  |_____________|___________|___________________________|
-  -Byte4: 0x00 maps the corresponding byte in 0x42 to control the small motor.
-          0xFF in the 0x42 command will turn it on, all other values turn it
-          off.
-  -Byte5: 0x01 maps the corresponding byte in 0x42 to control the large motor.
-          The power delivered to the large motor is then set from 0x00 to 0xFF
-          in 0x42. 0x40 was the smallest value that would actually make the
-          motor spin for us.
-  -0xFF:  Disables, and is the default value when the controller is first
-          connected. The data bytes just report the current mapping.
-  -Things don't always work if more than one command byte is mapped to a motor.
-  */
-
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
-  uint8_t i;
-  uint8_t LddReturn;
-
-  LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
-
-  /* Set attention pin as LOW to start communication */
-  PS2_CHIPSELECT_LOW();
-
-  /* 1. Send header command */
-  PS2_TransferHeaderCommand(PS2_ENABLE_VIBRATION_CMD);
-
-  /* 2. Send data config */
-  GaaPS2Data[3] = PS2_Transfer(PS2_SMALL_MOTOR);
-  GaaPS2Data[4] = PS2_Transfer(PS2_LARGE_MOTOR);
-
-  /* 3. Send Dummy data */
-  for (i=0; i<PS2x.ucNoOfData-2; i++)
-  {
-    GaaPS2Data[4+1+i] = 0xFF;
-  }
-  /* Set attention pin as HIGH to start communication */
-  PS2_CHIPSELECT_HIGH();
-
-  #ifdef PS2X_DEBUG
-  Serial.println("PS2_EnableVibration");
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_ENABLE_VIBRATION_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = PS2_SMALL_MOTOR;
-  LaaDataOut[4] = PS2_LARGE_MOTOR;
-  for (i=0; i<PS2x.ucNoOfData-2; i++)
-  {
-    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
-  }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
-  #endif
-
-  /* Verify motor vibration ??? */
-  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
-
-  return LddReturn;
 }
 
 /* Enter/Exit PS2 configuration mode */
@@ -384,26 +288,124 @@ bool PS2_ConfigMode(bool blConfigMode)
   return false;
 }
 
-void PS2_TransferCommandList(uint8_t *LpCommandList, uint8_t LucLen)
+#ifdef PS2X_DEBUG
+void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen)
 {
   uint8_t i;
+  Serial.println("OUT:IN");
+  for (i=0; i< LucLen; i++)
+  {
+    Serial.print(LpCommandList[i], HEX);
+    Serial.print(":");
+    Serial.print(GaaPS2Data[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println("");
+}
+#endif
+
+/*******************************************************************************
+**                      API Functions                                         **
+*******************************************************************************/
+bool PS2_Init(void)
+{
+  bool LddReturn;
+
+  LddReturn = true;
+
+  PS2_PortInit_as_SPI();
+
+  PS2_SPIInit();
+
+  //PS2_LEDERROR_OFF();
+
+  PS2x.enPS2Mode = PS2_DIGITAL_MODE;
+
+  PS2x.ucNoOfData = 2;
+
+  PS2_CHIPSELECT_HIGH();
+
+  LddReturn = PS2_SetMode(PS2_SET_ANALOG_MODE);
+  LddReturn = PS2_EnableVibration();
+
+  #ifdef PS2X_DEBUG
+  if(LddReturn != true) Serial.println("PS2_SET_ANALOG_MODE: FALSE");
+  else Serial.println("PS2_SET_ANALOG_MODE: TRUE");
+  #endif
+
+  return LddReturn;
+}
+
+bool PS2_EnableVibration(void)
+{
+  /*
+  Only works after the controller is in config mode (0xF3).
+  _______________________________________________________
+  |Byte #       | 1   2   3 | 4     5   | 6   7   8   9 |
+  |_____________|___________|___________|_______________|
+  |Command (hex)| 01  4D  00|0x00  0x01 | FF  FF  FF  FF|
+  |Data (hex)   | FF  F3  5A|0x00  0x01 | FF  FF  FF  FF|
+  |_____________|___________|___________|_______________|
+  |Section      |  Header   | Config parameters         |
+  |_____________|___________|___________________________|
+  -Byte4: 0x00 maps the corresponding byte in 0x42 to control the small motor.
+          0xFF in the 0x42 command will turn it on, all other values turn it
+          off.
+  -Byte5: 0x01 maps the corresponding byte in 0x42 to control the large motor.
+          The power delivered to the large motor is then set from 0x00 to 0xFF
+          in 0x42. 0x40 was the smallest value that would actually make the
+          motor spin for us.
+  -0xFF:  Disables, and is the default value when the controller is first
+          connected. The data bytes just report the current mapping.
+  -Things don't always work if more than one command byte is mapped to a motor.
+  */
+
+  #ifdef PS2X_DEBUG
+  uint8_t LaaDataOut[9];
+  #endif
+  uint8_t i;
+  uint8_t LddReturn;
+
+  LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
 
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
 
-  for (i=0; i< LucLen; i++)
-  {
-    GaaPS2Data[i] = PS2_Transfer(LpCommandList[i]);
-  }
+  /* 1. Send header command */
+  PS2_TransferHeaderCommand(PS2_ENABLE_VIBRATION_CMD);
 
-  /* Set attention pin as HIGH to end communication */
+  /* 2. Send data config */
+  GaaPS2Data[3] = PS2_Transfer(PS2_SMALL_MOTOR);
+  GaaPS2Data[4] = PS2_Transfer(PS2_LARGE_MOTOR);
+
+  /* 3. Send Dummy data */
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    GaaPS2Data[4+1+i] = 0xFF;
+  }
+  /* Set attention pin as HIGH to start communication */
   PS2_CHIPSELECT_HIGH();
 
-
   #ifdef PS2X_DEBUG
-  PS2_PrintData(LpCommandList, LucLen);
+  Serial.println("PS2_EnableVibration");
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_ENABLE_VIBRATION_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  LaaDataOut[3] = PS2_SMALL_MOTOR;
+  LaaDataOut[4] = PS2_LARGE_MOTOR;
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
+  }
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
+
+  /* Verify motor vibration ??? */
+  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
+
+  return LddReturn;
 }
+
 bool PS2_SetMode(bool enMode)
 {
   /* Only works after the controller is in config mode (0xF3).
@@ -530,20 +532,4 @@ void PS2_GetMode(void)
   PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
 }
-
-#ifdef PS2X_DEBUG
-void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen)
-{
-  uint8_t i;
-  Serial.println("OUT:IN");
-  for (i=0; i< LucLen; i++)
-  {
-    Serial.print(LpCommandList[i], HEX);
-    Serial.print(":");
-    Serial.print(GaaPS2Data[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println("");
-}
-#endif
 

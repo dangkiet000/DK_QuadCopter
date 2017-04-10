@@ -3,7 +3,11 @@
  * $Revision: 1
  * $Date: 09/04/2017
  * @brief: This is library which control Play Station 2 of Sony.
- * @Porting author: DangKiet
+ * @Author: DangKiet
+
+ @Limitation:
+ - Only support Play Station 2 Dual Shock
+ - Not support Analog Button Pressure Mode.
 
 BASE ON:
 Super amazing PS2 controller Arduino Library v1.8
@@ -23,19 +27,19 @@ See the GNU General Public License for more details.
 <http://www.gnu.org/licenses/>
 *******************************************************************************/
 
-/********************         Connection          ******************************
-   PS2              |         MCU
-   Data         <------>   MISO
-   Attention    <------>   Chip Select
-   Clock        <------>   SCK
-   Power        <------>   3.3V
-   GND          <------>   GND
-   Acknowledge  <------>   Interrupt (No require)
-
-Notes:
-1. DATA and ACK pin is open-collector => Connect this pin to 4.7k pull-up
-resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
-0x63 instead 0x73(analog mode).
+/********************         CONNECTION          ******************************
+ *    PS2              |         MCU
+ *    Data         <------>   MISO
+ *    Attention    <------>   Chip Select
+ *    Clock        <------>   SCK
+ *    Power        <------>   3.3V
+ *    GND          <------>   GND
+ *    Acknowledge  <------>   Interrupt (Option)
+ *
+ * Notes:
+ * 1. DATA and ACK pin is open-collector => Connect this pin to 4.7k pull-up
+ * resistor. If this pin is not connect pull-up resistor, DATA is wrong and
+ * byte1 will return 0x63 instead 0x73(analog mode).
 *******************************************************************************/
 
 /* To debug ps2 controller, uncomment these lines to print out debug to uart */
@@ -46,10 +50,9 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 #include "Arduino.h"
 #endif
 
-#include <math.h>
 #include <stdio.h>
 #include <stdint.h>
-  // AVR
+
 #include <avr/io.h>
 #include "SPI.h"
 
@@ -165,7 +168,6 @@ void PS2_SPIInit(void);
 *******************************************************************************/
 void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo);
 bool PS2_TransferHeaderCommand(uint8_t LucCommand);
-void PS2_TransferCommandList(uint8_t *LpCommandList, uint8_t LucLen);
 bool PS2_ConfigMode(bool blConfigMode);
 
 #ifdef PS2X_DEBUG
