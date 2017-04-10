@@ -77,11 +77,15 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 #define PS2_PAD_DOWN    0xBF // BIT6
 #define PS2_PAD_LEFT    0x7F // BIT7
 
+/* Define index of ucAnalogJoystick[] */
+#define PS2_RX      0x00
+#define PS2_RY      0x01
+#define PS2_LX      0x02
+#define PS2_LY      0x03
 
 /* Bit define for byte4 of command 0x43: Enter/Exit Config Mode */
 #define ENTER_CONFIG_MODE    0x01
 #define EXIT_CONFIG_MODE     0x00
-
 
 /* Define Command(byte2 of header command) */
 #define PS2_POLLING_CMD               0x42
@@ -104,11 +108,10 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 #define SWITCH_MODE_LOCK              0x03
 #define SWITCH_MODE_USER              0x00
 
-/* Define index of ucAnalogJoystick[] */
-#define PS2_RX      0x00
-#define PS2_RY      0x01
-#define PS2_LX      0x02
-#define PS2_LY      0x03
+/* Define data of command 0x4D: Map bytes in the 0x42 command to actuate
+   the vibration motors */
+#define PS2_SMALL_MOTOR          0x00
+#define PS2_LARGE_MOTOR          0x01
 /*******************************************************************************
 **                      Data Types                                            **
 *******************************************************************************/
@@ -174,5 +177,5 @@ void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen);
 bool PS2_Init(void);
 bool PS2_SetMode(bool enMode);
 void PS2_GetMode(void);
-void PS2_EnableVibration(void);
+bool PS2_EnableVibration(void);
 

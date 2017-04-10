@@ -137,7 +137,8 @@ bool PS2_Init(void)
   PS2_CHIPSELECT_HIGH();
 
   LddReturn = PS2_SetMode(PS2_SET_ANALOG_MODE);
-
+  LddReturn = PS2_EnableVibration();
+  
   #ifdef PS2X_DEBUG
   if(LddReturn != true) Serial.println("PS2_SET_ANALOG_MODE: FALSE");
   else Serial.println("PS2_SET_ANALOG_MODE: TRUE");
@@ -227,18 +228,18 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
 }
 
 /* Enable PS2 vibration */
-void PS2_EnableVibration(void)
+bool PS2_EnableVibration(void)
 {
   /*
   Only works after the controller is in config mode (0xF3).
-  __________________________________________________
-  Byte #       | 1  2   3  4  5  6  7  8  9
-  _____________|___________________________________
-  Command (hex)| 01  4D  00  00  01  FF  FF  FF  FF
-  Data (hex)   | FF  F3  5A  00  01  FF  FF  FF  FF
-  _____________|___________________________________
-  Section      |  Header  | Config parameters
-
+  _______________________________________________________
+  |Byte #       | 1   2   3 | 4     5   | 6   7   8   9 |
+  |_____________|___________|___________|_______________|
+  |Command (hex)| 01  4D  00|0x00  0x01 | FF  FF  FF  FF|
+  |Data (hex)   | FF  F3  5A|0x00  0x01 | FF  FF  FF  FF|
+  |_____________|___________|___________|_______________|
+  |Section      |  Header   | Config parameters         |
+  |_____________|___________|___________________________|
   -Byte4: 0x00 maps the corresponding byte in 0x42 to control the small motor.
           0xFF in the 0x42 command will turn it on, all other values turn it
           off.
@@ -250,6 +251,51 @@ void PS2_EnableVibration(void)
           connected. The data bytes just report the current mapping.
   -Things don't always work if more than one command byte is mapped to a motor.
   */
+
+  #ifdef PS2X_DEBUG
+  uint8_t LaaDataOut[9];
+  #endif
+  uint8_t i;
+  uint8_t LddReturn;
+
+  LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
+
+  /* Set attention pin as LOW to start communication */
+  PS2_CHIPSELECT_LOW();
+
+  /* 1. Send header command */
+  PS2_TransferHeaderCommand(PS2_ENABLE_VIBRATION_CMD);
+
+  /* 2. Send data config */
+  GaaPS2Data[3] = PS2_Transfer(PS2_SMALL_MOTOR);
+  GaaPS2Data[4] = PS2_Transfer(PS2_LARGE_MOTOR);
+
+  /* 3. Send Dummy data */
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    GaaPS2Data[4+1+i] = 0xFF;
+  }
+  /* Set attention pin as HIGH to start communication */
+  PS2_CHIPSELECT_HIGH();
+
+  #ifdef PS2X_DEBUG
+  Serial.println("PS2_EnableVibration");
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_ENABLE_VIBRATION_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  LaaDataOut[3] = PS2_SMALL_MOTOR;
+  LaaDataOut[4] = PS2_LARGE_MOTOR;
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
+  }
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  #endif
+
+  /* Verify motor vibration ??? */
+  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
+
+  return LddReturn;
 }
 
 /* Enter/Exit PS2 configuration mode */
@@ -311,7 +357,7 @@ bool PS2_ConfigMode(bool blConfigMode)
   LaaDataOut[1] = PS2_ENTER_EXIT_CONFIG_CMD;
   LaaDataOut[2] = PS2_END_HEADER_CMD;
   LaaDataOut[3] = blConfigMode;
-  for (i=0; i<PS2x.ucNoOfData; i++)
+  for (i=0; i<PS2x.ucNoOfData-1; i++)
   {
     LaaDataOut[3+1+i] = PS2_DUMMY_DATA;
   }
@@ -401,7 +447,7 @@ bool PS2_SetMode(bool enMode)
   /* 3. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    GaaPS2Data[4+1+i] = PS2_DUMMY_DATA;
+    GaaPS2Data[3+2+i] = PS2_DUMMY_DATA;
   }
   /* Set attention pin as HIGH to start communication */
   PS2_CHIPSELECT_HIGH();
@@ -424,7 +470,7 @@ bool PS2_SetMode(bool enMode)
   LaaDataOut[4] = SWITCH_MODE_LOCK;
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    LaaDataOut[4+1+i] = PS2_DUMMY_DATA;
+    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
   }
   PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
