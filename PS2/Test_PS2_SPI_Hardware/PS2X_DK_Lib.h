@@ -9,6 +9,8 @@ BASE ON:
 Super amazing PS2 controller Arduino Library v1.8
 http://www.billporter.info/?p=240
 
+List PS2 command:
+http://store.curiousinventor.com/guides/PS2/
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -80,10 +82,6 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 #define ENTER_CONFIG_MODE    0x01
 #define EXIT_CONFIG_MODE     0x00
 
-/* Bit define for byte5 of command 0x44: Switch mode between anaglog and
-   digital */
-#define SWITCH_MODE_LOCK     0x03
-#define SWITCH_MODE_USER     0x00
 
 /* Define Command(byte2 of header command) */
 #define PS2_POLLING_CMD               0x42
@@ -99,6 +97,12 @@ resistor. If this pin not conect r-pullup, DATA is wrong and byte1 return
 #define PS2_END_HEADER_CMD            0x00
 
 #define PS2_DUMMY_DATA                0x00
+
+/* Define data of command 0x44: Switch modes between digital and analog */
+#define PS2_SET_DIGITAL_MODE          0x00
+#define PS2_SET_ANALOG_MODE           0x01
+#define SWITCH_MODE_LOCK              0x03
+#define SWITCH_MODE_USER              0x00
 
 /* Define index of ucAnalogJoystick[] */
 #define PS2_RX      0x00
@@ -167,9 +171,7 @@ void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen);
 **                      API Functions Prototypes                              **
 *******************************************************************************/
 bool PS2_Init(void);
+bool PS2_SetMode(bool enMode);
+void PS2_GetMode(void);
 void PS2_EnableVibration(void);
-
-
-
-
 

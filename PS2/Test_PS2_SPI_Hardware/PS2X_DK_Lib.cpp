@@ -1,4 +1,3 @@
-
 /*******************************************************************************
  * @version  V1.00
  * $Revision: 1
@@ -10,6 +9,8 @@ BASE ON:
 Super amazing PS2 controller Arduino Library v1.8
 http://www.billporter.info/?p=240
 
+List PS2 command:
+http://store.curiousinventor.com/guides/PS2/
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -113,7 +114,7 @@ bool PS2_Init(void)
   bool LddReturn;
 
   LddReturn = true;
-  
+
   PS2_PortInit_as_SPI();
 
   PS2_SPIInit();
@@ -123,20 +124,14 @@ bool PS2_Init(void)
   PS2x.ucNoOfData = 2;
 
   PS2_CHIPSELECT_HIGH();
-  
-  LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
-  
-  #ifdef PS2X_DEBUG
-  if(LddReturn != true) Serial.println("ENTER_CONFIG_MODE: FALSE");
-  #endif
 
-
-  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
+  LddReturn = PS2_SetMode(PS2_SET_ANALOG_MODE);
 
   #ifdef PS2X_DEBUG
-  if(LddReturn != true) Serial.println("EXIT_CONFIG_MODE: FALSE");
+  if(LddReturn != true) Serial.println("PS2_SET_ANALOG_MODE: FALSE");
+  else Serial.println("PS2_SET_ANALOG_MODE: TRUE");
   #endif
-  
+
   return LddReturn;
 }
 
@@ -307,9 +302,9 @@ bool PS2_ConfigMode(bool blConfigMode)
 
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
-  /*********************************************************************** 
+  /***********************************************************************
    *  At this time, we have to send one more sequence to update and verify
-   *  PS2 Mode 
+   *  PS2 Mode
    ************************************************************************/
   /* 1. Send header command */
   PS2_TransferHeaderCommand(PS2_ENTER_EXIT_CONFIG_CMD);
@@ -379,6 +374,137 @@ void PS2_TransferCommandList(uint8_t *LpCommandList, uint8_t LucLen)
   PS2_PrintData(LpCommandList, LucLen);
   #endif
 }
+bool PS2_SetMode(bool enMode)
+{
+  /* Only works after the controller is in config mode (0xF3).
+  ______________________________________________________
+  Byte #       | 1   2   3 | 4     5   | 6   7   8   9  |
+  _____________|___________|___________|________________|
+  Command (hex)| 01  44  00| 0x01  0x03| 00  00  00  00 |
+  Data (hex)   | FF  F3  5A| 00    00  | 00  00  00  00 |
+  _____________|___________|___________|________________|
+  Section      |  Header   | Config parameters          |
+
+
+  -Set analog mode : Byte4:command = 0x01
+  -Set digital mode: Byte4:command = 0x00
+  -If Byte5.command is 0x03, the controller is locked, otherwise the user can
+  change from analog to digital mode using the analog button on the controller.
+  Note that if the controller is already setup to deliver pressure values,
+  toggling the state with the controller button will revert the controller back
+  into not sending pressures.
+  Some controllers have a watch-dog timer that reverts back into digital mode
+  if a command is not received within a second or so.
+  */
+  #ifdef PS2X_DEBUG
+  uint8_t LaaDataOut[9];
+  #endif
+  uint8_t i;
+  uint8_t LddReturn;
+
+  LddReturn = PS2_ConfigMode(ENTER_CONFIG_MODE);
+
+  /* Set attention pin as LOW to start communication */
+  PS2_CHIPSELECT_LOW();
+
+  /* 1. Send header command */
+  PS2_TransferHeaderCommand(PS2_SWITCH_MODE_CMD);
+
+  /* 2. Send data config */
+  GaaPS2Data[3] = PS2_Transfer(enMode);
+  GaaPS2Data[4] = PS2_Transfer(SWITCH_MODE_LOCK);
+
+  /* 3. Send Dummy data */
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    GaaPS2Data[4+1+i] = PS2_DUMMY_DATA;
+  }
+  /* Set attention pin as HIGH to start communication */
+  PS2_CHIPSELECT_HIGH();
+
+  LddReturn = PS2_ConfigMode(EXIT_CONFIG_MODE);
+  #ifdef PS2X_DEBUG
+  Serial.print("PS2_SetMode: ");
+  if(enMode == PS2_SET_DIGITAL_MODE)
+  {
+    Serial.println("DIGITAL_MODE");
+  }
+  else
+  {
+    Serial.println("ANALOG_MODE");
+  }
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_SWITCH_MODE_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  LaaDataOut[3] = enMode;
+  LaaDataOut[4] = SWITCH_MODE_LOCK;
+  for (i=0; i<PS2x.ucNoOfData-2; i++)
+  {
+    LaaDataOut[4+1+i] = PS2_DUMMY_DATA;
+  }
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  #endif
+
+  /* Verify PS2 Mode */
+  PS2_GetMode();
+
+  #ifdef PS2X_DEBUG
+  Serial.print("Verify PS2_SetMode: ");
+  if(enMode == PS2_SET_DIGITAL_MODE)
+  {
+    Serial.println("DIGITAL_MODE");
+  }
+  else
+  {
+    Serial.println("ANALOG_MODE");
+  }
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_POLLING_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  for (i=0; i<PS2x.ucNoOfData; i++)
+  {
+    LaaDataOut[3+i] = PS2_DUMMY_DATA;
+  }
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  #endif
+  /* If the high nibble is 0x7: Analog mode */
+  if(((PS2x.enPS2Mode >> 4) == 0x07) && (enMode == PS2_SET_ANALOG_MODE))
+  {
+    LddReturn = true;
+  }
+  /* If the high nibble is 0x4: Digital mode */
+  else if(((PS2x.enPS2Mode >> 4) == 0x04) && (enMode == PS2_SET_DIGITAL_MODE))
+  {
+    LddReturn = true;
+  }
+  else
+  {
+    LddReturn = false;
+  }
+
+  return LddReturn;
+}
+
+void PS2_GetMode(void)
+{
+  uint8_t i;
+  /* Set attention pin as LOW to start communication */
+  PS2_CHIPSELECT_LOW();
+
+  /* 1. Send header command */
+  PS2_TransferHeaderCommand(PS2_POLLING_CMD);
+
+  /* 2. Send Dummy data */
+  for (i=0; i<PS2x.ucNoOfData; i++)
+  {
+    GaaPS2Data[3+i] = PS2_Transfer(PS2_DUMMY_DATA);
+  }
+
+  /* Set attention pin as HIGH to start communication */
+  PS2_CHIPSELECT_HIGH();
+
+}
+
 #ifdef PS2X_DEBUG
 void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen)
 {
