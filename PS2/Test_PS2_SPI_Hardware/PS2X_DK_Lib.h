@@ -139,9 +139,6 @@ typedef enum ETag_PS2ModeType
 /* Data Structure for PS2 initialization */
 typedef struct STag_PS2_Type
 {
-  /* PS2 controller mode */
-  PS2ModeType enPS2Mode;
-
   /* Number of data Play Station 2 respond(depending on mode) */
   uint8_t ucNoOfData;
 
@@ -150,6 +147,20 @@ typedef struct STag_PS2_Type
 
   /* This is byte 6th -> 9th which contain: Analog Joystick State Mapping */
   uint8_t ucAnalogJoystick[4];
+
+  /* This is value control small motor
+     ucSmallMotor = 0 : small motor off
+     ucSmallMotor != 0 : small motor on
+  */
+  uint8_t ucSmallMotor;
+
+  /* This is value control large motor
+     0x00 - 0xFF : 0 - 100% power
+  */
+  uint8_t ucLargeMotor;
+
+  /* PS2 controller mode */
+  PS2ModeType enPS2Mode;
 } PS2_Type;
 /*******************************************************************************
 **                      Global Data                                           **
@@ -180,4 +191,4 @@ bool PS2_Init(void);
 bool PS2_SetMode(bool enMode);
 void PS2_GetMode(void);
 bool PS2_EnableVibration(void);
-
+void PS2_Read(void);

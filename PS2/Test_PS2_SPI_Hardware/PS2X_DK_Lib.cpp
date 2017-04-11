@@ -311,8 +311,6 @@ bool PS2_Init(void)
 {
   bool LddReturn;
 
-  LddReturn = true;
-
   PS2_PortInit_as_SPI();
 
   PS2_SPIInit();
@@ -323,14 +321,16 @@ bool PS2_Init(void)
 
   PS2x.ucNoOfData = 2;
 
+  PS2x.ucSmallMotor = 0;
+
+  PS2x.ucLargeMotor = 0;
+
   PS2_CHIPSELECT_HIGH();
 
-  LddReturn = PS2_SetMode(PS2_SET_ANALOG_MODE);
-  LddReturn = PS2_EnableVibration();
+  LddReturn = PS2_SetMode(PS2_SET_DIGITAL_MODE);
 
   #ifdef PS2X_DEBUG
-  if(LddReturn != true) Serial.println("PS2_SET_ANALOG_MODE: FALSE");
-  else Serial.println("PS2_SET_ANALOG_MODE: TRUE");
+  if(LddReturn != true) Serial.println("PS2_SET_DIGITAL_MODE: FALSE");
   #endif
 
   return LddReturn;
@@ -533,3 +533,56 @@ void PS2_GetMode(void)
   #endif
 }
 
+void PS2_Read(void)
+{
+  #ifdef PS2X_DEBUG
+  uint8_t LaaDataOut[9];
+  #endif
+
+  /* Set attention pin as LOW to start communication */
+  PS2_CHIPSELECT_LOW();
+
+  /* 1. Send header command */
+  PS2_TransferHeaderCommand(PS2_POLLING_CMD);
+
+  /* 2. Send data config */
+  PS2x.ucDigitalButton[0] = PS2_Transfer(PS2x.ucSmallMotor);
+  PS2x.ucDigitalButton[1] = PS2_Transfer(PS2x.ucLargeMotor);
+
+  #ifdef PS2X_DEBUG
+  GaaPS2Data[3] = PS2x.ucDigitalButton[0];
+  GaaPS2Data[4] = PS2x.ucDigitalButton[1];
+  #endif
+
+  if(PS2x.enPS2Mode == PS2_ANALOG_JOYSTICK_MODE)
+  {
+    PS2x.ucAnalogJoystick[PS2_RX] = PS2_Transfer(PS2_DUMMY_DATA);
+    PS2x.ucAnalogJoystick[PS2_RY] = PS2_Transfer(PS2_DUMMY_DATA);
+    PS2x.ucAnalogJoystick[PS2_LX] = PS2_Transfer(PS2_DUMMY_DATA);
+    PS2x.ucAnalogJoystick[PS2_LY] = PS2_Transfer(PS2_DUMMY_DATA);
+
+    #ifdef PS2X_DEBUG
+    GaaPS2Data[5] = PS2x.ucAnalogJoystick[PS2_RX];
+    GaaPS2Data[6] = PS2x.ucAnalogJoystick[PS2_RY];
+    GaaPS2Data[7] = PS2x.ucAnalogJoystick[PS2_LX];
+    GaaPS2Data[8] = PS2x.ucAnalogJoystick[PS2_LY];
+    #endif
+  }
+
+  /* Set attention pin as HIGH to start communication */
+  PS2_CHIPSELECT_HIGH();
+
+  #ifdef PS2X_DEBUG
+  LaaDataOut[0] = PS2_START_HEADER_CMD;
+  LaaDataOut[1] = PS2_POLLING_CMD;
+  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  LaaDataOut[3] = PS2x.ucSmallMotor;
+  LaaDataOut[4] = PS2x.ucLargeMotor;
+  LaaDataOut[5] = PS2_DUMMY_DATA;
+  LaaDataOut[6] = PS2_DUMMY_DATA;
+  LaaDataOut[7] = PS2_DUMMY_DATA;
+  LaaDataOut[8] = PS2_DUMMY_DATA;
+
+  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  #endif
+}
