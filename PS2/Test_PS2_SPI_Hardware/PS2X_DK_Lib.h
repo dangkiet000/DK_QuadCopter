@@ -44,6 +44,7 @@ See the GNU General Public License for more details.
 
 /* To debug ps2 controller, uncomment these lines to print out debug to uart */
 #define PS2X_DEBUG
+#define PS2X_LEDERROR
 
 #ifndef PS2X_DK_Lib_h
   #define PS2X_DK_Lib_h
@@ -172,8 +173,26 @@ extern PS2_Type PS2x;
 /*******************************************************************************
 **                      Low Level Function Prototypes                         **
 *******************************************************************************/
-inline void PS2_CHIPSELECT_LOW(void);
-inline void PS2_CHIPSELECT_HIGH(void);
+#ifdef PS2X_LEDERROR
+inline void PS2_LEDERROR_OFF(void)
+{
+  digitalWrite(2, LOW);
+}
+
+inline void PS2_LEDERROR_ON(void)
+{
+  digitalWrite(2, HIGH);
+}
+#endif
+inline void PS2_CHIPSELECT_LOW(void)
+{
+  digitalWrite(10, LOW);
+}
+
+inline void PS2_CHIPSELECT_HIGH(void)
+{
+  digitalWrite(10, HIGH);
+}
 uint8_t PS2_Transfer(uint8_t data);
 void PS2_PortInit_as_SPI(void);
 void PS2_SPIInit(void);

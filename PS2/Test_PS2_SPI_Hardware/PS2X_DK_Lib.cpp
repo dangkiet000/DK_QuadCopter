@@ -52,16 +52,6 @@ PS2_Type PS2x;
 /*******************************************************************************
 **                      Low Level Function Prototypes                         **
 *******************************************************************************/
-inline void PS2_CHIPSELECT_LOW(void)
-{
-  digitalWrite(10, LOW);
-}
-
-inline void PS2_CHIPSELECT_HIGH(void)
-{
-  digitalWrite(10, HIGH);
-}
-
 uint8_t PS2_Transfer(uint8_t data)
 {
   return SPI.transfer(data);
@@ -101,7 +91,6 @@ void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo)
 {
   switch(enErrorId)
   {
-    //PS2_LEDERROR_ON();
     case WRONG_HEADER_DATA_RESPOND:
       #ifdef PS2X_DEBUG
       Serial.println("Byte1 of header command respond is incorrect!");
@@ -124,7 +113,9 @@ void PS2_DET_ErrorReport(PS2ErrorIdType enErrorId, uint8_t LucInfo)
       break;
     default: break;
   }
-
+  #ifdef PS2X_LEDERROR
+  PS2_LEDERROR_ON();
+  #endif
 }
 
 bool PS2_TransferHeaderCommand(uint8_t LucCommand)
@@ -317,9 +308,12 @@ bool PS2_Init(void)
   PS2_PortInit_as_SPI();
 
   PS2_SPIInit();
-
-  //PS2_LEDERROR_OFF();
-
+  #ifdef PS2X_LEDERROR
+  /* Set LEDERROR pin as OUTPUT */
+  pinMode(2, OUTPUT);
+  
+  PS2_LEDERROR_OFF();
+  #endif
   PS2x.enPS2Mode = PS2_DIGITAL_MODE;
 
   PS2x.ucNoOfData = 2;
