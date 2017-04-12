@@ -61,60 +61,63 @@ See the GNU General Public License for more details.
 **                      Define macro                                          **
 *******************************************************************************/
 /* Button mapping of byte5 */
-#define PS2_L2          0xFE // BIT0 Need to confirm with new PS2 controller
-#define PS2_R2          0xFD // BIT1
-#define PS2_L1          0xFB // BIT2 Need to confirm with new PS2 controller
-#define PS2_R1          0xF7 // BIT3
-#define PS2_TRIANGLE    0xEF // BIT4
-#define PS2_CIRCLE      0xBF // BIT6
-#define PS2_CROSS       0xDF // BIT5
-#define PS2_SQUARE      0x7F // BIT7
+#define PS2_L2                        0xFE // BIT0 Need to confirm with new PS2 controller
+#define PS2_R2                        0xFD // BIT1
+#define PS2_L1                        0xFB // BIT2 Need to confirm with new PS2 controller
+#define PS2_R1                        0xF7 // BIT3
+#define PS2_TRIANGLE                  0xEF // BIT4
+#define PS2_CIRCLE                    0xBF // BIT6
+#define PS2_CROSS                     0xDF // BIT5
+#define PS2_SQUARE                    0x7F // BIT7
 
 /* Button mapping of byte4 */
-#define PS2_SELECT      0xFE // BIT0
-#define PS2_L3          0xFD // BIT1
-#define PS2_R3          0xFB // BIT2
-#define PS2_START       0xF7 // BIT3
-#define PS2_PAD_UP      0xEF // BIT4
-#define PS2_PAD_RIGHT   0xDF // BIT5
-#define PS2_PAD_DOWN    0xBF // BIT6
-#define PS2_PAD_LEFT    0x7F // BIT7
+#define PS2_SELECT                    0xFE // BIT0
+#define PS2_L3                        0xFD // BIT1
+#define PS2_R3                        0xFB // BIT2
+#define PS2_START                     0xF7 // BIT3
+#define PS2_PAD_UP                    0xEF // BIT4
+#define PS2_PAD_RIGHT                 0xDF // BIT5
+#define PS2_PAD_DOWN                  0xBF // BIT6
+#define PS2_PAD_LEFT                  0x7F // BIT7
 
 /* Define index of ucAnalogJoystick[] */
-#define PS2_RX      0x00
-#define PS2_RY      0x01
-#define PS2_LX      0x02
-#define PS2_LY      0x03
+#define PS2_RX                        0x00U
+#define PS2_RY                        0x01U
+#define PS2_LX                        0x02U
+#define PS2_LY                        0x03U
 
 /* Bit define for byte4 of command 0x43: Enter/Exit Config Mode */
-#define ENTER_CONFIG_MODE    0x01
-#define EXIT_CONFIG_MODE     0x00
+#define ENTER_CONFIG_MODE             0x01U
+#define EXIT_CONFIG_MODE              0x00U
 
 /* Define Command(byte2 of header command) */
-#define PS2_POLLING_CMD               0x42
-#define PS2_ENTER_EXIT_CONFIG_CMD     0x43
+#define PS2_POLLING_CMD               0x42U
+#define PS2_ENTER_EXIT_CONFIG_CMD     0x43U
 /* These command only work in config mode(0xF3) */
-#define PS2_SHOW_BUTTON_IN_POLL_CMD   0x41
-#define PS2_SWITCH_MODE_CMD           0x44
-#define PS2_STATUS_INFO_CMD           0x45
-#define PS2_ENABLE_VIBRATION_CMD      0x4D
-#define PS2_ENABLE_PRESSURE_CMD       0x4F
+#define PS2_SHOW_BUTTON_IN_POLL_CMD   0x41U
+#define PS2_SWITCH_MODE_CMD           0x44U
+#define PS2_STATUS_INFO_CMD           0x45U
+#define PS2_ENABLE_VIBRATION_CMD      0x4DU
+#define PS2_ENABLE_PRESSURE_CMD       0x4FU
 
-#define PS2_START_HEADER_CMD          0x01
-#define PS2_END_HEADER_CMD            0x00
+#define PS2_START_HEADER_CMD          0x01U
+#define PS2_END_HEADER_CMD            0x00U
 
-#define PS2_DUMMY_DATA                0x00
+
 
 /* Define data of command 0x44: Switch modes between digital and analog */
-#define PS2_SET_DIGITAL_MODE          0x00
-#define PS2_SET_ANALOG_MODE           0x01
-#define SWITCH_MODE_LOCK              0x03
-#define SWITCH_MODE_USER              0x00
+#define PS2_SET_DIGITAL_MODE          0x00U
+#define PS2_SET_ANALOG_MODE           0x01U
+#define SWITCH_MODE_LOCK              0x03U
+#define SWITCH_MODE_USER              0x00U
 
 /* Define data of command 0x4D: Map bytes in the 0x42 command to actuate
    the vibration motors */
-#define PS2_SMALL_MOTOR          0x00
-#define PS2_LARGE_MOTOR          0x01
+#define PS2_SMALL_MOTOR               0x00U
+#define PS2_LARGE_MOTOR               0x01U
+
+#define PS2_DUMMY_DATA                0x00U
+#define PS2_NO_OF_HEADER_DATA         0x03U
 /*******************************************************************************
 **                      Data Types                                            **
 *******************************************************************************/

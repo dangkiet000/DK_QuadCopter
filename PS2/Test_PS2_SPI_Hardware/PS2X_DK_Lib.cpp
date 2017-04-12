@@ -39,22 +39,27 @@ See the GNU General Public License for more details.
 /*******************************************************************************
 **                      Global Datas                                          **
 *******************************************************************************/
-uint8_t GaaPS2Data[21];
-PS2_Type PS2x;
+/* Array contain all data which MCU is received from PS2 */
+uint8_t PS2_GaaRXData[21];
 
+#ifdef PS2X_DEBUG
+/* Array contain all data which MCU sent to PS2 */
+uint8_t PS2_GaaTXData[9];
+#endif
+
+/* Data structure of PS2 */
+PS2_Type PS2x;
 /*******************************************************************************
 **                      Low Level Function Prototypes                         **
 *******************************************************************************/
 inline void PS2_CHIPSELECT_LOW(void)
 {
   digitalWrite(10, LOW);
-  //delayMicroseconds(10);
 }
 
 inline void PS2_CHIPSELECT_HIGH(void)
 {
   digitalWrite(10, HIGH);
-  //delay(10);
 }
 
 uint8_t PS2_Transfer(uint8_t data)
@@ -151,9 +156,9 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
   |________|_______|_______|___________________________________________________|
   */
   /* 1. Send header command */
-  GaaPS2Data[0] = PS2_Transfer(PS2_START_HEADER_CMD);
+  PS2_GaaRXData[0] = PS2_Transfer(PS2_START_HEADER_CMD);
 
-  if(GaaPS2Data[0] != 0xFF)
+  if(PS2_GaaRXData[0] != 0xFF)
   {
     /* DET error detected */
     PS2_DET_ErrorReport(WRONG_HEADER_DATA_RESPOND, 0);
@@ -161,44 +166,44 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
     return false;
   }
 
-  GaaPS2Data[1] = PS2_Transfer(LucCommand);
+  PS2_GaaRXData[1] = PS2_Transfer(LucCommand);
 
-  if(GaaPS2Data[1] == 0x41)
+  if(PS2_GaaRXData[1] == 0x41)
   {
     PS2x.enPS2Mode = PS2_DIGITAL_MODE;
     PS2x.ucNoOfData = 2;
   }
-  else if(GaaPS2Data[1] == 0x73)
+  else if(PS2_GaaRXData[1] == 0x73)
   {
     PS2x.enPS2Mode = PS2_ANALOG_JOYSTICK_MODE;
     PS2x.ucNoOfData = 6;
   }
-  else if(GaaPS2Data[1] == 0x79)
+  else if(PS2_GaaRXData[1] == 0x79)
   {
     PS2x.enPS2Mode = PS2_ANALOG_PRESSURE_MODE;
     PS2x.ucNoOfData = 18;
   }
-  else if(GaaPS2Data[1] == 0xF3)
+  else if(PS2_GaaRXData[1] == 0xF3)
   {
     PS2x.enPS2Mode = PS2_CONFIG_MODE;
     PS2x.ucNoOfData = 6;
   }
-  else if(GaaPS2Data[1] == 0x63)
+  else if(PS2_GaaRXData[1] == 0x63)
   {
     PS2x.enPS2Mode = PS2_UNDEFINED_MODE;
     /* DET error detected */
-    PS2_DET_ErrorReport(PS2_LACK_PULLUP_RESISTOR, GaaPS2Data[1]);
+    PS2_DET_ErrorReport(PS2_LACK_PULLUP_RESISTOR, PS2_GaaRXData[1]);
     return false;
   }
   else
   {
     PS2x.enPS2Mode = PS2_UNDEFINED_MODE;
     /* DET error detected */
-    PS2_DET_ErrorReport(PS2_MODE_IS_UNDEFINED, GaaPS2Data[1]);
+    PS2_DET_ErrorReport(PS2_MODE_IS_UNDEFINED, PS2_GaaRXData[1]);
     return false;
   }
 
-  GaaPS2Data[2] = PS2_Transfer(PS2_END_HEADER_CMD);
+  PS2_GaaRXData[2] = PS2_Transfer(PS2_END_HEADER_CMD);
   return true;
 }
 
@@ -226,9 +231,7 @@ bool PS2_ConfigMode(bool blConfigMode)
           mode, it behaves just like 0x42, but without vibration motor control.
   */
   uint8_t i;
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
+
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
 
@@ -236,12 +239,12 @@ bool PS2_ConfigMode(bool blConfigMode)
   PS2_TransferHeaderCommand(PS2_ENTER_EXIT_CONFIG_CMD);
 
   /* 2. Send data config */
-  GaaPS2Data[3] = PS2_Transfer(blConfigMode);
+  PS2_GaaRXData[3] = PS2_Transfer(blConfigMode);
 
   /* 3. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    GaaPS2Data[3+1+i] = PS2_Transfer(PS2_DUMMY_DATA);
+    PS2_GaaRXData[PS2_NO_OF_HEADER_DATA+1+i] = PS2_Transfer(PS2_DUMMY_DATA);
   }
 
   /* Set attention pin as HIGH to end communication */
@@ -257,15 +260,15 @@ bool PS2_ConfigMode(bool blConfigMode)
   {
     Serial.println("EXIT");
   }
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_ENTER_EXIT_CONFIG_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = blConfigMode;
+  PS2_GaaTXData[0] = PS2_START_HEADER_CMD;
+  PS2_GaaTXData[1] = PS2_ENTER_EXIT_CONFIG_CMD;
+  PS2_GaaTXData[2] = PS2_END_HEADER_CMD;
+  PS2_GaaTXData[3] = blConfigMode;
   for (i=0; i<PS2x.ucNoOfData-1; i++)
   {
-    LaaDataOut[3+1+i] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[PS2_NO_OF_HEADER_DATA+1+i] = PS2_DUMMY_DATA;
   }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  PS2_PrintData(PS2_GaaTXData, PS2_NO_OF_HEADER_DATA+PS2x.ucNoOfData);
   #endif
 
   /* Set attention pin as LOW to start communication */
@@ -297,7 +300,7 @@ void PS2_PrintData(uint8_t *LpCommandList, uint8_t LucLen)
   {
     Serial.print(LpCommandList[i], HEX);
     Serial.print(":");
-    Serial.print(GaaPS2Data[i], HEX);
+    Serial.print(PS2_GaaRXData[i], HEX);
     Serial.print(" ");
   }
   Serial.println("");
@@ -359,10 +362,6 @@ bool PS2_EnableVibration(void)
           connected. The data bytes just report the current mapping.
   -Things don't always work if more than one command byte is mapped to a motor.
   */
-
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
   uint8_t i;
   uint8_t LddReturn;
 
@@ -375,29 +374,29 @@ bool PS2_EnableVibration(void)
   PS2_TransferHeaderCommand(PS2_ENABLE_VIBRATION_CMD);
 
   /* 2. Send data config */
-  GaaPS2Data[3] = PS2_Transfer(PS2_SMALL_MOTOR);
-  GaaPS2Data[4] = PS2_Transfer(PS2_LARGE_MOTOR);
+  PS2_GaaRXData[3] = PS2_Transfer(PS2_SMALL_MOTOR);
+  PS2_GaaRXData[4] = PS2_Transfer(PS2_LARGE_MOTOR);
 
   /* 3. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    GaaPS2Data[4+1+i] = 0xFF;
+    PS2_GaaRXData[PS2_NO_OF_HEADER_DATA+2+i] = 0xFF;
   }
   /* Set attention pin as HIGH to start communication */
   PS2_CHIPSELECT_HIGH();
 
   #ifdef PS2X_DEBUG
   Serial.println("PS2_EnableVibration");
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_ENABLE_VIBRATION_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = PS2_SMALL_MOTOR;
-  LaaDataOut[4] = PS2_LARGE_MOTOR;
+  PS2_GaaTXData[0] = PS2_START_HEADER_CMD;
+  PS2_GaaTXData[1] = PS2_ENABLE_VIBRATION_CMD;
+  PS2_GaaTXData[2] = PS2_END_HEADER_CMD;
+  PS2_GaaTXData[3] = PS2_SMALL_MOTOR;
+  PS2_GaaTXData[4] = PS2_LARGE_MOTOR;
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[PS2_NO_OF_HEADER_DATA+2+i] = PS2_DUMMY_DATA;
   }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  PS2_PrintData(PS2_GaaTXData, PS2_NO_OF_HEADER_DATA+PS2x.ucNoOfData);
   #endif
 
   /* Verify motor vibration ??? */
@@ -428,9 +427,6 @@ bool PS2_SetMode(bool enMode)
   Some controllers have a watch-dog timer that reverts back into digital mode
   if a command is not received within a second or so.
   */
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
   uint8_t i;
   uint8_t LddReturn;
 
@@ -443,13 +439,13 @@ bool PS2_SetMode(bool enMode)
   PS2_TransferHeaderCommand(PS2_SWITCH_MODE_CMD);
 
   /* 2. Send data config */
-  GaaPS2Data[3] = PS2_Transfer(enMode);
-  GaaPS2Data[4] = PS2_Transfer(SWITCH_MODE_USER);
-  
+  PS2_GaaRXData[3] = PS2_Transfer(enMode);
+  PS2_GaaRXData[4] = PS2_Transfer(SWITCH_MODE_USER);
+
   /* 3. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    GaaPS2Data[3+2+i] = PS2_DUMMY_DATA;
+    PS2_GaaRXData[PS2_NO_OF_HEADER_DATA+2+i] = PS2_DUMMY_DATA;
   }
   /* Set attention pin as HIGH to start communication */
   PS2_CHIPSELECT_HIGH();
@@ -465,16 +461,16 @@ bool PS2_SetMode(bool enMode)
   {
     Serial.println("ANALOG_MODE");
   }
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_SWITCH_MODE_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = enMode;
-  LaaDataOut[4] = SWITCH_MODE_LOCK;
+  PS2_GaaTXData[0] = PS2_START_HEADER_CMD;
+  PS2_GaaTXData[1] = PS2_SWITCH_MODE_CMD;
+  PS2_GaaTXData[2] = PS2_END_HEADER_CMD;
+  PS2_GaaTXData[3] = enMode;
+  PS2_GaaTXData[4] = SWITCH_MODE_LOCK;
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
-    LaaDataOut[3+2+i] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[PS2_NO_OF_HEADER_DATA+2+i] = PS2_DUMMY_DATA;
   }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  PS2_PrintData(PS2_GaaTXData, PS2_NO_OF_HEADER_DATA+PS2x.ucNoOfData);
   #endif
 
   /* Verify PS2 Mode */
@@ -500,9 +496,7 @@ bool PS2_SetMode(bool enMode)
 
 void PS2_GetMode(void)
 {
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
+
   uint8_t i;
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
@@ -513,7 +507,7 @@ void PS2_GetMode(void)
   /* 2. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    GaaPS2Data[3+i] = PS2_Transfer(PS2_DUMMY_DATA);
+    PS2_GaaRXData[PS2_NO_OF_HEADER_DATA+i] = PS2_Transfer(PS2_DUMMY_DATA);
   }
 
   /* Set attention pin as HIGH to start communication */
@@ -522,23 +516,19 @@ void PS2_GetMode(void)
   #ifdef PS2X_DEBUG
   Serial.println("PS2_GetMode");
 
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_POLLING_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
+  PS2_GaaTXData[0] = PS2_START_HEADER_CMD;
+  PS2_GaaTXData[1] = PS2_POLLING_CMD;
+  PS2_GaaTXData[2] = PS2_END_HEADER_CMD;
   for (i=0; i<PS2x.ucNoOfData; i++)
   {
-    LaaDataOut[3+i] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[PS2_NO_OF_HEADER_DATA+i] = PS2_DUMMY_DATA;
   }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  PS2_PrintData(PS2_GaaTXData, PS2_NO_OF_HEADER_DATA+PS2x.ucNoOfData);
   #endif
 }
 
 void PS2_Read(void)
 {
-  #ifdef PS2X_DEBUG
-  uint8_t LaaDataOut[9];
-  #endif
-
   /* Set attention pin as LOW to start communication */
   PS2_CHIPSELECT_LOW();
 
@@ -550,8 +540,8 @@ void PS2_Read(void)
   PS2x.ucDigitalButton[1] = PS2_Transfer(PS2x.ucLargeMotor);
 
   #ifdef PS2X_DEBUG
-  GaaPS2Data[3] = PS2x.ucDigitalButton[0];
-  GaaPS2Data[4] = PS2x.ucDigitalButton[1];
+  PS2_GaaRXData[3] = PS2x.ucDigitalButton[0];
+  PS2_GaaRXData[4] = PS2x.ucDigitalButton[1];
   #endif
 
   if(PS2x.enPS2Mode == PS2_ANALOG_JOYSTICK_MODE)
@@ -562,10 +552,10 @@ void PS2_Read(void)
     PS2x.ucAnalogJoystick[PS2_LY] = PS2_Transfer(PS2_DUMMY_DATA);
 
     #ifdef PS2X_DEBUG
-    GaaPS2Data[5] = PS2x.ucAnalogJoystick[PS2_RX];
-    GaaPS2Data[6] = PS2x.ucAnalogJoystick[PS2_RY];
-    GaaPS2Data[7] = PS2x.ucAnalogJoystick[PS2_LX];
-    GaaPS2Data[8] = PS2x.ucAnalogJoystick[PS2_LY];
+    PS2_GaaRXData[5] = PS2x.ucAnalogJoystick[PS2_RX];
+    PS2_GaaRXData[6] = PS2x.ucAnalogJoystick[PS2_RY];
+    PS2_GaaRXData[7] = PS2x.ucAnalogJoystick[PS2_LX];
+    PS2_GaaRXData[8] = PS2x.ucAnalogJoystick[PS2_LY];
     #endif
   }
 
@@ -573,18 +563,18 @@ void PS2_Read(void)
   PS2_CHIPSELECT_HIGH();
 
   #ifdef PS2X_DEBUG
-  LaaDataOut[0] = PS2_START_HEADER_CMD;
-  LaaDataOut[1] = PS2_POLLING_CMD;
-  LaaDataOut[2] = PS2_END_HEADER_CMD;
-  LaaDataOut[3] = PS2x.ucSmallMotor;
-  LaaDataOut[4] = PS2x.ucLargeMotor;
+  PS2_GaaTXData[0] = PS2_START_HEADER_CMD;
+  PS2_GaaTXData[1] = PS2_POLLING_CMD;
+  PS2_GaaTXData[2] = PS2_END_HEADER_CMD;
+  PS2_GaaTXData[3] = PS2x.ucSmallMotor;
+  PS2_GaaTXData[4] = PS2x.ucLargeMotor;
   if(PS2x.enPS2Mode == PS2_ANALOG_JOYSTICK_MODE)
   {
-    LaaDataOut[5] = PS2_DUMMY_DATA;
-    LaaDataOut[6] = PS2_DUMMY_DATA;
-    LaaDataOut[7] = PS2_DUMMY_DATA;
-    LaaDataOut[8] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[5] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[6] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[7] = PS2_DUMMY_DATA;
+    PS2_GaaTXData[8] = PS2_DUMMY_DATA;
   }
-  PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
+  PS2_PrintData(PS2_GaaTXData, PS2_NO_OF_HEADER_DATA+PS2x.ucNoOfData);
   #endif
 }
