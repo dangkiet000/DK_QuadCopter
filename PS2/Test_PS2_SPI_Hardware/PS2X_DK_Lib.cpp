@@ -166,7 +166,7 @@ bool PS2_TransferHeaderCommand(uint8_t LucCommand)
   if(GaaPS2Data[1] == 0x41)
   {
     PS2x.enPS2Mode = PS2_DIGITAL_MODE;
-    PS2x.ucNoOfData = 5;
+    PS2x.ucNoOfData = 2;
   }
   else if(GaaPS2Data[1] == 0x73)
   {
@@ -444,8 +444,8 @@ bool PS2_SetMode(bool enMode)
 
   /* 2. Send data config */
   GaaPS2Data[3] = PS2_Transfer(enMode);
-  GaaPS2Data[4] = PS2_Transfer(SWITCH_MODE_LOCK);
-
+  GaaPS2Data[4] = PS2_Transfer(SWITCH_MODE_USER);
+  
   /* 3. Send Dummy data */
   for (i=0; i<PS2x.ucNoOfData-2; i++)
   {
@@ -578,11 +578,13 @@ void PS2_Read(void)
   LaaDataOut[2] = PS2_END_HEADER_CMD;
   LaaDataOut[3] = PS2x.ucSmallMotor;
   LaaDataOut[4] = PS2x.ucLargeMotor;
-  LaaDataOut[5] = PS2_DUMMY_DATA;
-  LaaDataOut[6] = PS2_DUMMY_DATA;
-  LaaDataOut[7] = PS2_DUMMY_DATA;
-  LaaDataOut[8] = PS2_DUMMY_DATA;
-
+  if(PS2x.enPS2Mode == PS2_ANALOG_JOYSTICK_MODE)
+  {
+    LaaDataOut[5] = PS2_DUMMY_DATA;
+    LaaDataOut[6] = PS2_DUMMY_DATA;
+    LaaDataOut[7] = PS2_DUMMY_DATA;
+    LaaDataOut[8] = PS2_DUMMY_DATA;
+  }
   PS2_PrintData(LaaDataOut, 3+PS2x.ucNoOfData);
   #endif
 }

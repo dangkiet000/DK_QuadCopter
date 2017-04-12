@@ -8,6 +8,7 @@ void setup()
   delay(300);  
   
   PS2_Init();
+  PS2_SetMode(PS2_SET_ANALOG_MODE);
 }
 
 void loop() 
