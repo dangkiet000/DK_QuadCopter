@@ -348,10 +348,12 @@ bool PS2_EnableVibration(void)
   -Byte4: 0x00 maps the corresponding byte in 0x42 to control the small motor.
           0xFF in the 0x42 command will turn it on, all other values turn it
           off.
+  -Byte4: 0xFF disable vibaration.
   -Byte5: 0x01 maps the corresponding byte in 0x42 to control the large motor.
           The power delivered to the large motor is then set from 0x00 to 0xFF
           in 0x42. 0x40 was the smallest value that would actually make the
           motor spin for us.
+  -Byte5: 0xFF disable vibaration.
   -0xFF:  Disables, and is the default value when the controller is first
           connected. The data bytes just report the current mapping.
   -Things don't always work if more than one command byte is mapped to a motor.

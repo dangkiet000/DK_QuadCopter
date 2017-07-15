@@ -18,11 +18,19 @@ UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Regulator-linea
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/SparkFun/SparkFun-Connectors.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/LED.lbr"
 UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Connector/pinhead.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/MCU.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/SparkFun/SparkFun-Aesthetics.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/diy-modules.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Module/gy-521.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Transistor.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/ElectroMechanical.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Resonator.lbr"
+UsedLibrary="D:/Dropbox/Dropbox/Software/Mylib EAGLE/Project lib/Module.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="-8 -8 1357 697"
-State=1
+Loc="0 0 1365 705"
+State=2
 Number=0
 
 [Desktop]
