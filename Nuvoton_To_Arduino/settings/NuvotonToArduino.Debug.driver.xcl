@@ -1,0 +1,19 @@
+"--endian=little" 
+
+"--cpu=Cortex-M0" 
+
+"--fpu=None" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\CONFIG\debugger\Nuvoton\M0516LDN.ddf" 
+
+"--drv_verify_download" 
+
+"--semihosting" 
+
+"--device=M0516LDN" 
+
+
+
+
