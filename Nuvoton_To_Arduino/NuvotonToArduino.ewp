@@ -227,7 +227,7 @@
                 </option>
                 <option>
                     <name>CCPreprocLine</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>CCListCFile</name>
@@ -340,8 +340,9 @@
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
-                    <state>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Include</state>
+                    <state>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton</state>
                     <state>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\CMSIS\Include</state>
+                    <state>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Include</state>
                     <state>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\inc</state>
                 </option>
                 <option>
@@ -409,7 +410,7 @@
                 </option>
                 <option>
                     <name>IccCppInlineSemantics</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccCmsis</name>
@@ -2044,6 +2045,9 @@
                     <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
                 </file>
             </group>
+            <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+            </file>
             <file>
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
             </file>

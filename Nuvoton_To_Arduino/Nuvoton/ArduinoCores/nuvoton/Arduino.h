@@ -16,23 +16,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#if defined(__M451__)
-  #include "M451Series.h"
-#elif defined(__NUC240__)
-  #include "NUC200Series.h"
-#elif defined(__NANO100__)
-  #include "Nano100Series.h"
-#elif defined(__NUC131__)
-  #include "NUC131.h"
-#elif defined(__NANO1X2__)
-  #include "Nano1X2Series.h"
 
-#elif defined(__M051__)
+#if defined(__M051__)
   #include "M051Series.h"
 #endif
 
 //#include "Pins_arduino.h"
-#define F_CPU       50000000UL
+#define PLL_CLOCK           50000000UL
+#define F_CPU               PLL_CLOCK
 #include "wiring_constants.h"
 
 
@@ -53,7 +44,7 @@ extern "C" {
 #include "wiring_digital.h"
 //#include "wiring_analog.h"
 //#include "wiring_shift.h"
-//#include "WInterrupts.h"
+#include "WInterrupts.h"
 
 void yield(void);
 

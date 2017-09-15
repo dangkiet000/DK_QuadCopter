@@ -31,8 +31,8 @@ struct __FILE
     int handle; /* Add whatever you need here */
 };
 #endif
-FILE __stdout;
-FILE __stdin;
+//FILE __stdout;
+//FILE __stdin;
 
 enum { r0, r1, r2, r3, r12, lr, pc, psr};
 

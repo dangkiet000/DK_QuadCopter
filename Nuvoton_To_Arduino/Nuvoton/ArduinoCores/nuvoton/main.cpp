@@ -21,24 +21,40 @@
 /*
  * \brief Main entry point of Arduino application
  */
+#define LED_PIN 0
+#define BUTTON_PIN 30
+
+void Blinking(void)
+{
+  P00 ^= 1;
+
+}
+
 void main( void )
 {
 	init();		
 	
-	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
+//	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
 //	USBDevice.attach();
-	#endif
-			
+//	#endif
+  
+  attachInterrupt(BUTTON_PIN, Blinking, FALLING);
 //	setup();
-	pinMode(0, OUTPUT);
-	for (;;)
+	pinMode(LED_PIN, OUTPUT);
+
+  digitalWrite(LED_PIN, LOW);
+  while(1)
 	{
+
 //		loop();		
 //		if(serialEventRun) serialEventRun();
-    delay(1000);
-    digitalWrite(0, HIGH);
-    delay(1000);
-    digitalWrite(0, LOW);
+//    delay(1000);
+//    digitalWrite(LED_PIN, HIGH);
+//    delay(1000);
+//    digitalWrite(LED_PIN, LOW);
+    //Blinking();
+    //delay(1000);
+    //P00 ^= 1;
 	}
   
 }

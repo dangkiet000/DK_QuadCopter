@@ -2327,6 +2327,9 @@
                 </file>
             </group>
             <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
             </file>
             <file>
