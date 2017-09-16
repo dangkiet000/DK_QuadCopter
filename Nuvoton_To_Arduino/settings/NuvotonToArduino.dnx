@@ -49,7 +49,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>2644168295</Checksum>
+        <Checksum>2457854420</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -61,6 +61,10 @@
     <Disassembly>
         <MixedMode>1</MixedMode>
     </Disassembly>
+    <SfrWindow>
+        <Show>1 1</Show>
+        <Sort>4 0</Sort>
+    </SfrWindow>
     <struct_types>
         <Fmt0>GPIO_T-IEN	4	0</Fmt0>
     </struct_types>
@@ -77,10 +81,8 @@
         <mode>3</mode>
     </DisassembleMode>
     <Breakpoints>
-        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_constants.h}.49.1" 0 0 0 0 "" 0 ""</Bp0>
-        <Bp1>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c}.147.7" 1 0 0 0 "" 0 ""</Bp1>
-        <Bp2>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c}.71.3" 1 0 0 0 "" 0 ""</Bp2>
-        <Count>3</Count>
+        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c}.147.7" 1 0 0 0 "" 0 ""</Bp0>
+        <Count>1</Count>
     </Breakpoints>
     <Aliases>
         <Count>0</Count>
