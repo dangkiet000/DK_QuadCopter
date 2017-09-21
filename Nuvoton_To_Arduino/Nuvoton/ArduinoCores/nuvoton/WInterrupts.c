@@ -58,8 +58,8 @@ void attachInterrupt(uint32_t pin, void (*callback)(void), uint32_t mode)
 		Lblenabled = 1;
 	}
 
-  LulPin = pin%8;
-	LpPort = (GPIO_T *)(GPIO_BASE | ((pin/8)*0x40));
+  LulPin = ARDU_PINTO_MCUPIN(pin);
+	LpPort = ARDU_PINTO_PORT(pin);
   
 	if (LpPort == P0)
 		callbacksP0[LulPin] = callback;
@@ -89,8 +89,8 @@ void detachInterrupt(uint32_t pin)
   GPIO_T * LpPort;
   uint32_t LulPin;
   
-  LulPin = pin%8;
-	LpPort = (GPIO_T *)(GPIO_BASE | ((pin/8)*0x40));
+  LulPin = ARDU_PINTO_MCUPIN(pin);
+	LpPort = ARDU_PINTO_PORT(pin);
   
 	// Disable interrupt
 	GPIO_DisableInt(LpPort, LulPin);

@@ -15,49 +15,39 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 #include "Arduino.h"
+#include "Pins_arduino.h"
 
-/*
- * \brief Main entry point of Arduino application
- */
-#define LED_PIN 0
-#define BUTTON_PIN 30
+#if defined(__M051__)
 
-void Blinking(void)
+void Ardu_PinConfigAsGPIO(uint32_t ulArduPin)
 {
-  P00 ^= 1;
-  digitalWrite(8, HIGH);
+  volatile uint32_t *LpMFPReg;
+  uint8_t LucMCUPin;
+  
+  LucMCUPin = ARDU_PINTO_MCUPIN(ulArduPin);
+  LpMFPReg = ARDU_PINTO_MFPREG(ulArduPin);
+  
+  /* Clear bit MFP */
+  bitClear(*LpMFPReg, LucMCUPin); 
+  
+  /* Clear bit ALT */
+  bitClear(*LpMFPReg, LucMCUPin + 8); 
 }
 
-void main( void )
+void Ardu_PinConfigAsPWM(uint32_t ulArduPin)
 {
-  uint32_t LulCnt;
-	init();		
-//	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
-//	USBDevice.attach();
-//	#endif
+  volatile uint32_t *LpMFPReg;
+  uint8_t LucMCUPin;
   
-  //attachInterrupt(BUTTON_PIN, Blinking, FALLING);
-//	setup();
-  pinMode(BUTTON_PIN, INPUT);
-	pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
+  LucMCUPin = ARDU_PINTO_MCUPIN(ulArduPin);
+  LpMFPReg = ARDU_PINTO_MFPREG(ulArduPin);
   
-  analogWrite(16, 1);
-  while(1)
-	{
-
-//		loop();		
-//		if(serialEventRun) serialEventRun();
-    //Blinking();
-    for (LulCnt=0; LulCnt<255; LulCnt++)
-    {
-      analogWrite(16, LulCnt);
-      delay(10);
-    }
-    
-    //P00 ^= 1;
-	}
+  /* Clear bit MFP */
+  bitClear(*LpMFPReg, LucMCUPin); 
   
+  /* Set bit ALT */
+  bitSet(*LpMFPReg, LucMCUPin + 8); 
 }
+
+#endif

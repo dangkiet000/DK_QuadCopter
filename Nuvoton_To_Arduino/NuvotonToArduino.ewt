@@ -2333,6 +2333,9 @@
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
             </file>
             <file>
@@ -2347,6 +2350,9 @@
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.cpp</name>
         </file>
     </group>
     <group>
@@ -2371,10 +2377,16 @@
             <group>
                 <name>StdDriver</name>
                 <file>
+                    <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\adc.c</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\clk.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\gpio.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\pwm.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</name>
