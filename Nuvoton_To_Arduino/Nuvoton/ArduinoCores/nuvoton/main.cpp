@@ -27,36 +27,33 @@
 void Blinking(void)
 {
   P00 ^= 1;
-  digitalWrite(8, HIGH);
+
 }
 
 void main( void )
 {
-  uint32_t LulCnt;
 	init();		
+	
 //	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
 //	USBDevice.attach();
 //	#endif
   
-  //attachInterrupt(BUTTON_PIN, Blinking, FALLING);
+  attachInterrupt(BUTTON_PIN, Blinking, FALLING);
 //	setup();
-  pinMode(BUTTON_PIN, INPUT);
 	pinMode(LED_PIN, OUTPUT);
+
   digitalWrite(LED_PIN, LOW);
-  
-  analogWrite(16, 1);
   while(1)
 	{
 
 //		loop();		
 //		if(serialEventRun) serialEventRun();
+//    delay(1000);
+//    digitalWrite(LED_PIN, HIGH);
+//    delay(1000);
+//    digitalWrite(LED_PIN, LOW);
     //Blinking();
-    for (LulCnt=0; LulCnt<255; LulCnt++)
-    {
-      analogWrite(16, LulCnt);
-      delay(10);
-    }
-    
+    //delay(1000);
     //P00 ^= 1;
 	}
   

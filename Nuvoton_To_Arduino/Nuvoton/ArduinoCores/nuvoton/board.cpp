@@ -43,10 +43,10 @@ void Enable_All_IPs(void)
   CLK_EnableModuleClock(PWM45_MODULE);
   CLK_EnableModuleClock(PWM67_MODULE);
 
-  CLK_SetModuleClock(PWM01_MODULE, CLK_CLKSEL1_PWM01_S_HCLK, 0);
-  CLK_SetModuleClock(PWM23_MODULE, CLK_CLKSEL1_PWM23_S_HCLK, 0);
-  CLK_SetModuleClock(PWM45_MODULE, CLK_CLKSEL2_PWM45_S_HCLK, 0);
-  CLK_SetModuleClock(PWM67_MODULE, CLK_CLKSEL2_PWM67_S_HCLK, 0);
+  CLK_SetModuleClock(PWM01_MODULE, CLK_CLKSEL2_PWM45_S_HXT, 0);
+  CLK_SetModuleClock(PWM23_MODULE, CLK_CLKSEL2_PWM45_S_HXT, 0);
+  CLK_SetModuleClock(PWM45_MODULE, CLK_CLKSEL2_PWM45_S_HXT, 0);
+  CLK_SetModuleClock(PWM67_MODULE, CLK_CLKSEL2_PWM45_S_HXT, 0);
 #endif
 }
 //F_CPU
@@ -117,7 +117,7 @@ void init(void)
     SystemCoreClockUpdate();
       
     /* Enable All of IP */
-    Enable_All_IPs();
+    //Enable_All_IPs();
     
     /* Lock protected registers */
     SYS_LockReg();  

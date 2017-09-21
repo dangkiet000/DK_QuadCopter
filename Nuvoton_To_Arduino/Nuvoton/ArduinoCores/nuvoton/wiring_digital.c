@@ -29,10 +29,8 @@ extern void pinMode( uint32_t ulPin, uint32_t ulMode )
   
   #if defined(__M051__)	
  
-  //Ardu_PinConfigAsGPIO(ulPin);
-  
-  LulPinMask = (1 << (ARDU_PINTO_MCUPIN(ulPin)));
-  LpPort = ARDU_PINTO_PORT(ulPin);
+  LulPinMask = (1 << (ulPin%8));
+	LpPort = (GPIO_T *)(GPIO_BASE | ((ulPin/8)*0x40));
 
   switch ( ulMode )
   {
@@ -65,11 +63,11 @@ extern void digitalWrite( uint32_t ulPin, uint32_t ulVal )
   */
   if(ulVal == LOW)
   {
-    ARDU_PINTO_PDIO(ulPin) = LOW;
+    (*((volatile uint32_t *)((GPIO_PIN_DATA_BASE | ((ulPin)<<2))))) = LOW;
   }
   else
   {
-    ARDU_PINTO_PDIO(ulPin) = HIGH;
+    (*((volatile uint32_t *)((GPIO_PIN_DATA_BASE | ((ulPin)<<2))))) = HIGH;
   }
 
   #endif
@@ -83,7 +81,7 @@ extern int digitalRead( uint32_t ulPin )
     return 0;
   }
   #endif
-  return ARDU_PINTO_PDIO(ulPin);
+  return (*((volatile uint32_t *)((GPIO_PIN_DATA_BASE + ((ulPin)<<2)))));
 }
 
 #ifdef __cplusplus

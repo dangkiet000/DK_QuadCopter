@@ -21,7 +21,7 @@
   #include "M051Series.h"
 #endif
 
-#include "Pins_arduino.h"
+//#include "Pins_arduino.h"
 #define PLL_CLOCK           50000000UL
 #define F_CPU               PLL_CLOCK
 #include "wiring_constants.h"
@@ -42,7 +42,7 @@ extern "C" {
 
 #include "wiring.h"
 #include "wiring_digital.h"
-#include "wiring_analog.h"
+//#include "wiring_analog.h"
 //#include "wiring_shift.h"
 #include "WInterrupts.h"
 
