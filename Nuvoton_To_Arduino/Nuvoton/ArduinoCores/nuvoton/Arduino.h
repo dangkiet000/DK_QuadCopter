@@ -50,7 +50,7 @@ void yield(void);
 #include "WCharacter.h"
 //#include "WString.h"
 #include "WMath.h"
-//#include "HardwareSerial.h"
+#include "HardwareSerial.h"
 //#include "HardwareTimer.h"
 //#include "wiring_pulse.h"
 

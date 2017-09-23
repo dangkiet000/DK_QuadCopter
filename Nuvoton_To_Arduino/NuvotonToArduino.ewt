@@ -2318,6 +2318,9 @@
         <group>
             <name>Serial</name>
             <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
             </file>
             <file>
@@ -2399,6 +2402,9 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</name>
                 </file>
             </group>
         </group>

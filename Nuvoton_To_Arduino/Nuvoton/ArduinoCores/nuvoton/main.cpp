@@ -44,6 +44,8 @@ void main( void )
 	pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
   
+  Serial.begin(9600);
+  
   while(1)
 	{
 
@@ -53,7 +55,7 @@ void main( void )
     {
       delay(10);
     }
-    
+    Serial.print("dasdads");
 	}
   
 }

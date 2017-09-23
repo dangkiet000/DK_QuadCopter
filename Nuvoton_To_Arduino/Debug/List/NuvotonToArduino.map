@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.11.3.13950/W32 for ARM                23/Sep/2017  22:40:22
+# IAR ELF Linker V8.11.3.13950/W32 for ARM                24/Sep/2017  02:41:58
 # Copyright 2007-2017 IAR Systems AB.
 #
 #    Output file  =  
@@ -8,12 +8,13 @@
 #    Map file     =  
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\List\NuvotonToArduino.map
 #    Command line =  
-#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EWF960.tmp
+#        -f C:\Users\ADMINI~1\AppData\Local\Temp\EW2F86.tmp
 #        (F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\adc.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\board.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\clk.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\dtostrf.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\gpio.o
+#        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\HardwareSerial.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\itoa.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\main.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\Pins_arduino.o
@@ -23,6 +24,7 @@
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\Stream.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\sys.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\system_M051Series.o
+#        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\uart.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\WInterrupts.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\wiring.o
 #        F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj\wiring_analog.o
@@ -44,12 +46,13 @@
 *** RUNTIME MODEL ATTRIBUTES
 ***
 
-CppFlavor        = *
-__CPP_Exceptions = Disabled
-__CPP_Language   = C++14
-__Heap_Handler   = DLMalloc
-__SystemLibrary  = DLib
-__dlib_version   = 6
+CppFlavor                     = *
+__CPP_Exceptions              = Disabled
+__CPP_Language                = C++14
+__Heap_Handler                = DLMalloc
+__SystemLibrary               = DLib
+__dlib_dynamic_initialization = normal
+__dlib_version                = 6
 
 
 *******************************************************************************
@@ -73,65 +76,90 @@ define block HEAP with size = 1K, alignment = 8 { };
           rw, block CSTACK, block HEAP };
 initialize by copy { rw };
 
-  Section            Kind        Address   Size  Object
-  -------            ----        -------   ----  ------
-"A0":                                      0xc0
-  .intvec            ro code  0x00000000   0xc0  startup_M051Series.o [1]
-                            - 0x000000c0   0xc0
+  Section                Kind        Address   Size  Object
+  -------                ----        -------   ----  ------
+"A0":                                          0xc0
+  .intvec                ro code  0x00000000   0xc0  startup_M051Series.o [1]
+                                - 0x000000c0   0xc0
 
-"P1":                                     0xa92
-  .text              ro code  0x000000c0  0x3d0  clk.o [1]
-  .text              ro code  0x00000490   0xae  I32DivModFast.o [6]
-  .rodata            const    0x0000053e    0x1  unwind_debug.o [7]
-  .text              ro code  0x00000540   0xde  system_M051Series.o [1]
-  .text              ro code  0x00000620    0x2  IntDivZer.o [6]
-  .text              ro code  0x00000624  0x1bc  board.o [1]
-  .text              ro code  0x000007e0  0x110  WInterrupts.o [1]
-  .text              ro code  0x000008f0   0x64  wiring_digital.o [1]
-  .text              ro code  0x00000954   0x2e  gpio.o [1]
-  .text              ro code  0x00000984   0x40  startup_M051Series.o [1]
-  .text              ro code  0x000009c4   0x40  zero_init3.o [6]
-  .text              ro code  0x00000a04   0x30  main.o [1]
-  .text              ro code  0x00000a34   0x18  wiring.o [1]
-  .text              ro code  0x00000a4c   0x30  copy_init3.o [6]
-  .text              ro code  0x00000a7c   0x28  data_init.o [6]
-  .iar.init_table    const    0x00000aa4   0x24  - Linker created -
-  .rodata            const    0x00000ac8   0x20  system_M051Series.o [1]
-  .text              ro code  0x00000ae8   0x1a  cmain.o [6]
-  .text              ro code  0x00000b02    0x4  low_level_init.o [3]
-  .text              ro code  0x00000b06    0x8  exit.o [3]
-  .text              ro code  0x00000b10    0xa  cexit.o [6]
-  .text              ro code  0x00000b1c   0x14  exit.o [7]
-  .text              ro code  0x00000b30    0xc  cstartup_M.o [6]
-  Initializer bytes  const    0x00000b3c    0xc  <for P2-1>
-  .rodata            const    0x00000b48    0x4  clk.o [1]
-  .rodata            const    0x00000b4c    0x4  system_M051Series.o [1]
-  .text              ro code  0x00000b50    0x2  startup_M051Series.o [1]
-  .rodata            const    0x00000b52    0x0  zero_init3.o [6]
-  .rodata            const    0x00000b52    0x0  copy_init3.o [6]
-                            - 0x00000b52  0xa92
+"P1":                                         0xf02
+  .text                  ro code  0x000000c0  0x3d0  clk.o [1]
+  .text                  ro code  0x00000490   0xae  I32DivModFast.o [6]
+  .rodata                const    0x0000053e    0x1  unwind_debug.o [7]
+  .text                  ro code  0x00000540   0xde  system_M051Series.o [1]
+  .text                  ro code  0x00000620    0x2  IntDivZer.o [6]
+  .text                  ro code  0x00000624  0x1bc  board.o [1]
+  .text                  ro code  0x000007e0  0x160  HardwareSerial.o [1]
+  .text                  ro code  0x00000940    0xc  HardwareSerial.o [1]
+  .text                  ro code  0x0000094c   0x6c  Pins_arduino.o [1]
+  .text                  ro code  0x000009b8  0x138  uart.o [1]
+  .text                  ro code  0x00000af0   0x14  HardwareSerial.o [1]
+  .text                  ro code  0x00000b04   0x34  ABImemcpy.o [6]
+  .text                  ro code  0x00000b38    0xc  HardwareSerial.o [1]
+  .text                  ro code  0x00000b44    0x6  HardwareSerial.o [1]
+  .text                  ro code  0x00000b4c  0x110  WInterrupts.o [1]
+  .text                  ro code  0x00000c5c   0x64  wiring_digital.o [1]
+  .text                  ro code  0x00000cc0   0x2e  gpio.o [1]
+  .text                  ro code  0x00000cf0   0x4c  main.o [1]
+  .text                  ro code  0x00000d3c   0x18  wiring.o [1]
+  .text                  ro code  0x00000d54   0x3a  Print.o [1]
+  .text                  ro code  0x00000d8e   0x22  Print.o [1]
+  .text                  ro code  0x00000db0   0x10  strlen.o [6]
+  .text                  ro code  0x00000dc0   0x40  startup_M051Series.o [1]
+  .text                  ro code  0x00000e00   0x40  zero_init3.o [6]
+  .text                  ro code  0x00000e40   0x30  copy_init3.o [6]
+  .text                  ro code  0x00000e70   0x28  data_init.o [6]
+  .iar.init_table        const    0x00000e98   0x28  - Linker created -
+  .rodata                const    0x00000ec0   0x20  HardwareSerial.o [1]
+  .rodata                const    0x00000ee0   0x20  system_M051Series.o [1]
+  .text                  ro code  0x00000f00   0x20  cmain_call_ctors.o [6]
+  .text                  ro code  0x00000f20   0x18  cppinit.o [3]
+  .text                  ro code  0x00000f38   0x1a  cmain.o [6]
+  .text                  ro code  0x00000f52    0x4  low_level_init.o [3]
+  .text                  ro code  0x00000f56    0x8  exit.o [3]
+  .text                  ro code  0x00000f60    0xa  cexit.o [6]
+  .text                  ro code  0x00000f6c   0x14  exit.o [7]
+  .rodata                const    0x00000f80   0x10  uart.o [1]
+  .text                  ro code  0x00000f90    0xc  cstartup_M.o [6]
+  Initializer bytes      const    0x00000f9c    0xc  <for P2-1>
+  .rodata                const    0x00000fa8    0x8  main.o [1]
+  .rodata                const    0x00000fb0    0x4  clk.o [1]
+  .rodata                const    0x00000fb4    0x4  system_M051Series.o [1]
+  .rodata                const    0x00000fb8    0x4  uart.o [1]
+  SHT$$PREINIT_ARRAY              0x00000fbc    0x0  <Block>
+  SHT$$INIT_ARRAY                 0x00000fbc    0x4  <Block>
+    .init_array          const    0x00000fbc    0x4  HardwareSerial.o [1]
+  __iar_tls$$INIT_ARRAY           0x00000fc0    0x0  <Block>
+  .text                  ro code  0x00000fc0    0x2  startup_M051Series.o [1]
+  .rodata                const    0x00000fc2    0x0  zero_init3.o [6]
+  .rodata                const    0x00000fc2    0x0  copy_init3.o [6]
+                                - 0x00000fc2  0xf02
 
-"P2", part 1 of 3:                          0xc
-  P2-1                        0x20000000    0xc  <Init block>
-    .data            inited   0x20000000    0x4  system_M051Series.o [1]
-    .data            inited   0x20000004    0x4  system_M051Series.o [1]
-    .data            inited   0x20000008    0x4  system_M051Series.o [1]
-                            - 0x2000000c    0xc
+"P2", part 1 of 3:                              0xc
+  P2-1                            0x20000000    0xc  <Init block>
+    .data                inited   0x20000000    0x4  system_M051Series.o [1]
+    .data                inited   0x20000004    0x4  system_M051Series.o [1]
+    .data                inited   0x20000008    0x4  system_M051Series.o [1]
+                                - 0x2000000c    0xc
 
-"P2", part 2 of 3:                         0xa8
-  .bss               zero     0x2000000c   0x20  WInterrupts.o [1]
-  .bss               zero     0x2000002c   0x20  WInterrupts.o [1]
-  .bss               zero     0x2000004c   0x20  WInterrupts.o [1]
-  .bss               zero     0x2000006c   0x20  WInterrupts.o [1]
-  .bss               zero     0x2000008c   0x20  WInterrupts.o [1]
-  .bss               zero     0x200000ac    0x4  board.o [1]
-  .bss               zero     0x200000b0    0x1  board.o [1]
-                            - 0x200000b1   0xa5
+"P2", part 2 of 3:                            0x128
+  .bss                   zero     0x2000000c   0x28  HardwareSerial.o [1]
+  .bss                   zero     0x20000034   0x28  HardwareSerial.o [1]
+  .bss                   zero     0x2000005c   0x20  WInterrupts.o [1]
+  .bss                   zero     0x2000007c   0x20  WInterrupts.o [1]
+  .bss                   zero     0x2000009c   0x20  WInterrupts.o [1]
+  .bss                   zero     0x200000bc   0x20  WInterrupts.o [1]
+  .bss                   zero     0x200000dc   0x20  WInterrupts.o [1]
+  .bss                   zero     0x200000fc   0x18  HardwareSerial.o [1]
+  .bss                   zero     0x20000114   0x18  HardwareSerial.o [1]
+  .bss                   zero     0x2000012c    0x4  board.o [1]
+  .bss                   zero     0x20000130    0x1  board.o [1]
+                                - 0x20000131  0x125
 
-"P2", part 3 of 3:                        0x400
-  CSTACK                      0x200000b8  0x400  <Block>
-    CSTACK           uninit   0x200000b8  0x400  <Block tail>
-                            - 0x200004b8  0x400
+"P2", part 3 of 3:                            0x400
+  CSTACK                          0x20000138  0x400  <Block>
+    CSTACK               uninit   0x20000138  0x400  <Block tail>
+                                - 0x20000538  0x400
 
 
 *******************************************************************************
@@ -141,14 +169,16 @@ initialize by copy { rw };
           Address     Size
           -------     ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0xa5:
-          0x2000000c  0xa5
+    1 destination range, total size 0x125:
+          0x2000000c  0x125
 
 Copy (__iar_copy_init3)
     1 source range, total size 0xc:
-          0x00000b3c   0xc
+          0x00000f9c    0xc
     1 destination range, total size 0xc:
-          0x20000000   0xc
+          0x20000000    0xc
+
+Extra (__iar_cstart_call_ctors)
 
 
 
@@ -159,27 +189,32 @@ Copy (__iar_copy_init3)
     Module                ro code  ro data  rw data
     ------                -------  -------  -------
 F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj: [1]
+    HardwareSerial.o          402       36      128
+    Pins_arduino.o            108
+    Print.o                    92
     WInterrupts.o             272               160
     board.o                   444                 5
     clk.o                     976        4
     gpio.o                     46
-    main.o                     48
+    main.o                     76        8
     startup_M051Series.o      258
     system_M051Series.o       222       48       12
+    uart.o                    312       20
     wiring.o                   24
     wiring_digital.o          100
     -----------------------------------------------
-    Total:                  2 390       52      177
+    Total:                  3 332      116      305
 
 command line: [2]
     -----------------------------------------------
     Total:
 
 dl6M_tln.a: [3]
+    cppinit.o                  24
     exit.o                      8
     low_level_init.o            4
     -----------------------------------------------
-    Total:                     12
+    Total:                     36
 
 dlpp6M_tl_nc.a: [4]
     -----------------------------------------------
@@ -190,16 +225,19 @@ m6M_tl.a: [5]
     Total:
 
 rt6M_tl.a: [6]
+    ABImemcpy.o                52
     I32DivModFast.o           174
     IntDivZer.o                 2
     cexit.o                    10
     cmain.o                    26
+    cmain_call_ctors.o         32
     copy_init3.o               48
     cstartup_M.o               12
     data_init.o                40
+    strlen.o                   16
     zero_init3.o               64
     -----------------------------------------------
-    Total:                    376
+    Total:                    476
 
 shb_l.a: [7]
     exit.o                     20
@@ -207,10 +245,10 @@ shb_l.a: [7]
     -----------------------------------------------
     Total:                     20        1
 
-    Gaps                       11
-    Linker created                      36    1 024
+    Gaps                       13
+    Linker created                      40    1 024
 ---------------------------------------------------
-    Grand Total:            2 809       89    1 201
+    Grand Total:            3 877      157    1 329
 
 
 *******************************************************************************
@@ -219,9 +257,11 @@ shb_l.a: [7]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x00000aa4          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x00000ac8          --   Gb  - Linker created -
-?main                   0x00000ae9         Code  Gb  cmain.o [6]
+.iar.init_table$$Base   0x00000e98          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000ec0          --   Gb  - Linker created -
+?main                   0x00000f39         Code  Gb  cmain.o [6]
+Ardu_PinConfigAsUART(UART_T *)
+                        0x0000094d   0x5c  Code  Gb  Pins_arduino.o [1]
 CLK_EnableModuleClock   0x00000287   0x26  Code  Gb  clk.o [1]
 CLK_EnablePLL           0x000002d1  0x162  Code  Gb  clk.o [1]
 CLK_EnableXtalRC        0x0000027b    0xc  Code  Gb  clk.o [1]
@@ -229,21 +269,54 @@ CLK_SetCoreClock        0x0000011d   0x92  Code  Gb  clk.o [1]
 CLK_SetHCLK             0x000001af   0x5e  Code  Gb  clk.o [1]
 CLK_SetModuleClock      0x0000020d   0x6e  Code  Gb  clk.o [1]
 CLK_WaitClockReady      0x00000433   0x20  Code  Gb  clk.o [1]
-CSTACK$$Base            0x200000b8          --   Gb  - Linker created -
-CSTACK$$Limit           0x200004b8          --   Gb  - Linker created -
+CSTACK$$Base            0x20000138          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000538          --   Gb  - Linker created -
 CyclesPerUs             0x20000004    0x4  Data  Gb  system_M051Series.o [1]
 Enable_All_IPs()        0x00000717   0x4e  Code  Gb  board.o [1]
-GPIOP0P1_IRQHandler     0x000007e1   0x5e  Code  Gb  WInterrupts.o [1]
-GPIOP2P3P4_IRQHandler   0x00000845   0x86  Code  Gb  WInterrupts.o [1]
-GPIO_SetMode            0x00000955   0x2e  Code  Gb  gpio.o [1]
+GPIOP0P1_IRQHandler     0x00000b4d   0x5e  Code  Gb  WInterrupts.o [1]
+GPIOP2P3P4_IRQHandler   0x00000bb1   0x86  Code  Gb  WInterrupts.o [1]
+GPIO_SetMode            0x00000cc1   0x2e  Code  Gb  gpio.o [1]
 GetTickCount            0x00000711    0x6  Code  Gb  board.o [1]
+HardwareSerial::HardwareSerial(UART_T *, unsigned int, unsigned int, unsigned int, IRQn, ring_buffer *)
+                        0x0000088b   0x30  Code  Gb  HardwareSerial.o [1]
+HardwareSerial::begin(unsigned int)
+                        0x000008ed   0x3e  Code  Gb  HardwareSerial.o [1]
+HardwareSerial::write(unsigned char)
+                        0x0000092b   0x16  Code  Gb  HardwareSerial.o [1]
 PllClock                0x20000008    0x4  Data  Gb  system_M051Series.o [1]
-Region$$Table$$Base     0x00000aa4          --   Gb  - Linker created -
-Region$$Table$$Limit    0x00000ac8          --   Gb  - Linker created -
+Print::Print()          0x00000b45    0x6  Code  Gb  HardwareSerial.o [1]
+Print::Print() [subobject]
+                        0x00000b39    0xc  Code  Gb  HardwareSerial.o [1]
+Print::print(char const *)
+                        0x00000d7f   0x10  Code  Gb  Print.o [1]
+Print::write(char const *)
+                        0x00000d8f   0x22  Code  Gb  Print.o [1]
+Print::write(unsigned char const *, unsigned int)
+                        0x00000d55   0x2a  Code  Gb  Print.o [1]
+Region$$Table$$Base     0x00000e98          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000ec0          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Base   0x00000fbc          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Limit  0x00000fc0          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Base
+                        0x00000fbc          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Limit
+                        0x00000fbc          --   Gb  - Linker created -
+Serial                  0x2000000c   0x28  Data  Gb  HardwareSerial.o [1]
+Serial1                 0x20000034   0x28  Data  Gb  HardwareSerial.o [1]
+Stream::Stream()        0x00000af1   0x14  Code  Gb  HardwareSerial.o [1]
+Stream::Stream() [subobject]
+                        0x00000941    0xc  Code  Gb  HardwareSerial.o [1]
 SysTick_Handler         0x00000705    0xc  Code  Gb  board.o [1]
 SystemCoreClock         0x20000000    0x4  Data  Gb  system_M051Series.o [1]
 SystemCoreClockUpdate   0x0000059d   0x4e  Code  Gb  system_M051Series.o [1]
 SystemInit              0x0000061d    0x2  Code  Gb  system_M051Series.o [1]
+UART0_IRQHandler        0x00000827   0x32  Code  Gb  HardwareSerial.o [1]
+UART1_IRQHandler        0x00000859   0x32  Code  Gb  HardwareSerial.o [1]
+UART_Open               0x00000a15   0xba  Code  Gb  uart.o [1]
+Virtual function table for HardwareSerial
+                        0x00000ec0   0x20  Data  Gb  HardwareSerial.o [1]
+[local to HardwareSerial_cpp]::NVIC_EnableIRQ(IRQn)
+                        0x00000819    0xe  Code  Lc  HardwareSerial.o [1]
 [local to board_cpp]::NVIC_SetPriority(IRQn, unsigned int)
                         0x00000625   0x84  Code  Lc  board.o [1]
 [local to board_cpp]::SYS_LockReg()
@@ -256,37 +329,51 @@ SystemInit              0x0000061d    0x2  Code  Gb  system_M051Series.o [1]
                         0x000000c1   0x5c  Code  Lc  clk.o [1]
 [local to system_M051Series_c]::CLK_GetPLLClockFreq()
                         0x00000541   0x5c  Code  Lc  system_M051Series.o [1]
+[local to uart_c]::CLK_GetPLLClockFreq()
+                        0x000009b9   0x5c  Code  Lc  uart.o [1]
 __aeabi_idiv0           0x00000621         Code  Gb  IntDivZer.o [6]
+__aeabi_memcpy4         0x00000b05         Code  Wk  ABImemcpy.o [6]
 __aeabi_uidiv           0x00000491         Code  Gb  I32DivModFast.o [6]
 __aeabi_uidivmod        0x00000491         Code  Gb  I32DivModFast.o [6]
-__cmain                 0x00000ae9         Code  Gb  cmain.o [6]
-__exit                  0x00000b1d   0x14  Code  Gb  exit.o [7]
-__iar_copy_init3        0x00000a4d   0x30  Code  Gb  copy_init3.o [6]
-__iar_data_init3        0x00000a7d   0x28  Code  Gb  data_init.o [6]
+__call_ctors            0x00000f21   0x18  Code  Gb  cppinit.o [3]
+__cmain                 0x00000f39         Code  Gb  cmain.o [6]
+__exit                  0x00000f6d   0x14  Code  Gb  exit.o [7]
+__iar_copy_init3        0x00000e41   0x30  Code  Gb  copy_init3.o [6]
+__iar_cstart_call_ctors
+                        0x00000f01   0x20  Code  Gb  cmain_call_ctors.o [6]
+__iar_data_init3        0x00000e71   0x28  Code  Gb  data_init.o [6]
 __iar_debug_exceptions  0x0000053e    0x1  Data  Gb  unwind_debug.o [7]
-__iar_program_start     0x00000b31         Code  Gb  cstartup_M.o [6]
+__iar_program_start     0x00000f91         Code  Gb  cstartup_M.o [6]
 __iar_systems$$module {Abs}
                         0x00000001         Data  Gb  command line/config [2]
-__iar_zero_init3        0x000009c5   0x40  Code  Gb  zero_init3.o [6]
-__low_level_init        0x00000b03    0x4  Code  Gb  low_level_init.o [3]
+__iar_tls$$INIT_ARRAY$$Base
+                        0x00000fc0          --   Gb  - Linker created -
+__iar_tls$$INIT_ARRAY$$Limit
+                        0x00000fc0          --   Gb  - Linker created -
+__iar_zero_init3        0x00000e01   0x40  Code  Gb  zero_init3.o [6]
+__low_level_init        0x00000f53    0x4  Code  Gb  low_level_init.o [3]
+__sti__routine          0x000007e1   0x38  Code  Lc  HardwareSerial.o [1]
 __vector_table          0x00000000         Data  Gb  startup_M051Series.o [1]
-_call_main              0x00000af5         Code  Gb  cmain.o [6]
-_dwTickCount            0x200000ac    0x4  Data  Lc  board.o [1]
-_exit                   0x00000b11         Code  Gb  cexit.o [6]
-_main                   0x00000aff         Code  Gb  cmain.o [6]
-callbacksP0             0x2000000c   0x20  Data  Lc  WInterrupts.o [1]
-callbacksP1             0x2000002c   0x20  Data  Lc  WInterrupts.o [1]
-callbacksP2             0x2000004c   0x20  Data  Lc  WInterrupts.o [1]
-callbacksP3             0x2000006c   0x20  Data  Lc  WInterrupts.o [1]
-callbacksP4             0x2000008c   0x20  Data  Lc  WInterrupts.o [1]
-delay                   0x00000a35   0x18  Code  Gb  wiring.o [1]
-digitalWrite            0x0000092f   0x1e  Code  Gb  wiring_digital.o [1]
-exit                    0x00000b07    0x8  Code  Gb  exit.o [3]
-gau32ClkSrcTbl          0x00000ac8   0x20  Data  Lc  system_M051Series.o [1]
+_call_main              0x00000f45         Code  Gb  cmain.o [6]
+_dwTickCount            0x2000012c    0x4  Data  Lc  board.o [1]
+_exit                   0x00000f61         Code  Gb  cexit.o [6]
+_main                   0x00000f4f         Code  Gb  cmain.o [6]
+callbacksP0             0x2000005c   0x20  Data  Lc  WInterrupts.o [1]
+callbacksP1             0x2000007c   0x20  Data  Lc  WInterrupts.o [1]
+callbacksP2             0x2000009c   0x20  Data  Lc  WInterrupts.o [1]
+callbacksP3             0x200000bc   0x20  Data  Lc  WInterrupts.o [1]
+callbacksP4             0x200000dc   0x20  Data  Lc  WInterrupts.o [1]
+delay                   0x00000d3d   0x18  Code  Gb  wiring.o [1]
+digitalWrite            0x00000c9b   0x1e  Code  Gb  wiring_digital.o [1]
+exit                    0x00000f57    0x8  Code  Gb  exit.o [3]
+gau32ClkSrcTbl          0x00000ee0   0x20  Data  Lc  system_M051Series.o [1]
 init                    0x00000765   0x40  Code  Gb  board.o [1]
-init_flag               0x200000b0    0x1  Data  Lc  board.o [1]
-main                    0x00000a05   0x30  Code  Gb  main.o [1]
-pinMode                 0x000008f1   0x3e  Code  Gb  wiring_digital.o [1]
+init_flag               0x20000130    0x1  Data  Lc  board.o [1]
+main                    0x00000cf1   0x44  Code  Gb  main.o [1]
+pinMode                 0x00000c5d   0x3e  Code  Gb  wiring_digital.o [1]
+rx_buffer               0x200000fc   0x18  Data  Gb  HardwareSerial.o [1]
+rx_buffer1              0x20000114   0x18  Data  Gb  HardwareSerial.o [1]
+strlen                  0x00000db1   0x10  Code  Gb  strlen.o [6]
 
 
 [1] = F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Debug\Obj
@@ -297,9 +384,9 @@ pinMode                 0x000008f1   0x3e  Code  Gb  wiring_digital.o [1]
 [6] = rt6M_tl.a
 [7] = shb_l.a
 
-  2 809 bytes of readonly  code memory
-     89 bytes of readonly  data memory
-  1 201 bytes of readwrite data memory
+  3 877 bytes of readonly  code memory
+    157 bytes of readonly  data memory
+  1 329 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

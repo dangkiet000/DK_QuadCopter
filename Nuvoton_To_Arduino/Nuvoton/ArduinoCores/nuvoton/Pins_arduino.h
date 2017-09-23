@@ -33,8 +33,8 @@
 
           A0  D8    ----------------     P1.0  AIN0
           A1  D9    ----------------     P1.1  AIN1
-          A2  D10   ----------------     P1.2  AIN2
-          A3  D11   ----------------     P1.3  AIN3
+      RX1 A2  D10   ----------------     P1.2  AIN2  RXD1
+      TX1 A3  D11   ----------------     P1.3  AIN3  TXD1
           A4  D12   ----------------     P1.4  AIN4
           A5  D13   ----------------     P1.5  AIN5
           A6  D14   ----------------     P1.6  AIN6
@@ -49,8 +49,8 @@
          PWM  D22   ----------------     P2.6 PWM6(TIMER2)
          PWM  D23   ----------------     P2.7 PWM7(TIMER3)
              
-              D24   ----------------     P3.0
-              D25   ----------------     P3.1
+         RX0  D24   ----------------     P3.0 RXD
+         TX0  D25   ----------------     P3.1 TXD
               D26   ----------------     P3.2
               D27   ----------------     P3.3
               D28   ----------------     P3.4
@@ -100,6 +100,17 @@ extern void Ardu_PinConfigAsPWM(uint32_t ulArduPin);
 #define ADC_MAX_PIN 8U
 
 void Ardu_PinConfigAsADC(uint32_t ulArduPin);
+
+/*-------------------------      UART         --------------------------------*/
+#if defined(__M051__)
+  #define UART_MAX_COUNT 2
+#elif defined(__NUC240__)
+	#define UART_MAX_COUNT 3
+#elif defined(__NUC131__)
+  #define UART_MAX_COUNT 1
+#endif
+
+void Ardu_PinConfigAsUART(UART_T *uart);
 
 #endif /* End if __M051__ */
 

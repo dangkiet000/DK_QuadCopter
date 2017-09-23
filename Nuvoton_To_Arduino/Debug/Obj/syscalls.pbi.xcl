@@ -1,12 +1,28 @@
-"F:\My_Projects\QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\cores\nuvoton\syscalls.c"
+"F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\ArduinoCores\nuvoton\syscalls.c"
 -std=c++14
 -ferror-limit=0
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\ArduinoCores\nuvoton
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\CMSIS\Include
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Include
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\StdDriver\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc\cpp
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\ArduinoCores\nuvoton
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\CMSIS\Include
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Include
+-I
+F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\Nuvoton\MCU_Platform\M051Series\StdDriver\inc
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -282,6 +298,7 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc\cpp
 -D__EDG_CPP11_IL_EXTENSIONS_SUPPORTED=1
 -D__EDG_FLOAT80_ENABLING_POSSIBLE=0
 -D__EDG_FLOAT128_ENABLING_POSSIBLE=0
+-D__M051__=1
 -D_DLIB_CONFIG_FILE_HEADER_NAME="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0\\arm\\INC\\c\\DLib_Config_Normal.h"
 -D_DLIB_CONFIG_FILE_STRING="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0\\arm\\INC\\c\\DLib_Config_Normal.h"
 -D__VERSION__="IAR ANSI C/C++ Compiler V8.11.3.13950/W32 for ARM"

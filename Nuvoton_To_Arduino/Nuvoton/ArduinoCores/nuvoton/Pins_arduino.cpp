@@ -50,4 +50,47 @@ void Ardu_PinConfigAsPWM(uint32_t ulArduPin)
   bitSet(*LpMFPReg, LucMCUPin + 8); 
 }
 
+/* RX0  D24
+   TX0  D25
+   RX1  D10
+   TX1  D11
+  */
+void Ardu_PinConfigAsUART(UART_T *uart)
+{
+  volatile uint32_t *LpMFPReg;
+  uint8_t LucRXPin;
+  uint8_t LucTXPin;
+  
+  if(uart == UART0)
+  {
+    LucRXPin = ARDU_PINTO_MCUPIN(24);
+    LucTXPin = ARDU_PINTO_MCUPIN(25);
+    /* TX and RX pin is the same port */
+    LpMFPReg = ARDU_PINTO_MFPREG(24);
+  }
+  else if(uart == UART1)
+  {
+    LucRXPin = ARDU_PINTO_MCUPIN(10);
+    LucTXPin = ARDU_PINTO_MCUPIN(11);
+    /* TX and RX pin is the same port */
+    LpMFPReg = ARDU_PINTO_MFPREG(10);
+  }
+  else
+  {
+    /* DET error report */  
+  }
+  
+  /* Bit MFP = 1 */
+  bitSet(*LpMFPReg, LucRXPin); 
+  
+  /* Bit ALT = 0 */
+  bitClear(*LpMFPReg, LucRXPin + 8); 
+  
+  /* Bit MFP = 1 */
+  bitSet(*LpMFPReg, LucTXPin); 
+  
+  /* Bit ALT = 0 */
+  bitClear(*LpMFPReg, LucTXPin + 8); 
+}
+
 #endif

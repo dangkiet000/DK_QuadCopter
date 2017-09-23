@@ -253,22 +253,27 @@ String Stream::readStringUntil(char terminator)
   return ret;
 }
 
-int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
+int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount)
+{
   // any zero length target string automatically matches and would make
   // a mess of the rest of the algorithm.
-  for (struct MultiTarget *t = targets; t < targets+tCount; ++t) {
+  for (struct MultiTarget *t = targets; t < targets+tCount; ++t)
+  {
     if (t->len <= 0)
       return t - targets;
   }
 
-  while (1) {
+  while (1)
+  {
     int c = timedRead();
     if (c < 0)
       return -1;
 
-    for (struct MultiTarget *t = targets; t < targets+tCount; ++t) {
+    for (struct MultiTarget *t = targets; t < targets+tCount; ++t) 
+    {
       // the simple case is if we match, deal with that first.
-      if (c == t->str[t->index]) {
+      if (c == t->str[t->index]) 
+      {
         if (++t->index == t->len)
           return t - targets;
         else
@@ -283,14 +288,16 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
         continue;
 
       int origIndex = t->index;
-      do {
+      do 
+      {
         --t->index;
         // first check if current char works against the new current index
         if (c != t->str[t->index])
           continue;
 
         // if it's the only char then we're good, nothing more to check
-        if (t->index == 0) {
+        if (t->index == 0) 
+        {
           t->index++;
           break;
         }
@@ -298,14 +305,16 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
         // otherwise we need to check the rest of the found string
         int diff = origIndex - t->index;
         size_t i;
-        for (i = 0; i < t->index; ++i) {
+        for (i = 0; i < t->index; ++i) 
+        {
           if (t->str[i] != t->str[i + diff])
             break;
         }
 
         // if we successfully got through the previous loop then our current
         // index is good.
-        if (i == t->index) {
+        if (i == t->index) 
+        {
           t->index++;
           break;
         }
@@ -315,5 +324,5 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {
     }
   }
   // unreachable
-  return -1;
+  //return -1;
 }

@@ -4,11 +4,14 @@
 
 
 # External tool builders
-.out
-.sim
-.map
-.o
+*.out
+*.sim
+*.map
+*.o
+*.dep
+*.wsdt
 
-# PDT-specific
-.buildpath
 
+*.map
+*.pbi
+Nuvoton_To_Arduino/Debug/Obj/gpio.pbi.xcl
