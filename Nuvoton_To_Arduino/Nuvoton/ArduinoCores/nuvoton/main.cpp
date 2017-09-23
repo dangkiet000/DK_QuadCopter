@@ -38,26 +38,22 @@ void main( void )
 //	USBDevice.attach();
 //	#endif
   
-  //attachInterrupt(BUTTON_PIN, Blinking, FALLING);
+
 //	setup();
   pinMode(BUTTON_PIN, INPUT);
 	pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
   
-  analogWrite(16, 1);
   while(1)
 	{
 
 //		loop();		
 //		if(serialEventRun) serialEventRun();
-    //Blinking();
     for (LulCnt=0; LulCnt<255; LulCnt++)
     {
-      analogWrite(16, LulCnt);
       delay(10);
     }
     
-    //P00 ^= 1;
 	}
   
 }

@@ -1,0 +1,14 @@
+#################
+## IAR
+#################
+
+
+# External tool builders
+.out
+.sim
+.map
+.o
+
+# PDT-specific
+.buildpath
+

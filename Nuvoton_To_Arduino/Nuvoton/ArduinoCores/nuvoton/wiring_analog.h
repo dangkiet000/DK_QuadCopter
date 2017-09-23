@@ -23,21 +23,24 @@
 extern "C" {
 #endif
 
-/*
- * \brief SAM3 products have only one reference for ADC
- */
-typedef enum _eAnalogReference
+#define ADC_HARDWARE_RESOLUTION 12
+  
+typedef enum EtagAnalogReference
 {
-  AR_DEFAULT,
-} eAnalogReference ;
-
+  _DEFAULT = 0,
+  INTERNAL,
+  INTERNAL1V1,
+  INTERNAL2V56,
+  _EXTERNAL,
+  INTERNAL_TEMP
+} eAnalogReference;
 /*
  * \brief Configures the reference voltage used for analog input (i.e. the value used as the top of the input range).
  * This function is kept only for compatibility with existing AVR based API.
  *
  * \param ulMmode Should be set to AR_DEFAULT.
  */
-extern void analogReference( eAnalogReference ulMode ) ;
+extern void analogReference( eAnalogReference ulMode );
 
 /*
  * \brief Writes an analog value (PWM wave) to a pin.
@@ -45,7 +48,9 @@ extern void analogReference( eAnalogReference ulMode ) ;
  * \param ulPin
  * \param ulValue
  */
-extern void analogWrite( uint32_t ulPin, uint16_t ulValue ) ;
+extern void analogWrite( uint32_t ulPin, uint16_t ulValue );
+
+static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to);
 
 /*
  * \brief Reads the value from the specified analog pin.
@@ -54,7 +59,8 @@ extern void analogWrite( uint32_t ulPin, uint16_t ulValue ) ;
  *
  * \return Read value from selected pin, if no error.
  */
-extern uint32_t analogRead( uint32_t ulPin ) ;
+extern uint32_t analogRead(uint32_t ulArduPin);
+
 
 /*
  * \brief Set the resolution of analogRead return values. Default is 10 bits (range from 0 to 1023).
@@ -69,6 +75,26 @@ extern void analogReadResolution(uint8_t res);
  * \param res
  */
 extern void analogWriteResolution(uint8_t res);
+
+/*******************************************************************************
+                           EXTERNAL ARDUINO API
+*******************************************************************************/
+
+
+#define INTERNAL_BANDGAP_CHANNEL 7
+/**
+  * @brief Disable ADC module
+  * @param[in] adc The pointer of the specified ADC module
+  * @return None
+  */
+extern void analogReadClose(void);
+
+/**
+  * @brief Read value of power voltage 
+  * @param[in] None
+  * @return Vcc in milli Voltage
+  */
+extern uint32_t analogReadVcc(void);
 
 #ifdef __cplusplus
 }

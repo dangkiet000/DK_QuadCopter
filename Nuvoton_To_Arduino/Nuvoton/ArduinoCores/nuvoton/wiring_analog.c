@@ -23,13 +23,15 @@ extern "C" {
 #endif
   
 static uint8_t PinPWMEnabled[PWM_MAX_PIN]={0};
+static uint8_t PinADCEnabled[ADC_MAX_PIN]={0};
 
-static int _readResolution = 10;
+static int _ReadResolution = 10;
 static uint8_t _WriteResolution = 8;
 
+/* M051 series only have 12-bit ADC resolution */
 void analogReadResolution(uint8_t res)
 {
-	_readResolution = res;
+	_ReadResolution = res;
 }
 
 void analogWriteResolution(uint8_t res)
@@ -39,112 +41,117 @@ void analogWriteResolution(uint8_t res)
   uint32_t LulArduPin;
   uint32_t i;
   
-	_WriteResolution = res;
-  
-  for(i=0; i<PWM_MAX_PIN; i++)
+  if((res != _WriteResolution) && (res > 7) && (res < 13))
   {
-    if(PinPWMEnabled[i])
+    _WriteResolution = res;
+    
+    for(i=0; i<PWM_MAX_PIN; i++)
     {
-      LulArduPin = 16 + i;
-      LpPWMGroup = ARDU_PINTO_PWMGROUP(LulArduPin);
-      LulPWMChannel = ARDU_PINTO_PWMCHANNEL(LulArduPin);
-  
-      /* Set the prescaler of the selected channel */
-      PWM_SET_PRESCALER(LpPWMGroup, LulPWMChannel, (uint8_t)(1<<(16 -_WriteResolution)));
-      /* Set the period of the selected channel */
-      PWM_SET_CNR(LpPWMGroup, LulPWMChannel, (1<<_WriteResolution));
+      if(PinPWMEnabled[i])
+      {
+        LulArduPin = 16 + i;
+        LpPWMGroup = ARDU_PINTO_PWMGROUP(LulArduPin);
+        LulPWMChannel = ARDU_PINTO_PWMCHANNEL(LulArduPin);
+    
+        /* Set the prescaler of the selected channel */
+        PWM_SET_PRESCALER(LpPWMGroup, LulPWMChannel, (uint8_t)(1<<(16 -_WriteResolution)));
+        /* Set the period of the selected channel */
+        PWM_SET_CNR(LpPWMGroup, LulPWMChannel, (1<<_WriteResolution));
+      }
     }
   }
 }
 
-//eAnalogReference analog_reference = AR_DEFAULT;
 
-//void analogReference(eAnalogReference ulMode)
-//{
-//	analog_reference = ulMode;
-//}
-
-uint32_t analogRead(uint32_t ulPin)
+/* 
+  M051 Series can't set reference voltage 
+  => this function is empty 
+*/
+void analogReference(eAnalogReference ulMode)
 {
-#if defined(__M051__)
-  uint32_t ulValue = 0; 
-  
-#elif defined(__NUC240__)
-  uint32_t ulValue = 0;  
-
-  if(ulPin>ADC_MAX_COUNT || ADC_Desc[ulPin].A==NULL) return;  	  
-  	
-  ADC_Config(ADC_Desc[ulPin]);
-  
-  //GPIO_ENABLE_DIGITAL_PATH(GPIO_Desc[ADC_Desc[ulPin].pintype.num].P,GPIO_Desc[ADC_Desc[ulPin].pintype.num].bit);
-  
-  // Enable channel 0
-	ADC_Open(ADC_Desc[ulPin].A, 0, 0, (1<<ADC_Desc[ulPin].ch));
-		
-	// Power on ADC
-	ADC_POWER_ON(ADC_Desc[ulPin].A);
-
-  // Wait for busy of conversion
-  while(ADC_IS_BUSY(ADC_Desc[ulPin].A));	
-  	
-  // Start for conversion	
-  ADC_START_CONV(ADC_Desc[ulPin].A);
-  		
-	// Wait for end of conversion
-	while(!ADC_GET_INT_FLAG(ADC_Desc[ulPin].A,ADC_ADF_INT));
-	
-	// Clear ADC flag
-	ADC_CLR_INT_FLAG(ADC_Desc[ulPin].A,ADC_ADF_INT);
-	
-	// Read the value
-	ulValue = ADC_GET_CONVERSION_DATA(ADC_Desc[ulPin].A,ADC_Desc[ulPin].ch);	
-	ulValue = mapResolution(ulValue, 12, _readResolution);
-  
-  //GPIO_DISABLE_DIGITAL_PATH(GPIO_Desc[ADC_Desc[ulPin-1].pintype.num].P,GPIO_Desc[ADC_Desc[ulPin].pintype.num-1].bit);
-  
-  // Close ADC
-  ADC_Close(ADC_Desc[ulPin].A);
-#elif defined(__NUC131__)
-  uint32_t ulValue = 0;  
-
-  if(ulPin>ADC_MAX_COUNT || ADC_Desc[ulPin].A==NULL) return;  	  
-  	
-  ADC_Config(ADC_Desc[ulPin]);
-  
-  //GPIO_ENABLE_DIGITAL_PATH(GPIO_Desc[ADC_Desc[ulPin].pintype.num].P,GPIO_Desc[ADC_Desc[ulPin].pintype.num].bit);
-  
-  // Enable channel 0
-	ADC_Open(ADC_Desc[ulPin].A, 0, 0, (1<<ADC_Desc[ulPin].ch));
-		
-	// Power on ADC
-	ADC_POWER_ON(ADC_Desc[ulPin].A);
-
-  // Wait for busy of conversion
-  while(ADC_IS_BUSY(ADC_Desc[ulPin].A));	
-  	
-  // Start for conversion	
-  ADC_START_CONV(ADC_Desc[ulPin].A);
-  		
-	// Wait for end of conversion
-	while(!ADC_GET_INT_FLAG(ADC_Desc[ulPin].A,ADC_ADF_INT));
-	
-	// Clear ADC flag
-	ADC_CLR_INT_FLAG(ADC_Desc[ulPin].A,ADC_ADF_INT);
-	
-	// Read the value
-	ulValue = ADC_GET_CONVERSION_DATA(ADC_Desc[ulPin].A,ADC_Desc[ulPin].ch);	
-	ulValue = mapResolution(ulValue, 12, _readResolution);
-  
-  //GPIO_DISABLE_DIGITAL_PATH(GPIO_Desc[ADC_Desc[ulPin-1].pintype.num].P,GPIO_Desc[ADC_Desc[ulPin].pintype.num-1].bit);
-  
-  // Close ADC
-  ADC_Close(ADC_Desc[ulPin].A);
-#endif
-  return ulValue;	
+  if(ulMode == EXTERNAL)
+  {
+   // ADC_CONFIG_CH7(ADC, ADC_ADCHER_PRESEL_EXT_INPUT_SIGNAL);
+  }
+  else if(ulMode == INTERNAL)
+  {
+   // ADC_CONFIG_CH7(ADC, ADC_ADCHER_PRESEL_INT_BANDGAP);
+  }
+  else if(ulMode == INTERNAL_TEMP)
+  {
+    //ADC_CONFIG_CH7(ADC, ADC_ADCHER_PRESEL_INT_TEMPERATURE_SENSOR);
+  }
+  else
+  {
+    /* Nothing to do */
+  }
 }
 
+static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to)
+{
+	if (from == to)
+		return value;
+	if (from > to)
+		return (value >> (from-to));
+	else
+		return (value << (to-from));
+}
 
-/* PWM clock IP = HCLK = 50Mhz 
+uint32_t analogRead(uint32_t ulArduPin)
+{
+  uint32_t LulAdcValue = 0;
+  uint32_t LulADCChannel;
+
+  LulADCChannel = ARDU_PINTO_ADCCHANNEL(ulArduPin);
+  
+  Ardu_PinConfigAsADC(ulArduPin);
+  
+#if defined(__M051__)
+  
+  /* Check if this PWM pin is not initialized */
+	if (!PinADCEnabled[ARDU_PINTO_MCUPIN(ulArduPin)])
+  {
+    /* Disable the digital input path to avoid the leakage current */
+    GPIO_DISABLE_DIGITAL_PATH(ARDU_PINTO_PORT(ulArduPin), (1 << LulADCChannel));
+    
+    /* Set the ADC operation mode as single conversion, input mode as single-end 
+       and enable the analog input channel */
+    ADC_Open(ADC, ADC_ADCR_DIFFEN_SINGLE_END, ADC_ADCR_ADMD_SINGLE, \
+                                                      (1<<LulADCChannel));
+    /* ADC convert complete interrupt: Disable */
+    ADC_DisableInt(ADC, ADC_ADF_INT);
+
+    /* Power on ADC module */
+    ADC_POWER_ON(ADC);
+
+    /* Clear the A/D interrupt flag for safe */
+    ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT);
+    
+    PinADCEnabled[ARDU_PINTO_MCUPIN(ulArduPin)] = 1;
+  }
+
+  /* Start for conversion	*/
+  ADC_START_CONV(ADC);
+      
+  /* Wait for end of conversion */
+  while(!ADC_GET_INT_FLAG(ADC, ADC_ADF_INT));
+  
+  /* Clear ADC flag */
+  ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT);
+  
+  /* Read the value */
+  LulAdcValue = ADC_GET_CONVERSION_DATA(ADC, LulADCChannel);	
+
+#endif
+  
+  LulAdcValue = mapResolution(LulAdcValue, ADC_HARDWARE_RESOLUTION, \
+                                                         _ReadResolution);
+  
+  return LulAdcValue;	
+}
+
+/* 
+              PWM clock IP = HCLK = 50Mhz 
 => Freq(Hz) = PWM_clock_IP/((Prescaler+1)*Divider*(CNR+1))
 
 Default: 
@@ -196,12 +203,16 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
 		/* Set this pin to PWM pin */
 		Ardu_PinConfigAsPWM(ulPin);	
     
+    PWM_SET_PRESCALER(LpPWMGroup, LulPWMChannel, 
+                            (uint8_t)(1<<(15 -_WriteResolution)));
+    
+    PWM_SET_DIVIDER(LpPWMGroup, LulPWMChannel, PWM_CLK_DIV_1);
+    
     /* PWM mode as AUTO-RELOAD */
     LpPWMGroup->PCR |= (1<< (3 + (LulPWMChannel*8)));
     
-    PWM_SET_PRESCALER(LpPWMGroup, LulPWMChannel, (uint8_t)(1<<(15 -_WriteResolution)));
+    PWM_DisableOutput(LpPWMGroup, (1<<LulPWMChannel));
     
-    PWM_SET_DIVIDER(LpPWMGroup, LulPWMChannel, PWM_CLK_DIV_1);
     
     /* Set the duty of the selected channel */
     PWM_SET_CMR(LpPWMGroup, LulPWMChannel, ulValue);
@@ -212,7 +223,7 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
     /* Set the PWM aligned type */
     PWM_SET_ALIGNED_TYPE(LpPWMGroup, (1<<LulPWMChannel), PWM_EDGE_ALIGNED);
     
-    
+    PWM_DisableDutyInt(LpPWMGroup, LulPWMChannel);
 
 		/* Enable PWM output */
 		PWM_EnableOutput(LpPWMGroup, (1<<LulPWMChannel));
@@ -221,6 +232,7 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
 		PWM_Start(LpPWMGroup, (1<<LulPWMChannel));
 		
 		PinPWMEnabled[ulPin] = 1;
+    return;
 	}
 	
 	/* Set the duty of the selected channel */		
@@ -228,6 +240,96 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
 
 	
 	return;
+}
+
+/*******************************************************************************
+                           EXTERNAL ARDUINO API(M051)
+*******************************************************************************/
+/*
+  Analog Input Channel 7 Source Selection 
+  00 = External analog input. 
+  01 = Internal band-gap voltage. 
+  10 = Internal temperature sensor. 
+  11 = Reserved. 
+  Note: When the band-gap voltage is selected as the analog input source of ADC 
+  channel 7, ADC peripheral clock rate needs to be limited to lower than 
+  300 kHz.
+*/
+
+/*
+  The band-gap voltage reference (VBG) is an  internal fixed reference voltage
+  regardless of power supply variations. The VBG output is internally connected
+  to ADC channel 7 source multiplexer and Analog Comparators’s (ACMP) negative 
+  input side. 
+  For battery power detection application, user can use the VBG as ADC input 
+  channel such that user can convert the A/D conversion result to calculate 
+  AVDD with following formula. 
+
+AVDD = ((2 ^ N) / R) * VBG 
+N: ADC resolution 
+R: A/D conversion result 
+
+M051 series: N = 12, VBG = 1.25V
+=> AVDD = (4096 / R) * 1.25 
+   AVDD(V) = 6144 / R
+
+=> AVDD(mV) = 6144000 / R
+*/
+/**
+  * @brief Read voltage(mV) power source Vcc.
+  * @param[in] None
+  * @return Vcc(mV)
+  */
+uint32_t analogReadVcc(void)
+{
+  uint32_t LulVcc;
+  uint32_t LulAdcValue;
+  
+  
+  /* Check if this PWM pin is not initialized */
+	if (!PinADCEnabled[INTERNAL_BANDGAP_CHANNEL])
+  {
+    //Ardu_PinConfigAsADC(ulArduPin);
+ 
+    /* Disable the digital input path to avoid the leakage current */
+    //GPIO_DISABLE_DIGITAL_PATH(ARDU_PINTO_PORT(ulArduPin), (1 << LulADCChannel));
+    
+    /* Set the ADC operation mode as single conversion, input mode as single-end 
+       and enable the analog input channel */
+    ADC_Open(ADC, ADC_ADCR_DIFFEN_SINGLE_END, ADC_ADCR_ADMD_SINGLE, \
+                                             (1<<INTERNAL_BANDGAP_CHANNEL));
+    /* ADC convert complete interrupt: Disable */
+    ADC_DisableInt(ADC, ADC_ADF_INT);
+
+    /* Power on ADC module */
+    ADC_POWER_ON(ADC);
+
+    /* Clear the A/D interrupt flag for safe */
+    ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT);
+    
+    PinADCEnabled[INTERNAL_BANDGAP_CHANNEL] = 1;
+  }
+
+  /* Start for conversion	*/
+  ADC_START_CONV(ADC);
+      
+  /* Wait for end of conversion */
+  while(!ADC_GET_INT_FLAG(ADC, ADC_ADF_INT));
+  
+  /* Clear ADC flag */
+  ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT);
+  
+  /* Read the value */
+  LulAdcValue = ADC_GET_CONVERSION_DATA(ADC, INTERNAL_BANDGAP_CHANNEL);	
+  
+  LulVcc = 6144000 / LulAdcValue;
+    
+  return LulVcc;
+}
+
+void analogReadClose(void)
+{
+  ADC_Close(ADC);
 }
 
 #ifdef __cplusplus

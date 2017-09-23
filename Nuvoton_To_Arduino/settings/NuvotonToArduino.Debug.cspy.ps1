@@ -23,9 +23,9 @@ param([String]$debugfile = "");
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "F:\My_Projects\QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.general.xcl" --backend -f "F:\My_Projects\QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.general.xcl" --backend -f "F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "F:\My_Projects\QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.general.xcl" --debug_file=$debugfile --backend -f "F:\My_Projects\QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.general.xcl" --debug_file=$debugfile --backend -f "F:\My_Projects\QuadCopter\DK_QuadCopter\DK_QuadCopter\Nuvoton_To_Arduino\settings\NuvotonToArduino.Debug.driver.xcl" 
 }

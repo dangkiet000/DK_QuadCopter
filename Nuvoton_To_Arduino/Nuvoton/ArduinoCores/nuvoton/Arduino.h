@@ -34,9 +34,7 @@ extern uint32_t SystemTickClock;
 #define clockCyclesToMicroseconds(a) ( ((a) * 1000L) / (SystemCoreClock / 1000L) )
 #define microsecondsToClockCycles(a) ( (a) * (SystemCoreClock / 1000000L) )
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+
 
 
 
@@ -48,12 +46,10 @@ extern "C" {
 
 void yield(void);
 
-#ifdef __cplusplus
-}
 
 #include "WCharacter.h"
 //#include "WString.h"
-//#include "WMath.h"
+#include "WMath.h"
 //#include "HardwareSerial.h"
 //#include "HardwareTimer.h"
 //#include "wiring_pulse.h"
@@ -61,7 +57,6 @@ void yield(void);
 //void tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
 //void noTone(uint8_t _pin);
 
-#endif
 	
 
 #define INPUT 0x0

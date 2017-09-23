@@ -2316,6 +2316,15 @@
     <group>
         <name>ArduinoCores</name>
         <group>
+            <name>Serial</name>
+            <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
+            </file>
+        </group>
+        <group>
             <name>Wiring</name>
             <group>
                 <name>Essential_Library</name>

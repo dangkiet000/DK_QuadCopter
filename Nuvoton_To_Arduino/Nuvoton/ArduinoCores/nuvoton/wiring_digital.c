@@ -16,12 +16,14 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+#include "Arduino.h"
+
+
 #ifdef __cplusplus
  extern "C" {
 #endif
-
-#include "Arduino.h"
-
+ 
+ 
 extern void pinMode( uint32_t ulPin, uint32_t ulMode )
 {
   GPIO_T * LpPort;
