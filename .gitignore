@@ -15,3 +15,9 @@
 *.map
 *.pbi
 Nuvoton_To_Arduino/Debug/Obj/gpio.pbi.xcl
+*.xcl
+*.pbd
+Nuvoton_To_Arduino/Debug/Obj/NuvotonToArduino.pbd.browse
+*.wsdt
+Nuvoton_To_Arduino/Debug/List/NuvotonToArduino.map
+*.linf

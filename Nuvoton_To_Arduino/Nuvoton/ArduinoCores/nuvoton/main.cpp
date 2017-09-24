@@ -33,6 +33,7 @@ void Blinking(void)
 void main( void )
 {
   uint32_t LulCnt;
+  unsigned char  incomingByte;
 	init();		
 //	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
 //	USBDevice.attach();
@@ -50,12 +51,19 @@ void main( void )
 	{
 
 //		loop();		
-//		if(serialEventRun) serialEventRun();
-    for (LulCnt=0; LulCnt<255; LulCnt++)
+	  serialEventRun();
+    if (Serial.available() > 0) 
     {
-      delay(10);
+      // read the incoming byte:
+      incomingByte = Serial.read();
+      Serial.write(incomingByte);
     }
-    Serial.print("dasdads");
+//    for (LulCnt=0; LulCnt<255; LulCnt++)
+//    {
+//      delay(1000);
+//      
+//    }
+    
 	}
   
 }

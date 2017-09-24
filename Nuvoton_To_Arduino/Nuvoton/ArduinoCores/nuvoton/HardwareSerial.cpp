@@ -103,7 +103,8 @@ void UART1_IRQHandler(void)
 }
 #endif
 
-#endif
+#endif 
+/* End of defined(__M051__) */
 
 
 
@@ -194,7 +195,7 @@ int HardwareSerial::read(void)
   else
   {
     unsigned char c = _rx_buffer->buffer[u32Tail];
-    u32Tail = (unsigned int)(u32Tail + 1) % SERIAL_BUFFER_SIZE;
+    _rx_buffer->tail = (unsigned int)(u32Tail + 1) % SERIAL_BUFFER_SIZE;
     return c;
   }
 }
