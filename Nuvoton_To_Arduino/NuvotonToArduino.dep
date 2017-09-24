@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>2812098105</fileChecksum>
+    <fileChecksum>2692800765</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -70,8 +70,6 @@
             <file>$PROJ_DIR$\Debug\Obj\dtostrf.__cstat.et</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_constants.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\USBAPI.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.h</file>
@@ -236,13 +234,38 @@
             <file>$PROJ_DIR$\Debug\Obj\uart.__cstat.et</file>
             <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\syscalls.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Printable.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_constants.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WCharacter.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 76 174</file>
+                    <file> 74 172</file>
                 </tool>
             </outputs>
         </file>
@@ -250,89 +273,47 @@
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 215</file>
-                </tool>
-                <tool>
                     <name>__cstat</name>
-                    <file> 226</file>
+                    <file> 224</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
                     <file> 58</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 219 30 48 36 213 35 37 122 184 29 129 131 55 206 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 196 71 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 168 147 213 72 131 48 206 129 219 67 75 34 163 203 193 208 176 29 37 36 35 61 70 154 220 130 149 150 184 122 55 69 157 74 152 123 156 148 155 153 158 151 190 189 188 200 197 202 198 194 199 196 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 24</file>
-                </tool>
-                <tool>
                     <name>__cstat</name>
-                    <file> 225</file>
+                    <file> 223</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 126</file>
+                    <file> 124</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 219 30 48 36 213 35 37 122 184 29 129 61 220 34 130 123 206 55 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 67 131 34 219 75 30 190 206 168 72 156 197 196 208 176 29 122 220 130 61 70 154 188 198 194 184 71 37 36 213 35 129 123 55 69 157 74 152 189 200 202 199 163 148 149 155 147 153 150 158 203 193 151 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 26</file>
-                </tool>
-                <tool>
                     <name>__cstat</name>
-                    <file> 224</file>
+                    <file> 222</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
                     <file> 46</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 129 196 131 122 30 219 197 208 55 157 156 190 176 29 69 74 152 48 37 123 188 198 194 206 61 168 67 75 70 72 154 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 210</file>
+                    <file> 208</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -343,23 +324,13 @@
                     <file> 59</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 184 30 48 36 213 35 37</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36 37 30 48 213 35 184</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 214</file>
+                    <file> 212</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -367,26 +338,16 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 82</file>
+                    <file> 80</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 65 29 30 48 36 213 35 37 129</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 48 36 35 29 37 129 213 65</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 93</file>
+                    <file> 91</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -394,26 +355,16 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 83</file>
+                    <file> 81</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 70 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 122 30 219 55 131 154 129 155 168 208 206 61 70 156 158 151 196 176 67 75 72 48 37 123 148 153 29 69 157 74 152 36 213 35 220 34 130 163 149 147 150 203 193 184 190 189 188 200 197 202 198 194 199 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 94</file>
+                    <file> 92</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -421,53 +372,33 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 84</file>
+                    <file> 82</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 75 190 219 30 55 131 67 208 168 72 37 123 197 196 176 61 70 154 122 129 156 188 198 194 206 29 69 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 95</file>
+                    <file> 93</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 119</file>
+                    <file> 117</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 100</file>
+                    <file> 98</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 75 190 219 30 55 131 67 208 168 72 37 123 197 196 176 61 70 154 122 129 156 188 198 194 206 29 69 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 96</file>
+                    <file> 94</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -475,26 +406,16 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 101</file>
+                    <file> 99</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 67 190 55 131 219 75 48 30 208 168 72 37 123 197 196 176 61 70 154 122 129 156 188 198 194 206 29 69 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 98</file>
+                    <file> 96</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -505,23 +426,13 @@
                     <file> 56</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 219 30 48 36 213 35 37 122 55 152</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36 30 35 152 37 55 48 213 219 122</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 99</file>
+                    <file> 97</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -532,16 +443,6 @@
                     <file> 28</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 63 219 30 48 36 213 35 37 122 29 129 176 207 131 55 65 66</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 131 66 29 122 30 65 207 55 63 219 176 37 36 213 35 129</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</name>
@@ -562,11 +463,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 123 168 37 190 72 55 131 48 208 219 67 75 30 197 196 176 61 70 154 122 129 156 188 198 194 206 29 69 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
                 </tool>
             </inputs>
         </file>
@@ -575,25 +472,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 80</file>
+                    <file> 78</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 87</file>
+                    <file> 85</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 81</file>
+                    <file> 79</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 70 156 190 61 30 55 131 208 154 122 129 219 197 196 176 168 67 75 72 48 37 123 188 198 194 206 29 69 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
                 </tool>
             </inputs>
         </file>
@@ -602,25 +495,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 218</file>
+                    <file> 216</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 116</file>
+                    <file> 114</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 128</file>
+                    <file> 126</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 129 190 154 55 131 122 30 219 208 61 70 156 197 196 176 168 67 75 72 48 37 123 188 198 194 206 69 29 157 74 152 36 213 35 220 34 130 163 189 200 202 199 184 148 149 155 147 153 150 158 203 193 151 71 63 207</file>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
                 </tool>
             </inputs>
         </file>
@@ -629,7 +518,7 @@
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 165</file>
+                    <file> 163</file>
                 </tool>
             </outputs>
         </file>
@@ -638,25 +527,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 191</file>
+                    <file> 189</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 167</file>
+                    <file> 165</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 172</file>
+                    <file> 170</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 184 30 48 36 213 35 37 55 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 193 203 168 48 147 30 163 149 150 151 37 148 155 153 158 55 36 213 35 156 190 189 188 200 197 202 198 194 184 199</file>
+                    <file> 182 30 48 36 211 35 37 55 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -665,25 +550,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 112</file>
+                    <file> 110</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 117</file>
+                    <file> 115</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 114</file>
+                    <file> 112</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 168 156 55 30 48 36 213 35 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 197 156 168 190 188 198 194 189 200 202 30 151 48 163 148 149 155 147 153 150 158 203 55 193 36 213 35 199</file>
+                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -692,25 +573,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 171</file>
+                    <file> 169</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 160</file>
+                    <file> 158</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 169</file>
+                    <file> 167</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 168 156 55 30 48 36 213 35 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 48 158 168 155 148 153 213 163 149 147 150 203 193 36 35 199 151 156 190 189 188 200 197 202 198 194 30</file>
+                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -719,25 +596,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 170</file>
+                    <file> 168</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 161</file>
+                    <file> 159</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 195</file>
+                    <file> 193</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 168 156 55 30 48 36 213 35 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 188 168 198 194 156 190 197 189 200 202 30 151 48 163 148 149 155 147 153 150 158 203 55 193 36 213 35 199</file>
+                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -746,25 +619,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 113</file>
+                    <file> 111</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 118</file>
+                    <file> 116</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 115</file>
+                    <file> 113</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 168 156 55 30 48 36 213 35 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 155 168 158 55 48 148 153 213 163 149 147 150 203 193 36 35 199 151 156 190 189 188 200 197 202 198 194 30</file>
+                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -773,25 +642,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 178</file>
+                    <file> 176</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 162</file>
+                    <file> 160</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 192</file>
+                    <file> 190</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 168 156 55 30 48 36 213 35 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 151 168 200 189 202 30 48 156 190 188 197 198 194 163 148 149 155 147 153 150 158 203 55 193 36 213 35 199</file>
+                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -800,25 +665,21 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 229</file>
+                    <file> 227</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 228</file>
+                    <file> 226</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 227</file>
+                    <file> 225</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 184 30 48 36 213 35 37 168 156 55 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 198 194 168 30 188 156 190 197 151 37 48 189 200 202 36 213 35 163 148 149 155 147 153 150 158 203 55 193 184 199</file>
+                    <file> 182 30 48 36 211 35 37 166 154 55 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
                 </tool>
             </inputs>
         </file>
@@ -837,7 +698,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 30 29 48 219 38 166 142 36 35 34 176 55 60 107 140 102 213 37 220 184 50 61 221 109 111 105 173 86 104 122 129 123 131 51 89 130 132 39 141</file>
+                    <file> 30 29 48 217 38 164 140 36 35 34 174 55 60 105 138 100 211 37 218 182 50 61 219 107 109 103 171 84 102 120 127 121 129 51 87 128 130 39 139</file>
                 </tool>
             </inputs>
         </file>
@@ -846,17 +707,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 97</file>
+                    <file> 95</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 164</file>
+                    <file> 162</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 48 72 55 61 30 201 63 37 74 73 206 29 219 67 157 154 122 129 69 75 70 152 205 68 36 213 35 220 34 130 196 131 207 123 176 71 184 208</file>
+                    <file> 48 70 55 61 30 199 63 37 72 71 204 29 217 65 155 152 120 127 67 73 68 150 203 66 36 211 35 218 34 128 194 129 205 121 174 69 182 206</file>
                 </tool>
             </inputs>
         </file>
@@ -865,13 +726,13 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 174</file>
+                    <file> 172</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 187 112 52 171 210 170 215 214 80 218 24 113 165 26 178 191 229 93 94 95 96 98 99 182 179 183 175 177</file>
+                    <file> 185 110 52 169 208 168 213 212 78 216 24 111 163 26 176 189 227 91 92 93 94 96 97 180 177 181 173 175</file>
                 </tool>
             </inputs>
         </file>
@@ -880,17 +741,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 97</file>
+                    <file> 95</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 164</file>
+                    <file> 162</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 48 105 55 61 30 104 39 37 111 86 89 29 219 221 109 173 122 129 60 166 107 140 142 102 36 213 35 220 34 130 132 131 141 123 176 38 184 51</file>
+                    <file> 48 103 55 61 30 102 39 37 109 84 87 29 217 219 107 171 120 127 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -909,7 +770,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 29 30 48 39 37 166 142 36 35 34 89 60 107 140 102 213 220 219 61 221 109 111 105 173 86 104 122 129 130 132 131 141 123 176 38 184 51</file>
+                    <file> 55 29 30 48 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -918,7 +779,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 92</file>
+                    <file> 90</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -928,7 +789,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 129 219 122 30 39 37 221 109 173 89 29 61 111 105 86 104 48 60 166 107 140 142 102 36 213 35 220 34 130 132 131 141 123 176 38 184 51</file>
+                    <file> 55 127 217 120 30 39 37 219 107 171 87 29 61 109 103 84 102 48 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -937,17 +798,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 93</file>
+                    <file> 91</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 83</file>
+                    <file> 81</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 219 107 39 37 60 140 102 213 48 220 89 29 166 142 30 36 35 34 61 221 109 111 105 173 86 104 122 129 123 132 131 141 130 176 38 184 51</file>
+                    <file> 55 217 105 39 37 60 138 100 211 48 218 87 29 164 140 30 36 35 34 61 219 107 109 103 171 84 102 120 127 121 130 129 139 128 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -956,17 +817,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 94</file>
+                    <file> 92</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 84</file>
+                    <file> 82</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 29 30 48 39 37 166 142 36 35 34 89 60 107 140 102 213 220 219 61 221 109 111 105 173 86 104 122 129 130 132 131 141 123 176 38 184 51</file>
+                    <file> 55 29 30 48 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -975,17 +836,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 95</file>
+                    <file> 93</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 100</file>
+                    <file> 98</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 107 39 37 60 140 102 213 48 220 89 29 166 142 30 36 35 34 219 61 221 109 111 105 173 86 104 122 129 130 132 131 141 123 176 38 184 51</file>
+                    <file> 55 105 39 37 60 138 100 211 48 218 87 29 164 140 30 36 35 34 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -994,7 +855,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 90</file>
+                    <file> 88</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1004,7 +865,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 130 55 107 60 140 102 213 37 48 220 89 131 30 184 29 166 142 36 35 34 132 141 219 120 181 61 221 109 111 105 173 86 104 122 129 39 123 176 38 51</file>
+                    <file> 128 55 105 60 138 100 211 37 48 218 87 129 30 182 29 164 140 36 35 34 130 139 217 118 179 61 219 107 109 103 171 84 102 120 127 39 121 174 38 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1023,7 +884,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 131 102 219 213 37 48 89 51 221 109 173 220 130 176 61 111 105 86 30 36 35 132 55 29 60 166 107 140 142 104 122 129 34 184 123 38 39 141</file>
+                    <file> 129 100 217 211 37 48 87 51 219 107 171 218 128 174 61 109 103 84 30 36 35 130 55 29 60 164 105 138 140 102 120 127 34 182 121 38 39 139</file>
                 </tool>
             </inputs>
         </file>
@@ -1042,7 +903,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 30 36 29 55 48 124 213 35 37 129</file>
+                    <file> 30 36 29 55 48 122 211 35 37 127</file>
                 </tool>
             </inputs>
         </file>
@@ -1051,17 +912,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 218</file>
+                    <file> 216</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 128</file>
+                    <file> 126</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 102 55 60 140 213 37 48 220 39 107 89 29 166 142 30 36 35 34 219 61 221 109 111 105 173 86 104 122 129 130 132 131 141 123 176 38 184 51</file>
+                    <file> 100 55 60 138 211 37 48 218 39 105 87 29 164 140 30 36 35 34 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1070,7 +931,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 98</file>
+                    <file> 96</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1080,7 +941,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 36 30 35 140 37 55 48 213 219 122</file>
+                    <file> 36 30 35 138 37 55 48 211 217 120</file>
                 </tool>
             </inputs>
         </file>
@@ -1089,7 +950,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 211</file>
+                    <file> 209</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1099,7 +960,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 55 109 221 173 30 39 37 219 122 129 89 29 61 111 105 86 104 48 60 166 107 140 142 102 36 213 35 220 34 130 132 131 141 123 176 38 184 51</file>
+                    <file> 55 107 219 171 30 39 37 217 120 127 87 29 61 109 103 84 102 48 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1108,17 +969,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 214</file>
+                    <file> 212</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 82</file>
+                    <file> 80</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 30 48 36 35 29 37 129 213 139</file>
+                    <file> 30 48 36 35 29 37 127 211 137</file>
                 </tool>
             </inputs>
         </file>
@@ -1127,11 +988,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 209</file>
+                    <file> 207</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 79</file>
+                    <file> 77</file>
                 </tool>
             </outputs>
         </file>
@@ -1140,7 +1001,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 99</file>
+                    <file> 97</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1150,7 +1011,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 48 131 180 29 122 30 139 141 55 39 219 176 37 36 213 35 129</file>
+                    <file> 48 129 178 29 120 30 137 139 55 39 217 174 37 36 211 35 127</file>
                 </tool>
             </inputs>
         </file>
@@ -1159,7 +1020,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 216</file>
+                    <file> 214</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1169,7 +1030,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 38 219 89 29 30 48 166 142 36 35 34 176 55 60 107 140 102 213 37 220 184 61 221 109 111 105 173 86 104 122 129 123 131 51 130 132 39 141</file>
+                    <file> 38 217 87 29 30 48 164 140 36 35 34 174 55 60 105 138 100 211 37 218 182 61 219 107 109 103 171 84 102 120 127 121 129 51 128 130 39 139</file>
                 </tool>
             </inputs>
         </file>
@@ -1178,11 +1039,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 80</file>
+                    <file> 78</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 81</file>
+                    <file> 79</file>
                 </tool>
             </outputs>
         </file>
@@ -1191,17 +1052,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 217</file>
+                    <file> 215</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 78</file>
+                    <file> 76</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 173 221 109 219 102 213 37 48 220 132 61 111 105 86 30 36 35 34 130 89 131 51 176 135 55 29 60 166 107 140 142 104 122 129 184 123 38 39 141</file>
+                    <file> 171 219 107 217 100 211 37 48 218 130 61 109 103 84 30 36 35 34 128 87 129 51 174 133 55 29 60 164 105 138 140 102 120 127 182 121 38 39 139</file>
                 </tool>
             </inputs>
         </file>
@@ -1210,15 +1071,15 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 80</file>
+                    <file> 78</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 87</file>
+                    <file> 85</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 81</file>
+                    <file> 79</file>
                 </tool>
             </outputs>
         </file>
@@ -1227,7 +1088,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 210</file>
+                    <file> 208</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1237,7 +1098,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 36 37 30 48 213 35 184</file>
+                    <file> 36 37 30 48 211 35 182</file>
                 </tool>
             </inputs>
         </file>
@@ -1246,7 +1107,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 215</file>
+                    <file> 213</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1256,7 +1117,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 35 37 86 36 111 48 89 30 61 105 104 34 39 29 213 129 219 221 109 173 220 123 131 184 122 55 60 166 107 140 142 102 176 141 130 132 38 51</file>
+                    <file> 35 37 84 36 109 48 87 30 61 103 102 34 39 29 211 127 217 219 107 171 218 121 129 182 120 55 60 164 105 138 140 100 174 139 128 130 38 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1265,7 +1126,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 91</file>
+                    <file> 89</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -1275,7 +1136,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 34 142 35 55 48 166 30 36 39 37 29 89 60 107 140 102 213 220 219 61 221 109 111 105 173 86 104 122 129 130 132 131 141 123 176 38 184 51</file>
+                    <file> 34 140 35 55 48 164 30 36 39 37 29 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1288,13 +1149,13 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 126</file>
+                    <file> 124</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 37 131 30 166 89 36 35 142 51 176 29 213 129 123 132 184 61 38 48 122 219 55 60 107 140 104 220 34 130 221 109 111 105 173 86 102 39 141</file>
+                    <file> 37 129 30 164 87 36 35 140 51 174 29 211 127 121 130 182 61 38 48 120 217 55 60 105 138 102 218 34 128 219 107 109 103 171 84 100 39 139</file>
                 </tool>
             </inputs>
         </file>
@@ -1303,17 +1164,17 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 96</file>
+                    <file> 94</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 101</file>
+                    <file> 99</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 30 48 55 29 39 37 166 142 36 35 34 89 60 107 140 102 213 220 219 176 61 221 109 111 105 173 86 104 122 129 123 132 131 141 130 38 184 51</file>
+                    <file> 30 48 55 29 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 174 61 219 107 109 103 171 84 102 120 127 121 130 129 139 128 38 182 51</file>
                 </tool>
             </inputs>
         </file>
@@ -1328,14 +1189,267 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 206 55 30 48 36 213 35 219 37 122 29 129 61 220 34 130 123 168 156 194 151 199 193 163 148 190 149 189 155 188 147 200 153 197 150 202 158 198 203 69 67 157 75 74 70 72 176 152 154 131 196 71 184 63 207 208 230</file>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 65 155 73 72 68 70 174 150 152 129 194 69 182 63 205 206 228</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 154 129 122 30 219 147 61 70 156 203 193 168 131 184 67 75 72 48 37 123 149 150 176 207 181 230 55 29 69 157 74 152 36 213 35 220 34 130 163 148 155 153 158 151 71 63 206 190 189 188 200 197 202 198 194 199 196 208</file>
+                    <file> 152 127 120 30 217 145 61 68 154 201 191 166 129 182 65 73 70 48 37 121 147 148 174 205 179 228 55 29 67 155 72 150 36 211 35 218 34 128 161 146 153 151 156 149 69 63 204 188 187 186 198 195 200 196 192 197 194 206</file>
                 </tool>
             </inputs>
         </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 97</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 28</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 240 217 30 48 36 211 35 37 120 29 127 174 205 129 55 229 245</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 124</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 217 30 48 36 211 35 37 120 182 29 127 61 218 34 128 121 204 55 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 92</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 82</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 81</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 247 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 251 174 248 241 129 243 242 182 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 99</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 26</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 93</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 98</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 96</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 56</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 217 30 48 36 211 35 37 120 55 248</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 208</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 59</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 182 30 48 36 211 35 37</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 212</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 229 29 30 48 36 211 35 37 127</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 213</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 58</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 217 30 48 36 211 35 37 120 182 29 127 129 55 204 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 243 242 240 205 244</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>

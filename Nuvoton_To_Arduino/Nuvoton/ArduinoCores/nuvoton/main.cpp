@@ -35,9 +35,10 @@ void main( void )
   uint32_t LulCnt;
   unsigned char  incomingByte;
 	init();		
-//	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
-//	USBDevice.attach();
-//	#endif
+  
+	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
+	USBDevice.attach();
+	#endif
   
 
 //	setup();

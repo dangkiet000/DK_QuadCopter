@@ -2318,13 +2318,13 @@
         <group>
             <name>Serial</name>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</name>
             </file>
         </group>
         <group>
@@ -2332,29 +2332,29 @@
             <group>
                 <name>Essential_Library</name>
                 <file>
-                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.c</name>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</name>
                 </file>
             </group>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.cpp</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
+                <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</name>
             </file>
         </group>
         <file>
