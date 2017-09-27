@@ -32,7 +32,7 @@ void Blinking(void)
 
 void main( void )
 {
-  uint32_t LulCnt;
+  //uint32_t LulCnt;
   unsigned char  incomingByte;
 	init();		
   
@@ -47,7 +47,10 @@ void main( void )
   digitalWrite(LED_PIN, LOW);
   
   Serial.begin(9600);
+  Timer1.open(PERIODIC, 1);
+  Timer1.attachInterrupt(Blinking);
   
+  Timer1.start();
   while(1)
 	{
 

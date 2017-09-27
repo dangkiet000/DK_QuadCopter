@@ -2316,6 +2316,33 @@
     <group>
         <name>ArduinoCores</name>
         <group>
+            <name>OptionLibraries</name>
+            <group>
+                <name>HardwareTimer</name>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\HardwareTimer\HardwareTimer.cpp</name>
+                </file>
+            </group>
+            <group>
+                <name>Reset</name>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Reset\Reset.cpp</name>
+                </file>
+            </group>
+            <group>
+                <name>RingBuffer</name>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\RingBuffer\RingBuffer.cpp</name>
+                </file>
+            </group>
+            <group>
+                <name>Tone</name>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Tone\Tone.cpp</name>
+                </file>
+            </group>
+        </group>
+        <group>
             <name>Serial</name>
             <file>
                 <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</name>
@@ -2361,6 +2388,9 @@
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\hooks.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</name>
         </file>
         <file>
@@ -2402,6 +2432,9 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\timer.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</name>

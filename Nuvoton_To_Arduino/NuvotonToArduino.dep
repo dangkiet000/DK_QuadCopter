@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>2692800765</fileChecksum>
+    <fileChecksum>2747517667</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\HardwareTimer\HardwareTimer.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Reset\Reset.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\RingBuffer\RingBuffer.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\hooks.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\IAR\startup_M051Series.s</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\system_M051Series.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\adc.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\clk.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\gpio.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\pwm.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\timer.c</file>
+            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</file>
@@ -16,17 +43,6 @@
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\IAR\startup_M051Series.s</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\system_M051Series.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\adc.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\clk.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\gpio.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\pwm.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</file>
-            <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</file>
             <file>$PROJ_DIR$\Debug\Obj\USBCore.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Tone.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Print.o</file>
@@ -45,100 +61,6 @@
             <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
             <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Print.h</file>
             <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WString.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\RingBuffer.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Reset.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\WMath.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\WString.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\syscalls.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Stream.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\board.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\board.pbi</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Printable.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\board.o</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.cpp</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\WMath.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\HardwareTimer.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\HardwareSerial.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\dtostrf.pbi</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\math.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\dtostrf.__cstat.et</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_constants.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\USBAPI.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WCharacter.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\NuvotonToArduino.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\NuvotonToArduino.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\IPAddress.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\hooks.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\itoa.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\WInterrupts.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring.pbi</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\board.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Arduino.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\syscalls.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\Tone.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\USBCore.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\WInterrupts.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_pulse.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\WMath.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\WString.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.pbi</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBAPI.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WCharacter.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.c</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.c</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.c</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\pwm.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\pwm.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\Pins_arduino.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\adc.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\pwm.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.__cstat.et</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
-            <file>$TOOLKIT_DIR$\inc\cpp\cstdlib</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.cpp</file>
-            <file>$PROJ_DIR$\Debug\Obj\Print.pbi</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.cpp</file>
-            <file>$PROJ_DIR$\Debug\Obj\Pins_arduino.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
-            <file>$TOOLKIT_DIR$\inc\cpp\xtr1common</file>
-            <file>$TOOLKIT_DIR$\inc\c\inttypes.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.h</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WMath.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\IPAddress.h</file>
             <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\HID.cpp</file>
             <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\itoa.c</file>
             <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\hooks.c</file>
@@ -202,6 +124,31 @@
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.h</file>
             <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\inc\timer.h</file>
             <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\inc\hdiv.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Pins_arduino.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.__cstat.et</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
+            <file>$TOOLKIT_DIR$\inc\cpp\cstdlib</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\Print.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\Pins_arduino.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$TOOLKIT_DIR$\inc\cpp\xtr1common</file>
+            <file>$TOOLKIT_DIR$\inc\c\inttypes.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WMath.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\IPAddress.h</file>
             <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
             <file>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\inc\pwm.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\USBCore.h</file>
@@ -235,16 +182,6 @@
             <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\syscalls.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WInterrupts.c</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_analog.c</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WMath.cpp</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.h</file>
@@ -258,418 +195,301 @@
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_constants.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WCharacter.h</file>
             <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.h</file>
-            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\syscalls.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Stream.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\board.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\board.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Printable.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\board.o</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\WMath.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\HardwareTimer.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\HardwareSerial.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\dtostrf.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\dtostrf.__cstat.et</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_constants.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\USBAPI.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WCharacter.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\NuvotonToArduino.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\NuvotonToArduino.pbd</file>
+            <file>$PROJ_DIR$\Debug\Obj\IPAddress.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\hooks.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\itoa.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\WInterrupts.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\board.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\Arduino.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\syscalls.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Tone.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\USBCore.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\WInterrupts.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_pulse.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\WMath.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\WString.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_analog.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBAPI.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WCharacter.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.c</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.h</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.c</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\RingBuffer.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\RingBuffer\RingBuffer.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Reset.cpp</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\HardwareTimer\HardwareTimer.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Reset\Reset.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareTimer\HardwareTimer.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\RingBuffer.h</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Reset.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.pbi</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareTimer\HardwareTimer.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\RingBuffer.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Reset.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\wiring_digital.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\WMath.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\WString.__cstat.et</file>
+            <file>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.c</file>
+            <file>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Tone\Tone.cpp</file>
+            <file>$PROJ_DIR$\Debug\Obj\Reset.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\HardwareTimer.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\hooks.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\RingBuffer.__cstat.et</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 74 172</file>
+                    <file> 219 94</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 224</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 58</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 223</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 124</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
-            <outputs>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 222</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 46</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\HardwareTimer\HardwareTimer.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 208</file>
+                    <file> 161</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 62</file>
+                    <file> 272</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 59</file>
+                    <file> 202</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
-            <outputs>
+            <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 212</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 33</file>
+                    <file> 256 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 80</file>
+                    <file> 152 212 193 110 177 51 50 83 46 52 45 183 117 200 186 178 158 53 165 138 108 118 114 151 181 164 206 88 187 189 184 188 185 256 130 137 131 76 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
                 </tool>
-            </outputs>
+            </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Reset\Reset.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 91</file>
+                    <file> 41</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 32</file>
+                    <file> 271</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 81</file>
+                    <file> 265</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
-            <outputs>
+            <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 92</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 54</file>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256 257</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 82</file>
+                    <file> 180 45 183 46 193 68 96 212 177 52 51 50 83 73 71 139 179 200 186 178 158 53 165 138 75 78 88 257 164 206 187 189 184 188 185 256 130 137 131 76 69 67 70 148 113 151 110 109 108 145 117 147 118 114 144 152 104 181</file>
                 </tool>
-            </outputs>
+            </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\RingBuffer\RingBuffer.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 93</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 117</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 98</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 94</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 42</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 99</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 96</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
                     <file> 43</file>
                 </tool>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 56</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 97</file>
-                </tool>
-                <tool>
                     <name>__cstat</name>
-                    <file> 44</file>
+                    <file> 275</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 28</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 52</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 47</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 49</file>
+                    <file> 264</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 78</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 85</file>
+                    <file> 254 200 46 193 52 158 51 45 53 137</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 79</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                    <file> 46 52 45 200 193 254 158 51 53 137</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.cpp</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 216</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 114</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 126</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\IAR\startup_M051Series.s</name>
-            <outputs>
-                <tool>
-                    <name>AARM</name>
-                    <file> 163</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\system_M051Series.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 189</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 165</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 170</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 182 30 48 36 211 35 37 55 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\adc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 110</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 115</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 112</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\clk.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 169</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 158</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 167</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\gpio.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 168</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 159</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 193</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\pwm.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 111</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 116</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 113</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 176</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
                     <file> 160</file>
                 </tool>
                 <tool>
+                    <name>__cstat</name>
+                    <file> 171</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
-                    <file> 190</file>
+                    <file> 203</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 166 154 55 30 48 36 211 35 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
+                    <file> 164 46 193 52 158 51 53 130 104 45 137 139 200 151 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 185 178 180 179 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 88 158 188 193 69 181 151 137 164 187 189 256 165 138 70 96 45 53 52 51 206 184 185 50 83 67 148 113 104 139 130 200 212 186 183 177 178 131 76 68 75 73 78 71 110 109 108 145 117 147 118 114 144 152 180 179</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 227</file>
+                    <file> 40</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 226</file>
+                    <file> 170</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 134</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 164 46 193 52 158 51 53 130 104 45 137 206 165 50 138 131 151 200 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 256 193 187 145 50 164 189 151 88 188 144 45 139 130 165 138 206 184 185 46 109 147 104 179 53 52 158 51 137 131 200 212 186 183 177 178 76 110 108 117 118 114 152 181 83 68 69 75 67 73 70 78 148 113 71 96 180</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 42</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 169</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 191</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139 193 53 131 144 45 200 186 178 46 145 212 183 177 130 137 164 76 109 147 104 180 206 88 187 189 184 188 185 256 52 158 51 165 50 138 83 110 108 117 118 114 151 152 181 68 69 75 67 73 70 78 148 113 71 96 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 155</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 207</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 204</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 104 46 193 52 158 51 53</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 52 53 46 193 158 51 104</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 49</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -679,578 +499,11 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 182 30 48 36 211 35 37 166 154 55 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 25</file>
+                    <file> 176 45 46 193 52 158 51 53 137</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 41</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 29 48 217 38 164 140 36 35 34 174 55 60 105 138 100 211 37 218 182 50 61 219 107 109 103 171 84 102 120 127 121 129 51 87 128 130 39 139</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 95</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 162</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 70 55 61 30 199 63 37 72 71 204 29 217 65 155 152 120 127 67 73 68 150 203 66 36 211 35 218 34 128 194 129 205 121 174 69 182 206</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\NuvotonToArduino.out</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 172</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 185 110 52 169 208 168 213 212 78 216 24 111 163 26 176 189 227 91 92 93 94 96 97 180 177 181 173 175</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 95</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 162</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 103 55 61 30 102 39 37 109 84 87 29 217 219 107 171 120 127 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\board.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 52</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 49</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 29 30 48 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 90</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 22</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 127 217 120 30 39 37 219 107 171 87 29 61 109 103 84 102 48 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 91</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 81</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 217 105 39 37 60 138 100 211 48 218 87 29 164 140 30 36 35 34 61 219 107 109 103 171 84 102 120 127 121 130 129 139 128 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 92</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 82</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 29 30 48 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 93</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 98</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 105 39 37 60 138 100 211 48 218 87 29 164 140 30 36 35 34 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 88</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 45</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 128 55 105 60 138 100 211 37 48 218 87 129 30 182 29 164 140 36 35 34 130 139 217 118 179 61 219 107 109 103 171 84 102 120 127 39 121 174 38 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 26</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 46</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 129 100 217 211 37 48 87 51 219 107 171 218 128 174 61 109 103 84 30 36 35 130 55 29 60 164 105 138 140 102 120 127 34 182 121 38 39 139</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 27</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 40</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 36 29 55 48 122 211 35 37 127</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 216</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 126</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 100 55 60 138 211 37 48 218 39 105 87 29 164 140 30 36 35 34 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WMath.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 96</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 56</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36 30 35 138 37 55 48 211 217 120</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HID.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 209</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 55 107 219 171 30 39 37 217 120 127 87 29 61 109 103 84 102 48 60 164 105 138 140 100 36 211 35 218 34 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\itoa.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 212</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 80</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 48 36 35 29 37 127 211 137</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\hooks.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 207</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 77</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WString.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 97</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 28</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 48 129 178 29 120 30 137 139 55 39 217 174 37 36 211 35 127</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HardwareTimer.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 214</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 57</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 38 217 87 29 30 48 164 140 36 35 34 174 55 60 105 138 100 211 37 218 182 61 219 107 109 103 171 84 102 120 127 121 129 51 128 130 39 139</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\main.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 79</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\IPAddress.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 215</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 76</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 171 219 107 217 100 211 37 48 218 130 61 109 103 84 30 36 35 34 128 87 129 51 174 133 55 29 60 164 105 138 140 102 120 127 182 121 38 39 139</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 78</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 85</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 79</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\dtostrf.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 208</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 59</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36 37 30 48 211 35 182</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HardwareSerial.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 213</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 58</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 35 37 84 36 109 48 87 30 61 103 102 34 39 29 211 127 217 219 107 171 218 121 129 182 120 55 60 164 105 138 140 100 174 139 128 130 38 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Tone.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 89</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 34 140 35 55 48 164 30 36 39 37 29 87 60 105 138 100 211 218 217 61 219 107 109 103 171 84 102 120 127 128 130 129 139 121 174 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Print.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 24</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 124</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 37 129 30 164 87 36 35 140 51 174 29 211 127 121 130 182 61 38 48 120 217 55 60 105 138 102 218 34 128 219 107 109 103 171 84 100 39 139</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_digital.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 94</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 99</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 30 48 55 29 39 37 164 140 36 35 34 87 60 105 138 100 211 218 217 174 61 219 107 109 103 171 84 102 120 127 121 130 129 139 128 38 182 51</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\syscalls.c</name>
-            <outputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 45</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 65 155 73 72 68 70 174 150 152 129 194 69 182 63 205 206 228</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 152 127 120 30 217 145 61 68 154 201 191 166 129 182 65 73 70 48 37 121 147 148 174 205 179 228 55 29 67 155 72 150 36 211 35 218 34 128 161 146 153 151 156 149 69 63 204 188 187 186 198 195 200 196 192 197 194 206</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 97</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 28</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 240 217 30 48 36 211 35 37 120 29 127 174 205 129 55 229 245</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Print.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 24</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 124</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 217 30 48 36 211 35 37 120 182 29 127 61 218 34 128 121 204 55 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 240 205 244</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 92</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 82</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                    <file> 46 193 52 51 45 53 137 158 176</file>
                 </tool>
             </inputs>
         </file>
@@ -1259,55 +512,52 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 91</file>
+                    <file> 236</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 48</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 81</file>
+                    <file> 226</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 247 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 251 174 248 241 129 243 242 182 240 205 244</file>
+                    <file> 184 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193 68 185 53 131 151 206 184 46 73 71 181 164 88 187 189 188 256 130 137 76 75 78 200 152 45 212 186 183 177 178 52 158 51 165 50 138 83 69 67 70 148 113 139 104 110 109 108 145 117 147 118 114 144 96 180 179</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 94</file>
+                    <file> 237</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 199</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 99</file>
+                    <file> 227</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\Stream.cpp</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 26</file>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 46</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                    <file> 46 189 164 118 130 187 256 137 114 151 88 188 76 108 181 206 184 185 193 53 131 110 117 152 200 45 212 186 183 177 178 52 158 51 165 50 138 83 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
                 </tool>
             </inputs>
         </file>
@@ -1316,17 +566,52 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 93</file>
+                    <file> 238</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 127</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 98</file>
+                    <file> 243</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 204 55 30 48 36 211 35 217 37 120 29 127 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 129 243 242 182 240 205 244</file>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 189 164 118 130 187 256 137 114 151 88 188 76 108 181 206 184 185 193 53 131 110 117 152 200 45 212 186 183 177 178 52 158 51 165 50 138 83 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\wiring_digital.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 239</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 266</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 244</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 187 137 118 256 164 189 130 46 114 151 88 188 76 108 181 206 184 185 193 53 131 110 117 152 200 45 212 186 183 177 178 52 158 51 165 50 138 83 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
                 </tool>
             </inputs>
         </file>
@@ -1335,74 +620,1142 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 96</file>
+                    <file> 241</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 267</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 56</file>
+                    <file> 201</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 217 30 48 36 211 35 37 120 55 248</file>
+                    <file> 164 46 193 52 158 51 53 130 200 185</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 52 46 51 185 53 200 193 158 164 130</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\dtostrf.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\WString.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 208</file>
+                    <file> 242</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 268</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 59</file>
+                    <file> 44</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 182 30 48 36 211 35 37</file>
+                    <file> 177 164 46 193 52 158 51 53 130 45 137 96 152 139 200 176 182</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193 139 182 45 130 46 176 152 200 177 164 96 53 52 158 51 137</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Wiring\itoa.c</name>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\board.cpp</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 212</file>
+                    <file> 197</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 192</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
+                    <file> 194</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 88 46 118 188 76 114 151 164 187 189 256 130 137 108 181 206 184 185 193 53 131 110 117 152 200 45 212 186 183 177 178 52 158 51 165 50 138 83 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\hooks.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 154</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 274</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 222</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\main.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 223</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 230</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 224</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 193 183 118 45 114 151 212 177 52 51 50 83 108 181 200 186 178 158 53 165 138 110 117 152 164 206 88 187 189 184 188 185 256 130 137 131 76 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Pins_arduino.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 163</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 124</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 136</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 131 53 118 185 193 114 151 206 184 46 108 181 164 88 187 189 188 256 130 137 76 110 117 152 212 200 45 186 183 177 178 52 158 51 165 50 138 83 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\IAR\startup_M051Series.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 85</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\Device\Nuvoton\M051Series\Source\system_M051Series.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 111</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 87</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 92</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 104 46 193 52 158 51 53 200 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 113 148 88 193 67 46 83 69 70 71 53 68 75 73 78 200 52 158 51 76 110 109 108 145 117 147 118 114 104 144</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 120</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 125</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 122</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 117 76 88 110 108 118 114 109 145 147 46 71 193 83 68 69 75 67 73 70 78 148 200 113 52 158 51 144</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\clk.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 91</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
                     <file> 80</file>
                 </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 89</file>
+                </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 229 29 30 48 36 211 35 37 127</file>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 193 78 88 75 68 73 158 83 69 67 70 148 113 52 51 144 71 76 110 109 108 145 117 147 118 114 46</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Serial\HardwareSerial.cpp</name>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\gpio.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 213</file>
+                    <file> 90</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 81</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 58</file>
+                    <file> 115</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 217 30 48 36 211 35 37 120 182 29 127 129 55 204 61 218 34 128 121 166 154 192 149 197 191 161 146 188 147 187 153 186 145 198 151 195 148 200 156 196 201 67 250 249 252 246 247 251 174 248 241 243 242 240 205 244</file>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 108 88 118 114 76 110 117 109 145 147 46 71 193 83 68 69 75 67 73 70 78 148 200 113 52 158 51 144</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\pwm.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 121</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 126</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 123</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 75 88 78 200 193 68 73 158 83 69 67 70 148 113 52 51 144 71 76 110 109 108 145 117 147 118 114 46</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\sys.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 98</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 112</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 71 88 145 109 147 46 193 76 110 108 117 118 114 83 68 69 75 67 73 70 78 148 200 113 52 158 51 144</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\timer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 261</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 273</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 262</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88 76 200 46 193 52 158 51 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 75 144 78 200 193 68 73 158 83 69 67 70 148 113 52 51 76 110 109 108 145 117 147 118 114 46 88 71</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\MCU_Platform\M051Series\StdDriver\src\uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 174</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 173</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 172</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 104 46 193 52 158 51 53 88 76 200 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 118 114 88 46 108 76 110 117 71 53 193 109 145 147 52 158 51 83 68 69 75 67 73 70 78 148 200 113 104 144</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 171</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 203</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Print.cpp</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 170</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 134</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Stream.cpp</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 169</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 191</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\dtostrf.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 155</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 207</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 204</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\itoa.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 49</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 225</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 236</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 48</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 226</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 237</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 199</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 227</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_analog.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 238</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 127</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 243</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_digital.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 239</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 266</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 244</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WMath.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 241</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 267</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 242</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 268</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 44</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HID.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 156</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 47</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 252 166 93 46 55 53 164 130 137 232 45 206 119 248 229 247 193 205 86 250 60 62 245 52 158 51 165 50 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\itoa.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 225</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 193 52 51 45 53 137 158 59</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\hooks.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 154</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 222</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WString.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 242</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 44</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193 139 100 45 130 46 59 61 200 55 164 96 53 52 158 51 137</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HardwareTimer.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 161</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 202</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 54 164 232 45 46 193 86 62 52 51 50 96 200 205 250 60 245 158 53 165 104 206 166 252 119 248 93 229 247 130 137 131 139 196 138 140 55 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\main.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 223</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 224</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\IPAddress.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 162</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 221</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 93 166 252 164 245 158 53 193 165 140 206 119 248 229 46 52 51 50 138 232 139 196 96 143 200 45 205 86 250 60 62 247 130 137 104 131 54 55 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 223</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 230</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 224</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\dtostrf.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 155</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 204</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 52 53 46 193 158 51 104</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\HardwareSerial.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 160</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 203</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 51 53 229 52 119 193 232 46 206 248 247 50 55 45 158 137 164 166 252 93 165 131 139 104 130 200 205 86 250 60 62 245 96 61 138 140 54 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\syscalls.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 233</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 190</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 138 200 250 205 60 245 158 53 193 165 232 139 46 104 45 86 62 52 51 50 140 61 164 128 101 206 166 252 119 248 93 229 247 130 137 55 131 96 54 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Stream.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 42</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 191</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139 245 164 158 53 193 232 196 166 252 93 165 138 96 206 119 248 229 46 52 51 140 200 45 205 86 250 60 62 247 130 137 50 104 131 54 55 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\RingBuffer.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 43</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 264</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 52 45 200 193 132 158 51 53 137</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Pins_arduino.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 163</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 136</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 245 200 205 60 158 53 193 165 55 250 232 45 86 62 46 52 51 50 164 206 166 252 119 248 93 229 247 130 137 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WMath.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 241</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 201</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 52 46 51 60 53 200 193 158 164 130</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Tone.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 234</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 50 62 51 200 193 86 46 52 55 53 45 232 205 250 60 245 158 165 164 206 166 252 119 248 93 229 247 130 137 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Print.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 40</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 134</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 53 139 46 86 232 52 51 62 196 96 45 158 137 131 140 104 206 54 193 130 164 200 205 250 60 247 165 50 138 166 252 119 248 93 229 245 55 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_digital.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 239</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 244</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 193 200 45 55 53 86 62 52 51 50 232 205 250 60 245 158 165 164 96 206 166 252 119 248 93 229 247 130 137 131 140 139 61 138 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\syscalls.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 190</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 210 77 218 217 213 215 96 72 74 139 116 214 104 208 152 153 175</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 74 137 130 46 164 67 206 213 76 148 113 88 139 104 210 218 215 193 53 131 69 70 96 152 101 175 200 45 212 77 217 72 52 158 51 165 50 138 83 68 75 73 78 71 214 208 151 110 109 108 145 117 147 118 114 144 116 153</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\Reset.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 41</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 265</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 45 193 164 54 86 62 52 51 50 96 200 205 250 60 245 158 53 165 104 195 206 166 252 119 248 93 229 247 130 137 131 139 196 232 138 140 55 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\wiring_pulse.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 240</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 84</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193 215 200 206 46 146 208 53 217 216 151 45 164 210 77 74 130 137 212 218 213 72 150 211 52 158 51 165 50 138 116 139 152 131 96 214 104 153</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\NuvotonToArduino.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 94</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 107 120 197 91 155 90 160 161 154 159 223 163 40 121 41 43 85 42 98 111 261 234 174 236 237 238 239 241 242 102 99 103 95 97</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_pulse.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 240</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 84</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 193 248 200 206 46 247 55 53 119 229 232 45 164 166 252 93 130 137 205 86 250 60 62 245 52 158 51 165 50 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\board.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 197</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 194</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 45 46 193 55 53 86 62 52 51 50 232 205 250 60 245 158 165 164 206 166 252 119 248 93 229 247 130 137 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\USBCore.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 235</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 38</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 137 164 130 46 55 53 166 252 93 232 45 206 119 248 229 247 193 205 86 250 60 62 245 52 158 51 165 50 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\WInterrupts.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 236</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 226</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 164 250 55 53 205 60 245 158 193 165 232 45 86 62 46 52 51 50 206 166 252 119 248 93 229 247 130 137 131 140 139 61 138 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 237</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 227</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 45 46 193 55 53 86 62 52 51 50 232 205 250 60 245 158 165 164 206 166 252 119 248 93 229 247 130 137 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\RingBuffer.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 43</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 264</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 259 200 46 193 52 158 51 45 53 137</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46 52 45 200 193 259 158 51 53 137</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\Reset.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 41</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 265</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 258 260</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 45 183 46 193 110 152 212 177 52 51 50 83 117 200 186 178 158 53 165 138 108 118 114 151 181 260 164 206 88 187 189 184 188 185 258 130 137 131 76 109 145 147 144 139 104 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareTimer\HardwareTimer.cpp</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 202</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\cores\nuvoton\wiring_analog.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 238</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 243</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 200 250 55 53 205 60 245 158 193 165 232 45 86 62 46 52 51 50 164 206 166 252 119 248 93 229 247 130 137 138 140 139 61 131 96 54 104 196</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\Tone\Tone.cpp</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 234</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 39</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 151 200 46 193 52 158 51 164 53 130 45 137 206 165 50 138 131 88 76 114 71 144 113 83 68 110 69 109 75 108 67 145 73 117 70 147 78 118 148 212 187 186 189 183 184 188 96 177 152 139 185 178 180 179 104 181 256</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139 46 193 185 144 45 206 184 52 51 50 83 145 164 88 187 189 188 256 158 53 165 138 109 147 104 200 212 186 183 177 178 130 137 131 76 110 108 117 118 114 151 152 181 68 69 75 67 73 70 78 148 113 71 96 180 179</file>
                 </tool>
             </inputs>
         </file>
@@ -1448,6 +1801,10 @@
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WString.cpp</name>
+            <tool>ICCARM</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareTimer\HardwareTimer.cpp</name>
             <tool>ICCARM</tool>
         </forcedrebuild>
     </configuration>

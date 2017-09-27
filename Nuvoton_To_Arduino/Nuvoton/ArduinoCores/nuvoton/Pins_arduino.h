@@ -40,14 +40,14 @@
           A6  D14   ----------------     P1.6  AIN6
 (Measure Vcc) A7  D15   ----------------     P1.7  AIN7
 
-         PWM  D16   ----------------     P2.0 PWM0(TIMER0)
-         PWM  D17   ----------------     P2.1 PWM1(TIMER1)
-         PWM  D18   ----------------     P2.2 PWM2(TIMER2)
-         PWM  D19   ----------------     P2.3 PWM3(TIMER3)
-         PWM  D20   ----------------     P2.4 PWM4(TIMER0)
-         PWM  D21   ----------------     P2.5 PWM5(TIMER1)
-         PWM  D22   ----------------     P2.6 PWM6(TIMER2)
-         PWM  D23   ----------------     P2.7 PWM7(TIMER3)
+       PWM0  D16   ----------------     P2.0 PWM0(TIMER0)
+       PWM1  D17   ----------------     P2.1 PWM1(TIMER1)
+       PWM2  D18   ----------------     P2.2 PWM2(TIMER2)
+       PWM3  D19   ----------------     P2.3 PWM3(TIMER3)
+       PWM4  D20   ----------------     P2.4 PWM4(TIMER0)
+       PWM5  D21   ----------------     P2.5 PWM5(TIMER1)
+       PWM6  D22   ----------------     P2.6 PWM6(TIMER2)
+       PWM7  D23   ----------------     P2.7 PWM7(TIMER3)
              
          RX0  D24   ----------------     P3.0 RXD
          TX0  D25   ----------------     P3.1 TXD
@@ -67,6 +67,15 @@
               D38   ----------------     P4.6
               D39   ----------------     P4.7
 ------------------------------------------------------------------------------*/
+/* ARDU_GET_ABPnBASE(number)
+  @param[in] number : 0..1
+  @return: address of APBn_BASE
+           number = 0 => return APB1_BASE
+           number = 1 => return APB2_BASE
+*/
+#define ARDU_GET_ABPnBASE(number) (APB1_BASE | ((number)<<20))
+
+/*------------------------       PORT/DIO        -----------------------------*/
 #define ARDU_PINTO_PORTNUMBER(pin) (pin/8)
 
 #define ARDU_PINTO_PORT(pin) ((GPIO_T *)(GPIO_BASE | (ARDU_PINTO_PORTNUMBER(pin)*0x40)))
@@ -81,13 +90,6 @@
 extern void Ardu_PinConfigAsGPIO(uint32_t ulArduPin);
 
 /*-------------------------        PWM        --------------------------------*/
-/* ARDU_GET_ABPnBASE(number)
-  @param[in] number : 0..1
-                      0: APB1_BASE
-                      1: APB2_BASE
-*/
-#define ARDU_GET_ABPnBASE(number) (APB1_BASE | ((number)<<20))
-
 #define ARDU_PINTO_PWMGROUP(pin) ((PWM_T *) ((ARDU_GET_ABPnBASE(pin/20)) | 0x00040000))
 #define ARDU_PINTO_PWMCHANNEL(pin) (pin%4)
 

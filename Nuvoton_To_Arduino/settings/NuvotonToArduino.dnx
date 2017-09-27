@@ -49,7 +49,7 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>820575526</Checksum>
+        <Checksum>2199124250</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -81,8 +81,8 @@
         <mode>3</mode>
     </DisassembleMode>
     <Breakpoints>
-        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c}.147.7" 1 0 0 0 "" 0 ""</Bp0>
-        <Bp1>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp}.67.2" 1 0 0 0 "" 0 ""</Bp1>
+        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\WInterrupts.c}.147.7" 0 0 0 0 "" 0 ""</Bp0>
+        <Bp1>_ "STD_CODE" "{$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\HardwareSerial.cpp}.67.2" 0 0 0 0 "" 0 ""</Bp1>
         <Count>2</Count>
     </Breakpoints>
     <Aliases>

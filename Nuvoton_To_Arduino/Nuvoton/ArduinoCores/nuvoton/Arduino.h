@@ -37,7 +37,7 @@ extern uint32_t SystemTickClock;
 
 
 
-
+/* These are C libraries */
 #include "wiring.h"
 #include "wiring_digital.h"
 #include "wiring_analog.h"
@@ -46,16 +46,17 @@ extern uint32_t SystemTickClock;
 
 void yield(void);
 
-
+/* These are C++ libraries */
 #include "WCharacter.h"
-//#include "WString.h"
+#include "WString.h"
 #include "WMath.h"
 #include "HardwareSerial.h"
-//#include "HardwareTimer.h"
+#include "HardwareTimer.h"
 //#include "wiring_pulse.h"
 
-//void tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
-//void noTone(uint8_t _pin);
+/* Tone library use TIMER1 */
+void tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
+void noTone(uint8_t _pin);
 
 	
 
