@@ -48,7 +48,7 @@ extern void analogReference( eAnalogReference ulMode );
  * \param ulPin
  * \param ulValue
  */
-extern void analogWrite( uint32_t ulPin, uint16_t ulValue );
+extern void analogWrite(uint8_t u8Pin, uint16_t u16Value);
 
 static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to);
 
@@ -59,7 +59,7 @@ static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to)
  *
  * \return Read value from selected pin, if no error.
  */
-extern uint32_t analogRead(uint32_t ulArduPin);
+extern uint32_t analogRead(uint8_t u8Pin);
 
 
 /*

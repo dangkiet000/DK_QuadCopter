@@ -47,7 +47,8 @@ void analogWriteResolution(uint8_t res)
     
     for(i=0; i<PWM_MAX_PIN; i++)
     {
-      if(PinPWMEnabled[i])
+      /* Check if this PWM pin is initialized */
+      if (PinPWMEnabled[i] != 0)
       {
         LulArduPin = 16 + i;
         LpPWMGroup = ARDU_PINTO_PWMGROUP(LulArduPin);
@@ -97,22 +98,27 @@ static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to)
 		return (value << (to-from));
 }
 
-uint32_t analogRead(uint32_t ulArduPin)
+uint32_t analogRead(uint8_t u8Pin)
 {
   uint32_t LulAdcValue = 0;
   uint32_t LulADCChannel;
 
-  LulADCChannel = ARDU_PINTO_ADCCHANNEL(ulArduPin);
+  if(PIN_IS_TYPE(u8Pin, ADC_TYPE) == FALSE)
+  {
+    /* DET error reported */
+    return 0;
+  }
   
-  Ardu_PinConfigAsADC(ulArduPin);
+  LulADCChannel = ARDU_PINTO_ADCCHANNEL(u8Pin);
   
 #if defined(__M051__)
   
   /* Check if this PWM pin is not initialized */
-	if (!PinADCEnabled[ARDU_PINTO_MCUPIN(ulArduPin)])
+	if (PinADCEnabled[LulADCChannel] == 0)
   {
+    Ardu_PinConfigAsADC(u8Pin);
     /* Disable the digital input path to avoid the leakage current */
-    GPIO_DISABLE_DIGITAL_PATH(ARDU_PINTO_PORT(ulArduPin), (1 << LulADCChannel));
+    GPIO_DISABLE_DIGITAL_PATH(ARDU_PINTO_PORT(u8Pin), (1 << LulADCChannel));
     
     /* Set the ADC operation mode as single conversion, input mode as single-end 
        and enable the analog input channel */
@@ -127,7 +133,7 @@ uint32_t analogRead(uint32_t ulArduPin)
     /* Clear the A/D interrupt flag for safe */
     ADC_CLR_INT_FLAG(ADC, ADC_ADF_INT);
     
-    PinADCEnabled[ARDU_PINTO_MCUPIN(ulArduPin)] = 1;
+    PinADCEnabled[LulADCChannel] = 1;
   }
 
   /* Start for conversion	*/
@@ -168,40 +174,45 @@ ______________________________________________________________________
 |1514.050388 |   8      |    1   |     12    | 50000000 |   4096     |
 |____________|__________|________|___________|__________|____________|
 */
-void analogWrite(uint32_t ulPin, uint16_t ulValue)
+void analogWrite(uint8_t u8Pin, uint16_t u16Value)
 {
   PWM_T *LpPWMGroup;
   uint32_t LulPWMChannel;
   
-  LpPWMGroup = ARDU_PINTO_PWMGROUP(ulPin);
-    
-  LulPWMChannel = ARDU_PINTO_PWMCHANNEL(ulPin);
-  
-  if(ulValue > (1<<_WriteResolution))
+  if(PIN_IS_TYPE(u8Pin, PWM_TYPE) == FALSE)
   {
-    ulValue = 1<<_WriteResolution;
+    /* DET error reported */
+    return;
+  }
+  
+  LpPWMGroup = ARDU_PINTO_PWMGROUP(u8Pin);
+  LulPWMChannel = ARDU_PINTO_PWMCHANNEL(u8Pin);
+
+  if(u16Value > (1<<_WriteResolution))
+  {
+    u16Value = 1<<_WriteResolution;
   }
   
 
 #if defined(__M051__)
-	if(ulValue == 0)
+	if(u16Value == 0)
 	{  
     /* DeInit PWM pin */
     PWM_Stop(LpPWMGroup, (1<<LulPWMChannel));
     
-    Ardu_PinConfigAsGPIO(ulPin);
-    pinMode(ulPin, OUTPUT);
-    digitalWrite(ulPin, LOW);
-    PinPWMEnabled[ulPin] = 1;
+    Ardu_PinConfigAsGPIO(u8Pin);
+    pinMode(u8Pin, OUTPUT);
+    digitalWrite(u8Pin, LOW);
+    PinPWMEnabled[ARDPIN_TO_PWMPIN_IDX(u8Pin)] = FALSE;
 
 		return;
 	}
 #endif	
 	/* Check if this PWM pin is not initialized */
-	if (!PinPWMEnabled[ARDU_PINTO_MCUPIN(ulPin)])
+  if (PinPWMEnabled[ARDPIN_TO_PWMPIN_IDX(u8Pin)] == 0)
   {
 		/* Set this pin to PWM pin */
-		Ardu_PinConfigAsPWM(ulPin);	
+		Ardu_PinConfigAsPWM(u8Pin);	
     
     PWM_SET_PRESCALER(LpPWMGroup, LulPWMChannel, 
                             (uint8_t)(1<<(15 -_WriteResolution)));
@@ -215,7 +226,7 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
     
     
     /* Set the duty of the selected channel */
-    PWM_SET_CMR(LpPWMGroup, LulPWMChannel, ulValue);
+    PWM_SET_CMR(LpPWMGroup, LulPWMChannel, u16Value);
     
     /* Set the period of the selected channel */
     PWM_SET_CNR(LpPWMGroup, LulPWMChannel, (1<<_WriteResolution));
@@ -231,12 +242,12 @@ void analogWrite(uint32_t ulPin, uint16_t ulValue)
 		/* Start PWM */
 		PWM_Start(LpPWMGroup, (1<<LulPWMChannel));
 		
-		PinPWMEnabled[ulPin] = 1;
+		PinPWMEnabled[ARDPIN_TO_PWMPIN_IDX(u8Pin)] = TRUE;
     return;
 	}
 	
 	/* Set the duty of the selected channel */		
-  PWM_SET_CMR(LpPWMGroup, LulPWMChannel, ulValue);
+  PWM_SET_CMR(LpPWMGroup, LulPWMChannel, u16Value);
 
 	
 	return;
@@ -298,6 +309,9 @@ uint32_t analogReadVcc(void)
        and enable the analog input channel */
     ADC_Open(ADC, ADC_ADCR_DIFFEN_SINGLE_END, ADC_ADCR_ADMD_SINGLE, \
                                              (1<<INTERNAL_BANDGAP_CHANNEL));
+    
+    ADC_CONFIG_CH7(ADC, ADC_ADCHER_PRESEL_INT_BANDGAP);
+    
     /* ADC convert complete interrupt: Disable */
     ADC_DisableInt(ADC, ADC_ADF_INT);
 

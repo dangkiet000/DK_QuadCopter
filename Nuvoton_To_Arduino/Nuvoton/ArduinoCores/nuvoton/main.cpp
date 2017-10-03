@@ -23,51 +23,40 @@
  */
 #define LED_PIN 0
 #define BUTTON_PIN 30
-
+   
 void Blinking(void)
 {
   P00 ^= 1;
   digitalWrite(8, HIGH);
 }
 
+uint32_t i, u32_VCC;
 void main( void )
 {
-  //uint32_t LulCnt;
-  unsigned char  incomingByte;
 	init();		
   
-	#if defined(__M451__) | defined(__NUC240__) |defined(__NANO100__)
-	USBDevice.attach();
-	#endif
-  
-
 //	setup();
   pinMode(BUTTON_PIN, INPUT);
 	pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
   
   Serial.begin(9600);
-  Timer1.open(PERIODIC, 1);
-  Timer1.attachInterrupt(Blinking);
   
-  Timer1.start();
+  
   while(1)
 	{
 
 //		loop();		
 	  serialEventRun();
-    if (Serial.available() > 0) 
+    delay(1000);
+    for(i=0; i<1000; i++)
     {
-      // read the incoming byte:
-      incomingByte = Serial.read();
-      Serial.write(incomingByte);
+      u32_VCC += analogReadVcc();
     }
-//    for (LulCnt=0; LulCnt<255; LulCnt++)
-//    {
-//      delay(1000);
-//      
-//    }
-    
+    u32_VCC = u32_VCC/1000;
+    Serial.print(u32_VCC);
+    Serial.println(" mV");
+    u32_VCC = 0;
 	}
   
 }
