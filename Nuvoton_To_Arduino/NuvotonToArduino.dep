@@ -284,15 +284,6 @@
             <file>$PROJ_DIR$\Debug\Obj\Tone.__cstat.et</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 220 95</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
             <name>$PROJ_DIR$\Nuvoton\ArduinoCores\nuvoton\OptionLibraries\HardwareTimer\HardwareTimer.cpp</name>
             <outputs>
                 <tool>
@@ -1056,6 +1047,15 @@
                 <tool>
                     <name>BICOMP</name>
                     <file> 192</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 220 95</file>
                 </tool>
             </outputs>
         </file>
